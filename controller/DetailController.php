@@ -12,7 +12,6 @@ class DetailController
     public function index()
     {
         $detail = $this->detailDao->fetchAllDetail();
-        var_dump($detail);
         include_once 'view/home-view.php';
 
     }
