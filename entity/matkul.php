@@ -3,7 +3,8 @@ class Matkul
 {
     private $kodeMk;
     private $nameMk;
-    private $idProdi;
+    /**@var $prodi Prodi */
+    private $prodi;
 
     /**
      * @return mixed
@@ -63,7 +64,7 @@ class Matkul
         }
         switch ($name) {
             case 'id_Prodi':
-                $this->idProdi = $value;
+                $this->jadwal->setProdi($value);
                 break;
         }
     }
