@@ -3,14 +3,14 @@
         <div class="container">
             <h1 id ="home" class="display-4">Welcome, <?php echo $_SESSION['web_full_name']; ?>!</h1>
             <br>
-            <a class="btn btn-outline-info active" href="index.php?webmenu=home"><b>HERE</b></a>
+            <!-- <a class="btn btn-outline-info active" href="index.php?webmenu=home"><b>HERE</b></a> -->
         </div>
     </div>
     <div class="jumbotron jumbotron-fluid bg-white">
         <div class="container">
-            <h1 class="tengah" id ="status-detail">Status</h1>
+            <!-- <h1 class="tengah" id ="status-detail">Status</h1>
             <p class="tengah">Check Your Detail Here.</p>
-            <br>
+            <br> -->
             <table id="pagination" class="table table-striped table-bordered">
                 <thead>
                 <tr>
