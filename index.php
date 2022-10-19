@@ -68,7 +68,9 @@ if (!isset($_SESSION['web_is_logged'])){
                 header('location:index.php');
                 break;
             default;
-                include_once 'view/home-view.php';
+//                include_once 'view/home-view.php';
+                $detailController = new DetailController();
+                $detailController->index();
         }
     } else {
         $dosenController = new DosenController();

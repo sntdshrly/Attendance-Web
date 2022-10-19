@@ -8,18 +8,21 @@
     </div>
     <div class="jumbotron jumbotron-fluid bg-white">
         <div class="container">
-            <h1 class="tengah" id ="status-order">Status</h1>
-            <p class="tengah">Check Your Status Here.</p>
+            <h1 class="tengah" id ="status-detail">Status</h1>
+            <p class="tengah">Check Your Detail Here.</p>
             <br>
             <table id="pagination" class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Pick Up Schedule</th>
-                    <th scope="col">Delivery Schedule</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Note</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Pertemuan Ke</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Waktu Mulai</th>
+                    <th scope="col">Jumlah Mahasiswa</th>
+                    <th scope="col">Materi</th>
+                    <th scope="col">Keterangan</th>
+                    <th scope="col">Dibantu Asisten</th>
+                    <th scope="col">Bukti</th>
+                    <th scope="col">Kelas</th>
                 </tr>
                 </thead>
                 <tbody>

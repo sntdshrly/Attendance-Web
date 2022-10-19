@@ -1,5 +1,5 @@
 <?php
-
+include_once 'entity/Jadwal.php';
 class Detail
 {
     private $pertemuanKe;

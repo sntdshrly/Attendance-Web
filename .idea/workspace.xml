@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a9369c8-243b-4146-833c-c5a75cbf4e24" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/DetailController.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/controller/DosenController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/DosenDaoImpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DosenDaoImpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity/Detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/entity/Detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/ConnectionUtil.php" beforeDir="false" afterPath="$PROJECT_DIR$/util/ConnectionUtil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/home-view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/home-view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/login-view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login-view.php" afterDir="false" />
@@ -44,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666183136481</updated>
-      <workItem from="1666183137683" duration="4972000" />
+      <workItem from="1666183137683" duration="6861000" />
     </task>
     <servers />
   </component>
