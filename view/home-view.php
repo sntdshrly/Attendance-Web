@@ -37,7 +37,7 @@
                     echo '<th>' . $details->getKeterangan() . '</th>';
                     echo '<th>' . $details->getDibantuAsisten() . '</th>';
                     echo '<th>' . $details->getBukti() . '</th>';
-                    echo '<th>' . $details->getJadwalKelasJadwal() . '</th>';
+                    echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
                     echo '</tr>';
                 }
 
