@@ -2,9 +2,9 @@
 
 class Prodi
 {
-    private $id_prodi;
-    private $name_prodi;
-    private $tingkatan_prodi;
+    private $idProdi;
+    private $nameProdi;
+    private $tingkatanProdi;
 
     // get and set Id
     /**
@@ -12,14 +12,14 @@ class Prodi
      */
     public function getIdProdi()
     {
-        return $this->id_prodi;
+        return $this->idProdi;
     }
     /**
      * @param mixed $id
      */
-    public function setIdProdi($id_prodi)
+    public function setIdProdi($idProdi)
     {
-        $this->id_prodi = $id_prodi;
+        $this->idProdi = $idProdi;
     }
 
     // get and set name
@@ -28,14 +28,14 @@ class Prodi
      */
     public function getNameProdi()
     {
-        return $this->name_prodi;
+        return $this->nameProdi;
     }
     /**
      * @param mixed $name_prodi
      */
-    public function setNameProdi($name_prodi)
+    public function setNameProdi($nameProdi)
     {
-        $this->name_prodi = $name_prodi;
+        $this->nameProdi = $nameProdi;
     }
 
     // get and set tingkatan 
@@ -44,13 +44,13 @@ class Prodi
      */
     public function getTigkatanProdi()
     {
-        return $this->tingkatan_prodi;
+        return $this->tingkatanProdi;
     }
     /**
      * @param mixed $tingkatan_prodi
      */
-    public function setTingkatanProdi($tingkatan_prodi)
+    public function setTingkatanProdi($tingkatanProdi)
     {
-        $this->tingkatan_prodi = $tingkatan_prodi;
+        $this->tingkatanProdi = $tingkatanProdi;
     }
 }
