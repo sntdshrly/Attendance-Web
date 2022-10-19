@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 19, 2022 at 11:51 AM
+-- Generation Time: Oct 19, 2022 at 02:03 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -60,13 +60,6 @@ CREATE TABLE `detail` (
   `bukti` varchar(45) DEFAULT NULL,
   `jadwal_kelas_jadwal` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `detail`
---
-
-INSERT INTO `detail` (`pertemuan_ke`, `tanggal`, `waktu_mulai`, `jumlah_mahasiswa`, `materi`, `keterangan`, `dibantu_asisten`, `bukti`, `jadwal_kelas_jadwal`) VALUES
-(1, '2022-09-12', '15:00:00', 18, 'Pengenalan Manajemen Proyek', 'Cara kuliah: tatap muka, mahasiswa tidak hadir: 3', 0, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -130,15 +123,9 @@ CREATE TABLE `jadwal` (
   `jumlah_sks_jadwal` int(11) DEFAULT NULL,
   `matkul_kode_mk` varchar(5) NOT NULL,
   `dosen_nik` varchar(16) NOT NULL,
-  `semester_id_semester` int(11) NOT NULL
+  `semester_id_semester` int(11) NOT NULL,
+  `ruangan_id_ruangan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `jadwal`
---
-
-INSERT INTO `jadwal` (`kelas_jadwal`, `hari_jadwal`, `waktu_mulai_jadwal`, `jumlah_sks_jadwal`, `matkul_kode_mk`, `dosen_nik`, `semester_id_semester`) VALUES
-('A', 'Senin', '0000-00-00 00:00:00', 2, 'IN250', '72001', 1);
 
 -- --------------------------------------------------------
 
@@ -205,20 +192,16 @@ INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `tingkatan_prodi`) VALUES
 
 CREATE TABLE `ruangan` (
   `id_ruangan` int(11) NOT NULL,
-  `nama_ruangan` varchar(20) NOT NULL,
-  `jadwal_matkul_kode_mk` varchar(5) NOT NULL,
-  `jadwal_matkul_prodi_id_prodi` int(11) NOT NULL,
-  `jadwal_dosen_nik` varchar(16) NOT NULL,
-  `jadwal_semester_id_semester` int(11) NOT NULL
+  `nama_ruangan` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ruangan`
 --
 
-INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`, `jadwal_matkul_kode_mk`, `jadwal_matkul_prodi_id_prodi`, `jadwal_dosen_nik`, `jadwal_semester_id_semester`) VALUES
-(1, 'Lab Adv 1', 'IN250', 72, '72004', 1),
-(2, 'Lab Adv 3', 'IN252', 72, '72020', 2);
+INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`) VALUES
+(1, 'Lab Adv 1'),
+(2, 'Lab Adv 3');
 
 -- --------------------------------------------------------
 
@@ -270,7 +253,8 @@ ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`kelas_jadwal`),
   ADD KEY `fk_jadwal_matkul1_idx` (`matkul_kode_mk`),
   ADD KEY `fk_jadwal_dosen1_idx` (`dosen_nik`),
-  ADD KEY `fk_jadwal_semester1_idx` (`semester_id_semester`);
+  ADD KEY `fk_jadwal_semester1_idx` (`semester_id_semester`),
+  ADD KEY `fk_jadwal_ruangan1_idx` (`ruangan_id_ruangan`);
 
 --
 -- Indexes for table `jadwal_has_asisten`
@@ -337,6 +321,7 @@ ALTER TABLE `detail`
 ALTER TABLE `jadwal`
   ADD CONSTRAINT `fk_jadwal_dosen1` FOREIGN KEY (`dosen_nik`) REFERENCES `dosen` (`nik`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_jadwal_matkul1` FOREIGN KEY (`matkul_kode_mk`) REFERENCES `matkul` (`kode_mk`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_jadwal_ruangan1` FOREIGN KEY (`ruangan_id_ruangan`) REFERENCES `ruangan` (`id_ruangan`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_jadwal_semester1` FOREIGN KEY (`semester_id_semester`) REFERENCES `semester` (`id_semester`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
