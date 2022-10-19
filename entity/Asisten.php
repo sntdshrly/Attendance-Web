@@ -2,13 +2,10 @@
 
 class Asisten
 {
-    private $nrp;
-    private $namaMahasiswa;
-
-    public function __construct($nrp, $namaMahasiswa)
+    private $asistenDao;
+    public function __construct()
     {
-        $this->nrp = $nrp;
-        $this->namaMahasiswa = $namaMahasiswa;
+        $this->asistenDao = new AsistenDaoImpl();
     }
     public function getNrp()
     {

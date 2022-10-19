@@ -18,14 +18,14 @@ class AsistenController
             if (empty($trimmedName) or empty($trimmedAddress)) {
                 echo '<div class="bg-error">Please fill in the blank!</div>';
             } else {
-                $supplier = new Asisten();
-                $supplier->setNamaMahasiswa($trimmedName);
-                $supplier->setNrp($trimmedAddress);
-                $result = $this->supplierDao->saveSupplier($supplier);
+                $asisten = new Asisten();
+                $asisten->setNamaMahasiswa($trimmedName);
+                $asisten->setNrp($trimmedAddress);
+                $result = $this->asistenDao->saveAsisten($asisten);
                 if ($result) {
                     echo '<div class="bg-success">New asisten added</div>';
                 } else {
-                    echo '<div class="bg-error">Failed to added asisten Data</div>';
+                    echo '<div class="bg-error">Failed to added asisten data</div>';
                 }
             }
         }
