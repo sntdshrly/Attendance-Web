@@ -32,13 +32,13 @@ class ProdiController
         $buttonPressed = filter_input(INPUT_POST, 'btnSubmit');
         if (isset($buttonPressed)) {
             if ($_SESSION['web_role'] == "admin") {
-                $id_prodi = filter_input(INPUT_POST, 'txtIdProdi', FILTER_SANITIZE_NUMBER_INT);
-                $name_prodi = filter_input(INPUT_POST, 'txtNameProdi', FILTER_SANITIZE_STRING);
-                $tingkatan_prodi = filter_input(INPUT_POST, 'txtTingkatanProdi', FILTER_SANITIZE_STRING);
+                $idProdi = filter_input(INPUT_POST, 'txtIdProdi', FILTER_SANITIZE_NUMBER_INT);
+                $nameProdi = filter_input(INPUT_POST, 'txtNameProdi', FILTER_SANITIZE_STRING);
+                $tingkatanProdi = filter_input(INPUT_POST, 'txtTingkatanProdi', FILTER_SANITIZE_STRING);
 
-                $trimmedIdProdi = trim($id_prodi);
-                $trimmedNameProdi = trim($name_prodi);
-                $trimmedTingkatanProdi = trim($tingkatan_prodi);
+                $trimmedIdProdi = trim($idProdi);
+                $trimmedNameProdi = trim($nameProdi);
+                $trimmedTingkatanProdi = trim($tingkatanProdi);
 
                 if (empty($trimmedIdProdi) || empty($trimmedNameProdi) || empty($trimmedTingkatanProdi)) {
                     echo '<div class="bg-error">Please fill all the field</div>';
@@ -73,10 +73,10 @@ class ProdiController
         $buttonPressed = filter_input(INPUT_POST, 'btnSubmit');
         if (isset($buttonPressed)) {
             if ($_SESSION['web_role'] == "admin") {
-                $name_prodi = filter_input(INPUT_POST, 'txtNameProdi', FILTER_SANITIZE_STRING);
-                $tingkatan_prodi = filter_input(INPUT_POST, 'txtTingkatanProdi', FILTER_SANITIZE_STRING);
-                $trimmedNameProdi = trim($name_prodi);
-                $trimmedTingkatanProdi = trim($tingkatan_prodi);
+                $nameProdi = filter_input(INPUT_POST, 'txtNameProdi', FILTER_SANITIZE_STRING);
+                $tingkatanProdi = filter_input(INPUT_POST, 'txtTingkatanProdi', FILTER_SANITIZE_STRING);
+                $trimmedNameProdi = trim($nameProdi);
+                $trimmedTingkatanProdi = trim($tingkatanProdi);
                 if (empty($trimmedNameProdi) || empty($trimmedTingkatanProdi)) {
                     echo '<div class="bg-error">Please fill the column</div>';
                 } else {
