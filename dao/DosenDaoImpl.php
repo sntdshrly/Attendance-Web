@@ -33,4 +33,16 @@ class DosenDaoImpl
         $link = null;
         return $result;
     }
+
+    public function dosenLogin($nik, $password){
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT nik, nama_dosen, email FROM dosen WHERE nik = ? AND password = ?';
+        $stmt = $link->prepare($query);
+        $stmt->bindParam(1,$nik);
+        $stmt->bindParam(2,$password);
+        $stmt->execute();
+        $dosen = $stmt->fetchAll();
+        $stmt = null;
+        return $dosen;
+    }
 }
