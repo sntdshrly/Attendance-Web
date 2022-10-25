@@ -1,32 +1,32 @@
-<div data-spy="scroll" data-target="#navbar-user" data-offset="0">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 id ="home" class="display-4">Welcome, <?php echo $_SESSION['web_full_name']; ?>!</h1>
-            <br>
-            <!-- <a class="btn btn-outline-info active" href="index.php?webmenu=home"><b>HERE</b></a> -->
-        </div>
-    </div>
-    <div class="jumbotron jumbotron-fluid bg-white">
-        <div class="container">
-            <!-- <h1 class="tengah" id ="status-detail">Status</h1>
-            <p class="tengah">Check Your Detail Here.</p>
-            <br> -->
-            <table id="pagination" class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">Pertemuan Ke</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Waktu Mulai</th>
-                    <th scope="col">Jumlah Mahasiswa</th>
-                    <th scope="col">Materi</th>
-                    <th scope="col">Keterangan</th>
-                    <th scope="col">Dibantu Asisten</th>
-                    <th scope="col">Bukti</th>
-                    <th scope="col">Kelas</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
+ <div class="card">
+              <div class="card-header border-0">
+                <h3 class="card-title">Attendance</h3>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-sm">
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-tool btn-sm">
+                    <i class="fas fa-bars"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                  <tr>
+                    <th >Pertemuan Ke</th>
+                    <th >Tanggal</th>
+                    <th >Waktu Mulai</th>
+                    <th >Jumlah Mahasiswa</th>
+                    <th >Materi</th>
+                    <th >Keterangan</th>
+                    <th >Dibantu Asisten</th>
+                    <th >Bukti</th>
+                    <th >Kelas</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
                 foreach ( $detail as $details){
                     echo '<tr>';
                     echo '<th>' . $details->getPertemuanKe() . '</th>';
@@ -42,10 +42,8 @@
                 }
 
                 ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
-
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- /.card -->
