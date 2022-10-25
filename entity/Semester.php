@@ -3,8 +3,7 @@
 class Semester
 {
     private $idSemester;
-    private $namaSemester;
-    private $tahunSemester;
+    private $namaTahunSemester;
 
     /**
      * @return mixed
@@ -25,33 +24,17 @@ class Semester
     /**
      * @return mixed
      */
-    public function getNamaSemester()
+    public function getNamaTahunSemester()
     {
-        return $this->namaSemester;
+        return $this->namaTahunSemester;
     }
 
     /**
-     * @param mixed $namaSemester
+     * @param mixed $namaTahunSemester
      */
-    public function setNamaSemester($namaSemester)
+    public function setNamaTahunSemester($namaTahunSemester)
     {
-        $this->namaSemester = $namaSemester;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTahunSemester()
-    {
-        return $this->tahunSemester;
-    }
-
-    /**
-     * @param mixed $tahunSemester
-     */
-    public function setTahunSemester($tahunSemester)
-    {
-        $this->tahunSemester = $tahunSemester;
+        $this->namaTahunSemester = $namaTahunSemester;
     }
 
     public function __set($name, $value)
@@ -60,11 +43,8 @@ class Semester
             case 'id_semester':
                 $this->idSemester = $value;
                 break;
-            case 'nama_semester':
-                $this->namaSemester = $value;
-                break;
-            case 'tahun_semester':
-                $this->tahunSemester = $value;
+            case 'nama_tahun_semester':
+                $this->namaTahunSemester = $value;
                 break;
         }
     }

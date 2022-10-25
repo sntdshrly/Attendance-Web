@@ -1,13 +1,13 @@
 <?php
 
-class ruanganDaoImpl
+class RuanganDaoImpl
 {
     public function fetchAllRuangan()
     {
         $link = ConnectionUtil::getMySQLConnection();
         $query = 'SELECT * FROM ruangan';
         $stmt = $link->prepare($query);
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'ruangan');
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Ruangan');
         $stmt->execute();
         $link = null;
         return $stmt->fetchAll();
@@ -17,7 +17,7 @@ class ruanganDaoImpl
     {
         $result = 0;
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'INSERT INTO ruangan(id,ruangan,nama_ruangan) VALUES(?,?,?)';
+        $query = 'INSERT INTO ruangan(id_ruangan,nama_ruangan) VALUES(?,?)';
         $stmt = $link->prepare($query);
         $stmt->bindValue(1, $ruangan->getIdRuangan());
         $stmt->bindValue(2, $ruangan->getNamaRuangan());

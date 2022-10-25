@@ -17,7 +17,7 @@ class DetailDaoImpl
     {
         $result = 0;
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'INSERT INTO detail(pertemuan_ke,tanggal,waktu_mulai,jumlah_mahasiswa,materi,keterangan,dibantu_asisten,bukti,jadwal_kelas_jadwal) VALUES(?,?,?,?,?,?,?,?,?)';
+        $query = 'INSERT INTO detail(pertemuan_ke, tanggal, waktu_mulai, jumlah_mahasiswa, materi, keterangan, dibantu_asisten, bukti, jadwal_kelas_jadwal, jadwal_semester_id_semester, jadwal_dosen_nik, jadwal_matkul_kode_mk, jadwal_tipe_jadwal) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $stmt = $link->prepare($query);
         $stmt->bindValue(1, $detail->getPertemuanKe());
         $stmt->bindValue(2, $detail->getTanggal());
@@ -27,7 +27,11 @@ class DetailDaoImpl
         $stmt->bindValue(6, $detail->getKeterangan());
         $stmt->bindValue(7, $detail->getDibantuAsisten());
         $stmt->bindValue(8, $detail->getBukti());
-        $stmt->bindValue(9, $detail->getJadwalKelasJadwal());
+        $stmt->bindValue(9, $detail->getJadwal()->getKelasJadwal());
+        $stmt->bindValue(10, $detail->getJadwal()->getSemester()->getIdSemester());
+        $stmt->bindValue(11, $detail->getJadwal()->getDosen()->getNik());
+        $stmt->bindValue(12, $detail->getJadwal()->getMatkul()->getKodeMk());
+        $stmt->bindValue(13, $detail->getJadwal()->getTipeJadwal());
         $link->beginTransaction();
         if ($stmt->execute()) {
             $link->commit();

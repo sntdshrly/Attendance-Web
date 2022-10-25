@@ -3,10 +3,9 @@
 class Prodi
 {
     private $idProdi;
-    private $nameProdi;
+    private $namaProdi;
     private $tingkatanProdi;
 
-    // get and set Id
     /**
      * @return mixed
      */
@@ -14,43 +13,59 @@ class Prodi
     {
         return $this->idProdi;
     }
+
     /**
-     * @param mixed $id
+     * @param mixed $idProdi
      */
     public function setIdProdi($idProdi)
     {
         $this->idProdi = $idProdi;
     }
 
-    // get and set name
     /**
      * @return mixed
      */
-    public function getNameProdi()
+    public function getNamaProdi()
     {
-        return $this->nameProdi;
-    }
-    /**
-     * @param mixed $name_prodi
-     */
-    public function setNameProdi($nameProdi)
-    {
-        $this->nameProdi = $nameProdi;
+        return $this->namaProdi;
     }
 
-    // get and set tingkatan 
+    /**
+     * @param mixed $namaProdi
+     */
+    public function setNamaProdi($namaProdi)
+    {
+        $this->namaProdi = $namaProdi;
+    }
+
     /**
      * @return mixed
      */
-    public function getTigkatanProdi()
+    public function getTingkatanProdi()
     {
         return $this->tingkatanProdi;
     }
+
     /**
-     * @param mixed $tingkatan_prodi
+     * @param mixed $tingkatanProdi
      */
     public function setTingkatanProdi($tingkatanProdi)
     {
         $this->tingkatanProdi = $tingkatanProdi;
+    }
+
+    public function __set($name, $value)
+    {
+        switch ($name) {
+            case 'id_prodi':
+                $this->idProdi = $value;
+                break;
+            case 'nama_prodi':
+                $this->namaProdi = $value;
+                break;
+            case 'tingkatan_prodi':
+                $this->tingkatanProdi = $value;
+                break;
+        }
     }
 }

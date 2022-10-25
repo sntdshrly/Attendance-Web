@@ -5,7 +5,6 @@ class Jadwal
     private $kelasJadwal;
     private $hariJadwal;
     private $waktuMulaiJadwal;
-    private $jumlahSksJadwal;
     /**@var $matkul Matkul */
     private $matkul;
     /**@var $dosen Dosen */
@@ -14,6 +13,7 @@ class Jadwal
     private $semester;
     /**@var $ruangan Ruangan */
     private $ruangan;
+    private $tipeJadwal;
 
     /**
      * @return mixed
@@ -64,27 +64,11 @@ class Jadwal
     }
 
     /**
-     * @return mixed
-     */
-    public function getJumlahSksJadwal()
-    {
-        return $this->jumlahSksJadwal;
-    }
-
-    /**
-     * @param mixed $jumlahSksJadwal
-     */
-    public function setJumlahSksJadwal($jumlahSksJadwal)
-    {
-        $this->jumlahSksJadwal = $jumlahSksJadwal;
-    }
-
-    /**
      * @return Matkul
      */
     public function getMatkul()
     {
-        if(!isset($this->matkul)) {
+        if (!isset($this->matkul)) {
             $this->matkul = new Matkul();
         }
         return $this->matkul;
@@ -103,7 +87,7 @@ class Jadwal
      */
     public function getDosen()
     {
-        if(!isset($this->dosen)) {
+        if (!isset($this->dosen)) {
             $this->dosen = new Dosen();
         }
         return $this->dosen;
@@ -122,7 +106,7 @@ class Jadwal
      */
     public function getSemester()
     {
-        if(!isset($this->semester)) {
+        if (!isset($this->semester)) {
             $this->semester = new Semester();
         }
         return $this->semester;
@@ -141,7 +125,7 @@ class Jadwal
      */
     public function getRuangan()
     {
-        if(!isset($this->ruangan)) {
+        if (!isset($this->ruangan)) {
             $this->ruangan = new Ruangan();
         }
         return $this->ruangan;
@@ -155,18 +139,34 @@ class Jadwal
         $this->ruangan = $ruangan;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTipeJadwal()
+    {
+        return $this->tipeJadwal;
+    }
+
+    /**
+     * @param mixed $tipeJadwal
+     */
+    public function setTipeJadwal($tipeJadwal)
+    {
+        $this->tipeJadwal = $tipeJadwal;
+    }
+
     public function __set($name, $value)
     {
-        if(!isset($this->matkul)) {
+        if (!isset($this->matkul)) {
             $this->matkul = new Matkul();
         }
-        if(!isset($this->dosen)) {
+        if (!isset($this->dosen)) {
             $this->dosen = new Dosen();
         }
-        if(!isset($this->semester)) {
+        if (!isset($this->semester)) {
             $this->semester = new Semester();
         }
-        if(!isset($this->ruangan)) {
+        if (!isset($this->ruangan)) {
             $this->ruangan = new Ruangan();
         }
         switch ($name) {
@@ -179,8 +179,8 @@ class Jadwal
             case 'waktu_mulai_jadwal':
                 $this->waktuMulaiJadwal = $value;
                 break;
-            case 'jumlah_sks_jadwal':
-                $this->jumlahSksJadwal = $value;
+            case 'tipe_jadwal':
+                $this->tipeJadwal = $value;
                 break;
             case 'matkul_kode_mk':
                 $this->matkul->setKodeMk($value);

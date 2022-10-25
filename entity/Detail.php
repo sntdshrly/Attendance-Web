@@ -1,5 +1,5 @@
 <?php
-include_once 'entity/Jadwal.php';
+
 class Detail
 {
     private $pertemuanKe;
@@ -146,7 +146,7 @@ class Detail
      */
     public function getJadwal()
     {
-        if(!isset($this->jadwal)) {
+        if (!isset($this->jadwal)) {
             $this->jadwal = new Jadwal();
         }
         return $this->jadwal;
@@ -162,7 +162,7 @@ class Detail
 
     public function __set($name, $value)
     {
-        if(!isset($this->jadwal)) {
+        if (!isset($this->jadwal)) {
             $this->jadwal = new Jadwal();
         }
         switch ($name) {
@@ -180,6 +180,18 @@ class Detail
                 break;
             case 'jadwal_kelas_jadwal':
                 $this->jadwal->setKelasJadwal($value);
+                break;
+            case 'jadwal_semester_id_semester':
+                $this->jadwal->semester->setIdSemester($value);
+                break;
+            case 'jadwal_dosen_nik':
+                $this->jadwal->dosen->setNik($value);
+                break;
+            case 'jadwal_matkul_kode_mk':
+                $this->jadwal->matkul->setKodeMk($value);
+                break;
+            case 'jadwal_tipe_jadwal':
+                $this->jadwal->setTipeJadwal($value);
                 break;
         }
     }

@@ -1,10 +1,12 @@
 <?php
+
 class Matkul
 {
     private $kodeMk;
-    private $nameMk;
+    private $namaMk;
     /**@var $prodi Prodi */
     private $prodi;
+    private $jumlahSks;
 
     /**
      * @return mixed
@@ -15,7 +17,7 @@ class Matkul
     }
 
     /**
-     * @param mixed 
+     * @param mixed $kodeMk
      */
     public function setKodeMk($kodeMk)
     {
@@ -25,17 +27,17 @@ class Matkul
     /**
      * @return mixed
      */
-    public function getNameMk()
+    public function getNamaMk()
     {
-        return $this->nameMk;
+        return $this->namaMk;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $namaMk
      */
-    public function setNameMk($nameMk)
+    public function setNamaMk($namaMk)
     {
-        $this->nameMk = $nameMk;
+        $this->namaMk = $namaMk;
     }
 
     /**
@@ -57,12 +59,37 @@ class Matkul
         $this->prodi = $prodi;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getJumlahSks()
+    {
+        return $this->jumlahSks;
+    }
+
+    /**
+     * @param mixed $jumlahSks
+     */
+    public function setJumlahSks($jumlahSks)
+    {
+        $this->jumlahSks = $jumlahSks;
+    }
+
     public function __set($name, $value)
     {
-        if(!isset($this->prodi)) {
+        if (!isset($this->prodi)) {
             $this->prodi = new Prodi();
         }
         switch ($name) {
+            case 'kode_mk':
+                $this->kodeMk = $value;
+                break;
+            case 'nama_mk':
+                $this->namaMk = $value;
+                break;
+            case 'jumlah_sks':
+                $this->jumlahSks = $value;
+                break;
             case 'prodi_id_prodi':
                 $this->prodi->setIdProdi($value);
                 break;

@@ -1,21 +1,13 @@
 <?php
+
 class ProdiDaoImpl
 {
-    public function fetchAllProdi() {
+    public function fetchAllProdi()
+    {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT id_prodi, name_prodi, tingkatan_prodi FROM prodi';
+        $query = 'SELECT * FROM prodi';
         $stmt = $link->prepare($query);
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prodi');
-        $stmt->execute();
-        $link = null;
-        return $stmt->fetchAll();
-    }
-
-    public function fetchOption() {
-        $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT id_prodi, name_prodi FROM prodi';
-        $stmt = $link->prepare($query);
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'prodi');
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Prodi');
         $stmt->execute();
         $link = null;
         return $stmt->fetchAll();
@@ -23,22 +15,22 @@ class ProdiDaoImpl
 
     public function fetchProdiById($id) {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT id_prodi,name_prodi FROM prodi WHERE id_prodi = ?';
+        $query = 'SELECT id_prodi,nama_prodi, tingkatan_prodi FROM prodi WHERE id_prodi = ?';
         $stmt = $link->prepare($query);
         $stmt->bindParam(1, $id);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute();
         $link = null;
-        return $stmt->fetchObject('prodi');
+        return $stmt->fetchObject('Prodi');
     }
 
-    public function saveProdi(prodi $prodi) {
+    public function saveProdi(Prodi $prodi) {
         $result = 0;
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'INSERT INTO prodi(id_prodi, name_prodi, tingkatan_prodi) VALUES (?,?,?)';
+        $query = 'INSERT INTO prodi(id_prodi, nama_prodi, tingkatan_prodi) VALUES (?,?,?)';
         $stmt = $link->prepare($query);
         $stmt->bindValue(1, $prodi->getIdProdi());
-        $stmt->bindValue(2, $prodi->getNameProdi());
+        $stmt->bindValue(2, $prodi->getNamaProdi());
         $stmt->bindValue(3, $prodi->getTingkatanProdi());
         $link->beginTransaction();
         if ($stmt->execute()) {
@@ -54,10 +46,10 @@ class ProdiDaoImpl
     public function updateProdi(prodi $prodi) {
         $result = 0;
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'UPDATE prodi SET name_prodi = ?, tingkatan_prodi = ? WHERE id = ?';
+        $query = 'UPDATE prodi SET nama_prodi = ?, tingkatan_prodi = ? WHERE id_prodi = ?';
         $stmt = $link->prepare($query);
         $stmt->bindValue(3, $prodi->getIdProdi());
-        $stmt->bindValue(1, $prodi->getNameProdi());
+        $stmt->bindValue(1, $prodi->getNamaProdi());
         $stmt->bindValue(2, $prodi->getTingkatanProdi());
         $link->beginTransaction();
         if ($stmt->execute()) {

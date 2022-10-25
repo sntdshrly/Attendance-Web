@@ -1,28 +1,26 @@
 <?php
 
-class MatkulDaoImpl
+class RoleDaoImpl
 {
-    public function fetchAllMatkul()
+    public function fetchAllRole()
     {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT * FROM matkul';
+        $query = 'SELECT * FROM role';
         $stmt = $link->prepare($query);
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Matkul');
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Role');
         $stmt->execute();
         $link = null;
         return $stmt->fetchAll();
     }
 
-    public function saveMatkul(Matkul $matkul)
+    public function saveRole(Role $role)
     {
         $result = 0;
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'INSERT INTO matkul(kode_mk, nama_mk, prodi_id_prodi, jumlah_sks) VALUES(?,?,?,?)';
+        $query = 'INSERT INTO role(id_role, name) VALUES(?,?)';
         $stmt = $link->prepare($query);
-        $stmt->bindValue(1, $matkul->getKodeMk());
-        $stmt->bindValue(2, $matkul->getNamaMk());
-        $stmt->bindValue(3, $matkul->getProdi()->getIdProdi());
-        $stmt->bindValue(4, $matkul->getJumlahSks());
+        $stmt->bindValue(1, $role->getIdRole());
+        $stmt->bindValue(2, $role->getName());
         $link->beginTransaction();
         if ($stmt->execute()) {
             $link->commit();
