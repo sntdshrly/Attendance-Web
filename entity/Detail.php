@@ -182,18 +182,18 @@ class Detail
             case 'jadwal_kelas_jadwal':
                 $this->jadwal->setKelasJadwal($value);
                 break;
-            case 'jadwal_semester_id_semester':
-                $this->jadwal->semester->setIdSemester($value);
-                break;
-            case 'jadwal_dosen_nik':
-                $this->jadwal->dosen->setNik($value);
-                break;
-            case 'jadwal_matkul_kode_mk':
-                $this->jadwal->matkul->setKodeMk($value);
-                break;
-            case 'jadwal_tipe_jadwal':
-                $this->jadwal->setTipeJadwal($value);
-                break;
+            // case 'jadwal_semester_id_semester':
+            //     $this->jadwal->semester->setIdSemester($value);
+            //     break;
+            // case 'jadwal_dosen_nik':
+            //     $this->jadwal->dosen->setNik($value);
+            //     break;
+            // case 'jadwal_matkul_kode_mk':
+            //     $this->jadwal->matkul->setKodeMk($value);
+            //     break;
+            // case 'jadwal_tipe_jadwal':
+            //     $this->jadwal->setTipeJadwal($value);
+            //     break;
         }
     }
 }

@@ -13,4 +13,7 @@ class DetailController
         $detail = $this->detailDao->fetchAllDetail();
         include_once 'view/home-view.php';
     }
+    public function addDetail(){
+        include_once 'view/form-view.php';
+    }
 }

@@ -136,7 +136,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                 </ul>
               </li>
               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link active">
+                <a href="?webmenu=form" class="nav-link active">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Form
                     <i class="right fas fa-angle-left"></i>
@@ -180,6 +180,10 @@ if (!isset($_SESSION['web_is_logged'])) {
             $detailController = new DetailController();
             $detailController->index();
             break;
+          case 'form':
+              $detailController = new DetailController();
+              $detailController->addDetail();
+              break;
           case 'logout';
             session_unset();
             session_destroy();
