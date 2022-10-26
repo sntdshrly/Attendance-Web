@@ -5,8 +5,13 @@ session_start();
 include_once 'util/ConnectionUtil.php';
 include_once 'entity/Dosen.php';
 include_once 'entity/Detail.php';
+include_once 'entity/Prodi.php';
+
+
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';
+include_once 'dao/ProdiDaoImpl.php';
+
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
 
@@ -144,7 +149,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                   <li class="nav-item">
-                    <a href="view/form-view.php" class="nav-link">
+                    <a href="?webmenu=form" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Form</p>
                     </a>

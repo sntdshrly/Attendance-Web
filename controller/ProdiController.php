@@ -45,7 +45,7 @@ class ProdiController
                 } else {
                     $prodi = new Prodi();
                     $prodi->setIdProdi($trimmedIdProdi);
-                    $prodi->setNameProdi($trimmedNameProdi);
+                    $prodi->setNamaProdi($trimmedNameProdi);
                     $prodi->setTingkatanProdi($trimmedTingkatanProdi);
                     $result = $this->prodiDao->saveProdi($prodi);
                     if ($result) {
@@ -82,7 +82,7 @@ class ProdiController
                 } else {
                     $updatedProdi = new Prodi();
                     $updatedProdi->setIdProdi($prodi->getIdProdi());
-                    $updatedProdi->setNameProdi($trimmedNameProdi);
+                    $updatedProdi->setNamaProdi($trimmedNameProdi);
                     $updatedProdi->setTingkatanProdi($trimmedTingkatanProdi);
                     $result = $this->prodiDao->updateProdi($updatedProdi);
                     if ($result) {
