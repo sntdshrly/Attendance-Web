@@ -11,28 +11,17 @@
             <!-- form start -->
             <form role="form">
                 <div class="card-body">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="labelProgramStudi">Program Studi</label>
                         <select class="form-control select2" style="width: 100%;" name="programStudi" id="idProgramStudi">
                             <?php
                             /**@var $item Prodi*/
-                            foreach($prodi as $item) {
-                                echo '<option>'.$item->getNamaProdi().'</option>';
-                            }
-                            ?>
+                            // foreach($prodi as $item) {
+                            //     echo '<option>'.$item->getNamaProdi().'</option>';
+                            // }
+                            // ?>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="labelMataKuliah">Mata Kuliah</label>
-                        <select class="form-control select2" style="width: 100%;" name="mataKuliah" id="idMataKuliah">
-                            <?php
-                            /**@var $item Matkul*/
-                            foreach($matkul as $item) {
-                                echo '<option>'.$item->getNamaMk().'</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="labelPertemuan">Pertemuan Ke</label>
                         <select class="form-control select2" style="width: 100%;" name="pertemuan" id="idPertemuan">

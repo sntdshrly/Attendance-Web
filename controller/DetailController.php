@@ -13,15 +13,13 @@ class DetailController
     {
         $detail = $this->detailDao->fetchAllDetail();
         $prodi = $this->prodiDao->fetchAllProdi();
-        var_dump($prodi);
         include_once 'view/home-view.php';
     }
 
     public function addDetail(){
         $buttonPressed = filter_input(INPUT_POST,'btnAddDetail');
         if(isset($buttonPressed)){
-            $programStudi = filter_input(INPUT_POST,'programStudi');
-            $matkul = filter_input(INPUT_POST,'mataKuliah');
+            var_dump("test");
             $pertemuanKe = filter_input(INPUT_POST,'pertemuan');
             $tanggal = filter_input(INPUT_POST,'tanggal');
             $waktuMulai = filter_input(INPUT_POST,'waktuMulai');
