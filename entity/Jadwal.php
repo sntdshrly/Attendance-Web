@@ -6,11 +6,11 @@ class Jadwal
     private $hariJadwal;
     private $waktuMulaiJadwal;
     /**@var $matkul Matkul */
-    private $matkul;
+    public $matkul;
     /**@var $dosen Dosen */
-    private $dosen;
+    public $dosen;
     /**@var $semester Semester */
-    private $semester;
+    public $semester;
     /**@var $ruangan Ruangan */
     private $ruangan;
     private $tipeJadwal;
