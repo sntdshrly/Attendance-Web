@@ -13,6 +13,36 @@ class DetailDaoImpl
         return $stmt->fetchAll();
     }
 
+    public function fetchProdi() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT nama_prodi FROM prodi';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Prodi');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
+    public function fetchMatkul() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT nama_mk FROM matkul';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Matkul');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
+    public function fetchJadwal() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT kelas_jadwal FROM jadwal';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Jadwal');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
     public function saveDetail(Detail $detail)
     {
         $result = 0;

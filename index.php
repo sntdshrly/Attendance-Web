@@ -6,7 +6,10 @@ include_once 'util/ConnectionUtil.php';
 include_once 'entity/Dosen.php';
 include_once 'entity/Detail.php';
 include_once 'entity/Prodi.php';
-
+include_once 'entity/Matkul.php';
+include_once 'entity/Jadwal.php';
+include_once 'entity/Semester.php';
+include_once 'entity/Ruangan.php';
 
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';

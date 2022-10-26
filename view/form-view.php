@@ -14,19 +14,42 @@
                     <div class="form-group">
                         <label for="labelProgramStudi">Program Studi</label>
                         <select class="form-control select2" style="width: 100%;" name="programStudi" id="idProgramStudi">
-                            <option value="<?php echo $prodi->getNamaProdi(); ?>"></option>
+                            <?php
+                            /**@var $item Prodi*/
+                            foreach($prodi as $item) {
+                                echo '<option>'.$item->getNamaProdi().'</option>';
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="labelMataKuliah">Mata Kuliah</label>
                         <select class="form-control select2" style="width: 100%;" name="mataKuliah" id="idMataKuliah">
-                            <option value="dasprog">IN010 / Dasar Pemrograman</option>
+                            <?php
+                            /**@var $item Matkul*/
+                            foreach($matkul as $item) {
+                                echo '<option>'.$item->getNamaMk().'</option>';
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="labelPertemuan">Pertemuan Ke</label>
                         <select class="form-control select2" style="width: 100%;" name="pertemuan" id="idPertemuan">
                             <option value="satu">1</option>
+                            <option value="dua">2</option>
+                            <option value="tiga">3</option>
+                            <option value="empat">4</option>
+                            <option value="lima">5</option>
+                            <option value="enam">6</option>
+                            <option value="tujuh">7</option>
+                            <option value="delapan">8</option>
+                            <option value="sembilan">9</option>
+                            <option value="sepuluh">10</option>
+                            <option value="sebelas">11</option>
+                            <option value="dua belas">12</option>
+                            <option value="tiga belas">13</option>
+                            <option value="empat belas">14</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -72,6 +95,17 @@
                           <span class="input-group-text" id="">Upload</span>
                         </div>
                       </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelJadwal">Jadwal</label>
+                        <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal">
+                            <?php
+                            /**@var $item Jadwal*/
+                            foreach($jadwal as $item) {
+                                echo '<option>'.$item->getKelasJadwal().'</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
                     <!-- /.card-body -->

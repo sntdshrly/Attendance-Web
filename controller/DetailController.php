@@ -16,6 +16,7 @@ class DetailController
         var_dump($prodi);
         include_once 'view/home-view.php';
     }
+
     public function addDetail(){
         $buttonPressed = filter_input(INPUT_POST,'btnAddDetail');
         if(isset($buttonPressed)){
@@ -41,9 +42,12 @@ class DetailController
             $detail->setKeterangan($catatan);
             $detail->setDibantuAsisten($dibantuAsisten);
             $detail->setBukti($bukti);
-            
+
             $result = $this->detailDao->saveDetail($detail);
         }
+        $prodi = $this->detailDao->fetchProdi();
+        $matkul = $this->detailDao->fetchMatkul();
+        $jadwal = $this->detailDao->fetchJadwal();
         include_once 'view/form-view.php';
     }
     
