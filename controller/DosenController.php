@@ -10,7 +10,7 @@ class DosenController
 //            print_r($password);
             $md5Password = md5($password);
             $result = $dosenDao->dosenLogin($nik, $md5Password);
-            print_r($result);
+            // print_r($result);
             if(isset($result) && $result != null && $result[0]['nik'] == $nik){
                 $_SESSION['web_is_logged'] = true;
                 $_SESSION['web_full_name'] = $result[0]['nama_dosen'];

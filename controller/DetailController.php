@@ -30,6 +30,7 @@ class DetailController
             $nrpAsisten = filter_input(INPUT_POST,'NRPAsisten');
             $jumlahJam = filter_input(INPUT_POST,'jumlahJam');
             $bukti = filter_input(INPUT_POST,'bukti');
+            $jadwal = filter_input(INPUT_POST,'jadwal');
 
             $detail = new Detail;
             $detail->setPertemuanKe($pertemuanKe);
@@ -40,6 +41,7 @@ class DetailController
             $detail->setKeterangan($catatan);
             $detail->setDibantuAsisten($dibantuAsisten);
             $detail->setBukti($bukti);
+            // $detail->getJadwal->set
 
             $result = $this->detailDao->saveDetail($detail);
         }

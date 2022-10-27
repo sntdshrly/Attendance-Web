@@ -174,7 +174,7 @@ if (!isset($_SESSION['web_is_logged'])) {
             <div class="row mb-2">
               <div class="col-sm-6">
               </div><!-- /.col -->
-              
+
             </div><!-- /.row -->
           </div><!-- /.container-fluid -->
         </div>
@@ -189,9 +189,9 @@ if (!isset($_SESSION['web_is_logged'])) {
             $detailController->index();
             break;
           case 'form':
-              $detailController = new DetailController();
-              $detailController->addDetail();
-              break;
+            $detailController = new DetailController();
+            $detailController->addDetail();
+            break;
           case 'logout';
             session_unset();
             session_destroy();
@@ -206,15 +206,15 @@ if (!isset($_SESSION['web_is_logged'])) {
         $dosenController->index();
       }
         ?>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6">
-              <!-- /.card -->
-            </div>
-            <!-- /.col-md-6 -->
-          </div>
-          <!-- /.row -->
-        </div>
+        <!-- <div class="container-fluid"> -->
+        <!-- <div class="row"> -->
+        <!-- <div class="col-lg-6"> -->
+        <!-- /.card -->
+        <!-- </div> -->
+        <!-- /.col-md-6 -->
+        <!-- </div> -->
+        <!-- /.row -->
+        <!-- </div> -->
         <!-- /.container-fluid -->
         </div>
         <!-- /.content -->
@@ -222,16 +222,16 @@ if (!isset($_SESSION['web_is_logged'])) {
       <!-- /.content-wrapper -->
 
       <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
+      <!-- <aside class="control-sidebar control-sidebar-dark"> -->
         <!-- Control sidebar content goes here -->
-      </aside>
+      <!-- </aside> -->
       <!-- /.control-sidebar -->
 
       <!-- Main Footer -->
-      <footer class="main-footer">
+      <!-- <footer class="main-footer">
         <strong>Copyright &copy; 2022 <a href="#">itmaranatha.com</a>.</strong>
         All rights reserved.
-      </footer>
+      </footer> -->
   </div>
   <!-- ./wrapper -->
 

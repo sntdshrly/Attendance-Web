@@ -15,6 +15,14 @@ class Jadwal
     private $ruangan;
     private $tipeJadwal;
 
+    public function __construct()
+    {
+        $this->matkul = new Matkul();
+        $this->dosen = new Dosen();
+        $this->semester = new Semester();
+        $this->ruangan = new Ruangan();
+    }
+
     /**
      * @return mixed
      */
