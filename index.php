@@ -15,12 +15,15 @@ include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';
 include_once 'dao/ProdiDaoImpl.php';
 include_once 'dao/SemesterDaoImpl.php';
+include_once 'dao/JadwalDaoImpl.php';
 
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
 include_once 'controller/ProdiController.php';
 include_once 'controller/SemesterController.php';
+include_once 'controller/JadwalController.php';
+
 
 
 
@@ -163,24 +166,24 @@ if (!isset($_SESSION['web_is_logged'])) {
                       <p>Form</p>
                     </a>
                   </li>
-                    <li class="nav-item">
-                        <a href="?webmenu=dosen-form" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Form Dosen</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?webmenu=prodi-form" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Form Prodi</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?webmenu=semester-form" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Form Semester</p>
-                        </a>
-                    </li>
+                  <li class="nav-item">
+                    <a href="?webmenu=dosen-form" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Form Dosen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="?webmenu=prodi-form" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Form Prodi</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="?webmenu=semester-form" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Form Semester</p>
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item has-treeview">
@@ -207,6 +210,12 @@ if (!isset($_SESSION['web_is_logged'])) {
                     <a href="?webmenu=semester" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Semester</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="?webmenu=jadwal" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Jadwal</p>
                     </a>
                   </li>
                 </ul>
@@ -256,18 +265,22 @@ if (!isset($_SESSION['web_is_logged'])) {
             $semesterController = new SemesterController();
             $semesterController->index();
             break;
+          case 'jadwal':
+            $jadwalController = new JadwalController();
+            $jadwalController->index();
+            break;
           case 'dosen-form':
             $dosenController = new DosenController();
             $dosenController->addDosen();
             break;
-            case 'prodi-form':
-                $prodiController = new ProdiController();
-                $prodiController->addProdi();
-                break;
-            case 'semester-form':
-                $semesterController = new SemesterController();
-                $semesterController->addSemester();
-                break;
+          case 'prodi-form':
+            $prodiController = new ProdiController();
+            $prodiController->addProdi();
+            break;
+          case 'semester-form':
+            $semesterController = new SemesterController();
+            $semesterController->addSemester();
+            break;
           case 'logout';
             session_unset();
             session_destroy();
