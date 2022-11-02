@@ -40,9 +40,39 @@ class DetailDaoImpl
 
     public function fetchMatkul() {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT nama_mk FROM matkul';
+        $query = 'SELECT * FROM matkul';
         $stmt = $link->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Matkul');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
+    public function fetchDosen() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM dosen';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Dosen');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
+    public function fetchSemester() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM semester';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Semester');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
+    public function fetchRuangan() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM ruangan';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Ruangan');
         $stmt->execute();
         $link = null;
         return $stmt->fetchAll();

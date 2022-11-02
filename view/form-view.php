@@ -91,7 +91,9 @@
                             <?php
                             /**@var $item Jadwal*/
                             foreach($jadwal as $item) {
-                                echo '<option>'.$item->getKelasJadwal().'</option>';
+//                                if($item->getDosen()->getNik() == $_SESSION['web_nik']) {
+                                    echo '<option>'.$item->getKelasJadwal()." - ".$item->getMatkul()->getKodeMk().'</option>';
+//                                }
                             }
                             ?>
                         </select>

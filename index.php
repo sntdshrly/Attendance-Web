@@ -184,6 +184,12 @@ if (!isset($_SESSION['web_is_logged'])) {
                       <p>Form Semester</p>
                     </a>
                   </li>
+                    <li class="nav-item">
+                        <a href="?webmenu=jadwal-form" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Form Jadwal</p>
+                        </a>
+                    </li>
                 </ul>
               </li>
               <li class="nav-item has-treeview">
@@ -281,6 +287,10 @@ if (!isset($_SESSION['web_is_logged'])) {
             $semesterController = new SemesterController();
             $semesterController->addSemester();
             break;
+            case 'jadwal-form':
+                $jadwalController = new JadwalController();
+                $jadwalController->addJadwal();
+                break;
           case 'logout';
             session_unset();
             session_destroy();

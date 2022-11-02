@@ -24,11 +24,11 @@
                     </div> -->
                     <div class="form-group">
                         <label for="labelIdSemester">ID Semester</label>
-                        <input type="text" id="idSemesterId" name="idSemester" class="form-control">
+                        <input type="text" id="idSemesterId" name="idSemester" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelNamaTahunSemester">Nama Tahun Semester</label>
-                        <input type="text" id="idNamaTahunSemester" name="namaTahunSemester" class="form-control">
+                        <input type="text" id="idNamaTahunSemester" name="namaTahunSemester" class="form-control" required>
                     </div>
                 </div>
                 <!-- /.card-body -->

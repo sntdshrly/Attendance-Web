@@ -24,15 +24,15 @@
                     </div> -->
                     <div class="form-group">
                         <label for="labelIdProdi">ID Prodi</label>
-                        <input type="text" id="idProdiId" name="idProdi" class="form-control">
+                        <input type="text" id="idProdiId" name="idProdi" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelNamaProdi">Nama Prodi</label>
-                        <input type="text" id="idNamaProdi" name="namaProdi" class="form-control">
+                        <input type="text" id="idNamaProdi" name="namaProdi" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelTingkatanProdi">Tingkatan Prodi</label>
-                        <input type="text" id="idTingkatanProdi" name="tingkatanProdi" class="form-control">
+                        <input type="text" id="idTingkatanProdi" name="tingkatanProdi" class="form-control" required>
                     </div>
                 </div>
                 <!-- /.card-body -->

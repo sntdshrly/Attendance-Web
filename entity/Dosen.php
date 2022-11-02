@@ -33,7 +33,7 @@ class Dosen
     /**
      * @param mixed $name
      */
-    public function setNameDosen($namaDosen)
+    public function setNamaDosen($namaDosen)
     {
         $this->namaDosen = $namaDosen;
     }
