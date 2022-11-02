@@ -28,6 +28,7 @@ class DosenController
             if(isset($result) && $result != null && $result[0]['nik'] == $nik){
                 $_SESSION['web_is_logged'] = true;
                 $_SESSION['web_full_name'] = $result[0]['nama_dosen'];
+                $_SESSION['web_nik'] = $result[0]['nik'];
                 header('location:index.php');
             }
             else{

@@ -1,4 +1,6 @@
 <?php
+include_once 'DosenController.php';
+
 class DetailController
 {
     private $detailDao;
@@ -11,7 +13,10 @@ class DetailController
 
     public function index()
     {
-        $detail = $this->detailDao->fetchAllDetail();
+        $dosenLogin = $_SESSION['web_nik'];
+        if ($dosenLogin != '') {
+            $detail = $this->detailDao->fetchAllDetail();
+        }
         $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/home-view.php';
     }

@@ -13,6 +13,21 @@ class DetailDaoImpl
         return $stmt->fetchAll();
     }
 
+    public function fetchDetailByNik($nik) {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM detail WHERE jadwal_dosen_nik = ?';
+        $stmt = $link->prepare($query);
+//        $stmt->setFetchMode(PDO::FETCH_OBJ);
+//        $stmt->execute();
+//        $link = null;
+//        return $stmt->fetchAll();
+        $stmt->bindParam(1, $nik);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchObject('Detail');
+    }
+
     public function fetchProdi() {
         $link = ConnectionUtil::getMySQLConnection();
         $query = 'SELECT nama_prodi FROM prodi';

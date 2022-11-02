@@ -28,17 +28,19 @@
                   <tbody>
                   <?php
                 foreach ( $detail as $details){
-                    echo '<tr>';
-                    echo '<th>' . $details->getPertemuanKe() . '</th>';
-                    echo '<th>' . $details->getTanggal() . '</th>';
-                    echo '<th>' . $details->getWaktuMulai() . '</th>';
-                    echo '<th>' . $details->getJumlahMahasiswa() . '</th>';
-                    echo '<th>' . $details->getMateri() . '</th>';
-                    echo '<th>' . $details->getKeterangan() . '</th>';
-                    echo '<th>' . $details->getDibantuAsisten() . '</th>';
-                    echo '<th>' . $details->getBukti() . '</th>';
-                    echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
-                    echo '</tr>';
+                    if($details->getJadwal()->getDosen()->getNik() == $_SESSION['web_nik']) {
+                        echo '<tr>';
+                        echo '<th>' . $details->getPertemuanKe() . '</th>';
+                        echo '<th>' . $details->getTanggal() . '</th>';
+                        echo '<th>' . $details->getWaktuMulai() . '</th>';
+                        echo '<th>' . $details->getJumlahMahasiswa() . '</th>';
+                        echo '<th>' . $details->getMateri() . '</th>';
+                        echo '<th>' . $details->getKeterangan() . '</th>';
+                        echo '<th>' . $details->getDibantuAsisten() . '</th>';
+                        echo '<th>' . $details->getBukti() . '</th>';
+                        echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
+                        echo '</tr>';
+                    }
                 }
 
                 ?>
