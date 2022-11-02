@@ -163,6 +163,24 @@ if (!isset($_SESSION['web_is_logged'])) {
                       <p>Form</p>
                     </a>
                   </li>
+                    <li class="nav-item">
+                        <a href="?webmenu=dosen-form" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Form Dosen</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="?webmenu=prodi-form" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Form Prodi</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="?webmenu=semester-form" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Form Semester</p>
+                        </a>
+                    </li>
                 </ul>
               </li>
               <li class="nav-item has-treeview">
@@ -238,6 +256,18 @@ if (!isset($_SESSION['web_is_logged'])) {
             $semesterController = new SemesterController();
             $semesterController->index();
             break;
+          case 'dosen-form':
+            $dosenController = new DosenController();
+            $dosenController->addDosen();
+            break;
+            case 'prodi-form':
+                $prodiController = new ProdiController();
+                $prodiController->addProdi();
+                break;
+            case 'semester-form':
+                $semesterController = new SemesterController();
+                $semesterController->addSemester();
+                break;
           case 'logout';
             session_unset();
             session_destroy();

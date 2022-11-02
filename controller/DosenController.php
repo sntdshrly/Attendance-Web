@@ -28,7 +28,6 @@ class DosenController
             if(isset($result) && $result != null && $result[0]['nik'] == $nik){
                 $_SESSION['web_is_logged'] = true;
                 $_SESSION['web_full_name'] = $result[0]['nama_dosen'];
-                $_SESSION['web_nik'] = $result[0]['nik'];
                 header('location:index.php');
             }
             else{
@@ -36,5 +35,28 @@ class DosenController
             }
         }
         include_once 'view/login-view.php';
+    }
+
+    public function addDosen(){
+        $buttonPressed = filter_input(INPUT_POST,'btnAddDosen');
+        if(isset($buttonPressed)){
+            var_dump("test");
+            $nikDosen = filter_input(INPUT_POST,'nikDosen');
+            $namaDosen = filter_input(INPUT_POST,'namaDosen');
+            $emailDosen = filter_input(INPUT_POST,'emailDosen');
+
+            $trimmedNik = trim($nikDosen);
+            $trimmedNama = trim($namaDosen);
+            $trimmedEmail = trim($emailDosen);
+
+            $dosen = new Dosen();
+            $dosen->setNik($trimmedNik);
+            $dosen->setNameDosen($trimmedNama);
+            $dosen->setEmail($trimmedEmail);
+
+            $result = $this->dosenDao->saveDosen($dosen);
+        }
+        $dosen = $this->dosenDao->fetchAllDosen();
+        include_once 'view/dosen-form-view.php';
     }
 }

@@ -14,38 +14,22 @@ class SemesterController
         include_once 'view/semester-view.php';
     }
 
-    // public function addDetail(){
-    //     $buttonPressed = filter_input(INPUT_POST,'btnAddDetail');
-    //     if(isset($buttonPressed)){
-    //         var_dump("test");
-    //         $pertemuanKe = filter_input(INPUT_POST,'pertemuan');
-    //         $tanggal = filter_input(INPUT_POST,'tanggal');
-    //         $waktuMulai = filter_input(INPUT_POST,'waktuMulai');
-    //         $jumlahMahasiswa = filter_input(INPUT_POST,'jumlahMahasiswa');
-    //         $materi = filter_input(INPUT_POST,'materi');
-    //         $catatan = filter_input(INPUT_POST,'catatan');
-    //         $dibantuAsisten = filter_input(INPUT_POST,'jumlahAsisten');
-    //         $nrpAsisten = filter_input(INPUT_POST,'NRPAsisten');
-    //         $jumlahJam = filter_input(INPUT_POST,'jumlahJam');
-    //         $bukti = filter_input(INPUT_POST,'bukti');
-    //         $jadwal = filter_input(INPUT_POST,'jadwal');
+     public function addSemester(){
+         $buttonPressed = filter_input(INPUT_POST,'btnAddSemester');
+         if(isset($buttonPressed)){
+             var_dump("test");
+             $idSemester = filter_input(INPUT_POST,'idSemester');
+             $namaTahunSemester = filter_input(INPUT_POST,'namaTahunSemester');
 
-    //         $detail = new Detail;
-    //         $detail->setPertemuanKe($pertemuanKe);
-    //         $detail->setTanggal($tanggal);
-    //         $detail->setWaktuMulai($waktuMulai);
-    //         $detail->setJumlahMahasiswa($jumlahMahasiswa);
-    //         $detail->setMateri($materi);
-    //         $detail->setKeterangan($catatan);
-    //         $detail->setDibantuAsisten($dibantuAsisten);
-    //         $detail->setBukti($bukti);
-    //         // $detail->getJadwal->set
+             $trimmedId = trim($idSemester);
+             $trimmedNama = trim($namaTahunSemester);
 
-    //         $result = $this->detailDao->saveDetail($detail);
-    //     }
-    //     $prodi = $this->detailDao->fetchProdi();
-    //     $matkul = $this->detailDao->fetchMatkul();
-    //     $jadwal = $this->detailDao->fetchJadwal();
-    //     include_once 'view/form-view.php';
-    // }
+             $semester = new Semester();
+             $semester->setIdSemester($trimmedId);
+             $semester->setNamaTahunSemester($trimmedNama);
+
+             $result = $this->semesterDao->saveSemester($semester);
+         }
+         include_once 'view/semester-form-view.php';
+     }
 }
