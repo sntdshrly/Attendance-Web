@@ -163,7 +163,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                   <li class="nav-item">
                     <a href="?webmenu=form" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Form</p>
+                      <p>Form Detail</p>
                     </a>
                   </li>
                   <li class="nav-item">
