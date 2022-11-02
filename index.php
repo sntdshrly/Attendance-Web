@@ -159,6 +159,34 @@ if (!isset($_SESSION['web_is_logged'])) {
                   </li>
                 </ul>
               </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>Data
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dosen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Prodi</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Semester</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
           <!-- /.sidebar-menu -->
