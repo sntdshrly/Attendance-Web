@@ -1,7 +1,21 @@
 <?php
 class DosenController
 {
+    private $dosenDao;
+
+    public function __construct()
+    {
+        $this->dosenDao = new DosenDaoImpl();
+    }
+
+    public function tampilDosen()
+    {
+        $dosen = $this->dosenDao->fetchAllDosen();
+        include_once 'view/dosen-view.php';
+    }
+
     public function index(){
+        
         $dosenDao = new DosenDaoImpl();
         $loginPressed = filter_input(INPUT_POST,'btnLogin');
         if (isset($loginPressed)){

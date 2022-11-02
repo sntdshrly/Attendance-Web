@@ -14,9 +14,15 @@ include_once 'entity/Ruangan.php';
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';
 include_once 'dao/ProdiDaoImpl.php';
+include_once 'dao/SemesterDaoImpl.php';
+
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
+include_once 'controller/ProdiController.php';
+include_once 'controller/SemesterController.php';
+
+
 
 /** If user hasn't login, then web_is_logged = false */
 if (!isset($_SESSION['web_is_logged'])) {
@@ -168,19 +174,19 @@ if (!isset($_SESSION['web_is_logged'])) {
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="?webmenu=dosen" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Dosen</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index.php" class="nav-link">
+                    <a href="?webmenu=prodi" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Prodi</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index.php" class="nav-link">
+                    <a href="?webmenu=semester" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Semester</p>
                     </a>
@@ -220,6 +226,18 @@ if (!isset($_SESSION['web_is_logged'])) {
             $detailController = new DetailController();
             $detailController->addDetail();
             break;
+          case 'dosen':
+            $dosenController = new DosenController();
+            $dosenController->tampilDosen();
+            break;
+          case 'prodi':
+            $prodiController = new ProdiController();
+            $prodiController->index();
+            break;
+          case 'semester':
+            $semesterController = new SemesterController();
+            $semesterController->index();
+            break;
           case 'logout';
             session_unset();
             session_destroy();
@@ -251,7 +269,7 @@ if (!isset($_SESSION['web_is_logged'])) {
 
       <!-- Control Sidebar -->
       <!-- <aside class="control-sidebar control-sidebar-dark"> -->
-        <!-- Control sidebar content goes here -->
+      <!-- Control sidebar content goes here -->
       <!-- </aside> -->
       <!-- /.control-sidebar -->
 

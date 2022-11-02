@@ -8,95 +8,44 @@ class ProdiController
     {
         $this->prodiDao = new ProdiDaoImpl();
     }
-
-    public function index() {
-        // Code for delete data
-        $deleteApproved = filter_input(INPUT_GET, 'delcom');
-        if (isset($deleteApproved) && $deleteApproved == 1) {
-            if ($_SESSION['web_role'] == "admin") {
-                $deletedIdProdi = filter_input(INPUT_GET, 'did');
-                $result = $this->prodiDao->deleteProdi($deletedIdProdi);
-                if ($result) {
-                    echo '<div class="bg-success">Supplier deleted</div>';
-                } else {
-                    echo '<div class="bg-error">Failed to delete supplier</div>';
-                }
-            } else {
-                echo '<script type ="text/JavaScript">';
-                echo 'alert("You don\'t have permission to delete the data")';
-                echo '</script>';
-            }
-        }
-
-        // Code for insert new data
-        $buttonPressed = filter_input(INPUT_POST, 'btnSubmit');
-        if (isset($buttonPressed)) {
-            if ($_SESSION['web_role'] == "admin") {
-                $idProdi = filter_input(INPUT_POST, 'txtIdProdi', FILTER_SANITIZE_NUMBER_INT);
-                $nameProdi = filter_input(INPUT_POST, 'txtNameProdi', FILTER_SANITIZE_STRING);
-                $tingkatanProdi = filter_input(INPUT_POST, 'txtTingkatanProdi', FILTER_SANITIZE_STRING);
-
-                $trimmedIdProdi = trim($idProdi);
-                $trimmedNameProdi = trim($nameProdi);
-                $trimmedTingkatanProdi = trim($tingkatanProdi);
-
-                if (empty($trimmedIdProdi) || empty($trimmedNameProdi) || empty($trimmedTingkatanProdi)) {
-                    echo '<div class="bg-error">Please fill all the field</div>';
-                } else {
-                    $prodi = new Prodi();
-                    $prodi->setIdProdi($trimmedIdProdi);
-                    $prodi->setNamaProdi($trimmedNameProdi);
-                    $prodi->setTingkatanProdi($trimmedTingkatanProdi);
-                    $result = $this->prodiDao->saveProdi($prodi);
-                    if ($result) {
-                        echo '<div class="bg-success">New added</div>';
-                    } else {
-                        echo '<div class="bg-error">Failed to add </div>';
-                    }
-                }
-
-            } else {
-                echo '<script type ="text/JavaScript">';
-                echo 'alert("You don\'t have permission to insert new data")';
-                echo '</script>';
-            }
-        }
-        $prodis = $this->prodiDao->fetchAllProdi();
+    public function index()
+    {
+        $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/prodi-view.php';
     }
-    public function updateIndex() {
-        $editedIdProdi = filter_input(INPUT_GET, 'eid');
-        if (isset($editedIdProdi) && $editedIdProdi != '') {
-            $prodi = $this->prodiDao->fetchProdiById($editedIdProdi);
-        }
 
-        $buttonPressed = filter_input(INPUT_POST, 'btnSubmit');
-        if (isset($buttonPressed)) {
-            if ($_SESSION['web_role'] == "admin") {
-                $nameProdi = filter_input(INPUT_POST, 'txtNameProdi', FILTER_SANITIZE_STRING);
-                $tingkatanProdi = filter_input(INPUT_POST, 'txtTingkatanProdi', FILTER_SANITIZE_STRING);
-                $trimmedNameProdi = trim($nameProdi);
-                $trimmedTingkatanProdi = trim($tingkatanProdi);
-                if (empty($trimmedNameProdi) || empty($trimmedTingkatanProdi)) {
-                    echo '<div class="bg-error">Please fill the column</div>';
-                } else {
-                    $updatedProdi = new Prodi();
-                    $updatedProdi->setIdProdi($prodi->getIdProdi());
-                    $updatedProdi->setNamaProdi($trimmedNameProdi);
-                    $updatedProdi->setTingkatanProdi($trimmedTingkatanProdi);
-                    $result = $this->prodiDao->updateProdi($updatedProdi);
-                    if ($result) {
-                        header('location:index.php?webmenu=supplier');
-                    } else {
-                        echo '<div class="bg-error">Failed to update supplier</div>';
-                    }
-                }
-            } else {
-                echo '<script type ="text/JavaScript">';
-                echo 'alert("You don\'t have permission to edit the data")';
-                echo '</script>';
-            }
-        }
-        include_once 'view/update-prodi-view.php';
-    }
+    // public function addDetail(){
+    //     $buttonPressed = filter_input(INPUT_POST,'btnAddDetail');
+    //     if(isset($buttonPressed)){
+    //         var_dump("test");
+    //         $pertemuanKe = filter_input(INPUT_POST,'pertemuan');
+    //         $tanggal = filter_input(INPUT_POST,'tanggal');
+    //         $waktuMulai = filter_input(INPUT_POST,'waktuMulai');
+    //         $jumlahMahasiswa = filter_input(INPUT_POST,'jumlahMahasiswa');
+    //         $materi = filter_input(INPUT_POST,'materi');
+    //         $catatan = filter_input(INPUT_POST,'catatan');
+    //         $dibantuAsisten = filter_input(INPUT_POST,'jumlahAsisten');
+    //         $nrpAsisten = filter_input(INPUT_POST,'NRPAsisten');
+    //         $jumlahJam = filter_input(INPUT_POST,'jumlahJam');
+    //         $bukti = filter_input(INPUT_POST,'bukti');
+    //         $jadwal = filter_input(INPUT_POST,'jadwal');
+
+    //         $detail = new Detail;
+    //         $detail->setPertemuanKe($pertemuanKe);
+    //         $detail->setTanggal($tanggal);
+    //         $detail->setWaktuMulai($waktuMulai);
+    //         $detail->setJumlahMahasiswa($jumlahMahasiswa);
+    //         $detail->setMateri($materi);
+    //         $detail->setKeterangan($catatan);
+    //         $detail->setDibantuAsisten($dibantuAsisten);
+    //         $detail->setBukti($bukti);
+    //         // $detail->getJadwal->set
+
+    //         $result = $this->detailDao->saveDetail($detail);
+    //     }
+    //     $prodi = $this->detailDao->fetchProdi();
+    //     $matkul = $this->detailDao->fetchMatkul();
+    //     $jadwal = $this->detailDao->fetchJadwal();
+    //     include_once 'view/form-view.php';
+    // }
 }
