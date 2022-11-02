@@ -41,7 +41,7 @@ class DetailController
             $detail->setKeterangan($catatan);
             $detail->setDibantuAsisten($dibantuAsisten);
             $detail->setBukti($bukti);
-            // $detail->getJadwal->set
+//            $detail->getJadwal()->setKelasJadwal();
 
             $result = $this->detailDao->saveDetail($detail);
         }
