@@ -23,6 +23,21 @@
                         </select>
                     </div> -->
                     <div class="form-group">
+                        <label for="labelJadwal">Jadwal</label>
+                        <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal">
+                            <?php
+                            $index = 0;
+                            /**@var $item Jadwal*/
+                            foreach($jadwal as $item) {
+//                                if($item->getDosen()->getNik() == $_SESSION['web_nik']) {
+                                    echo '<option value=$index>'.$item->getKelasJadwal()." - ".$item->getMatkul()->getKodeMk().'</option>';
+                                    $index += 1;
+//                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="labelPertemuan">Pertemuan Ke</label>
                         <select class="form-control select2" style="width: 100%;" name="pertemuan" id="idPertemuan">
                             <option value="1">1</option>
@@ -43,19 +58,19 @@
                     </div>
                     <div class="form-group">
                         <label for="labelTanggal">Tanggal</label>
-                        <input type="date" id="idTanggal" name="tanggal" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                        <input type="date" id="idTanggal" name="tanggal" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
                     </div>
                     <div class="form-group">
                         <label for="labelWaktuMulai">Waktu Mulai</label>
-                        <input type="time" id="idWaktuMulai" name="waktuMulai" class="form-control datetimepicker-input">
+                        <input type="time" id="idWaktuMulai" name="waktuMulai" class="form-control datetimepicker-input" required>
                     </div>
                     <div class="form-group">
                         <label for="labelJumlahMahasiswa">Jumlah Mahasiswa</label>
-                        <input type="number" id="idJumlahMahasiswa" name="jumlahMahasiswa" min="0" max="100" class="form-control">
+                        <input type="number" id="idJumlahMahasiswa" name="jumlahMahasiswa" min="0" max="100" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelMateri">Materi Pokok Bahasan</label>
-                        <input type="text" class="form-control" id="idMateri" name="materi" placeholder="" class="form-control">
+                        <input type="text" class="form-control" id="idMateri" name="materi" placeholder="" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelCatatan">Catatan</label>
@@ -63,11 +78,18 @@
                     </div>
                     <div class="form-group">
                         <label for="labelJumlahAsisten">Jumlah Asisten</label>
-                        <input type="number" id="idJumlahAsisten" name="jumlahAsisten" min="0" max="100" class="form-control">
+                        <input type="number" id="idJumlahAsisten" name="jumlahAsisten" min="0" max="100" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten</label>
-                        <input type="text" id="idNRPAsisten" name="NRPAsisten" class="form-control">
+                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten">
+                            <?php
+                            /**@var $item Asisten*/
+                            foreach($asisten as $item) {
+                                echo '<option>'.$item->getNrp()." - ".$item->getNamaMahasiswa().'</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="labelJumlahJam">Jumlah Jam</label>
@@ -84,19 +106,6 @@
                           <span class="input-group-text" id="">Upload</span>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="labelJadwal">Jadwal</label>
-                        <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal">
-                            <?php
-                            /**@var $item Jadwal*/
-                            foreach($jadwal as $item) {
-//                                if($item->getDosen()->getNik() == $_SESSION['web_nik']) {
-                                    echo '<option>'.$item->getKelasJadwal()." - ".$item->getMatkul()->getKodeMk().'</option>';
-//                                }
-                            }
-                            ?>
-                        </select>
                     </div>
                 </div>
                     <!-- /.card-body -->

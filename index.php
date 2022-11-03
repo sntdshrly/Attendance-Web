@@ -10,6 +10,7 @@ include_once 'entity/Matkul.php';
 include_once 'entity/Jadwal.php';
 include_once 'entity/Semester.php';
 include_once 'entity/Ruangan.php';
+include_once 'entity/Asisten.php';
 
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';

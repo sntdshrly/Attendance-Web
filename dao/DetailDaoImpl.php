@@ -17,10 +17,17 @@ class DetailDaoImpl
         $link = ConnectionUtil::getMySQLConnection();
         $query = 'SELECT * FROM detail WHERE jadwal_dosen_nik = ?';
         $stmt = $link->prepare($query);
-//        $stmt->setFetchMode(PDO::FETCH_OBJ);
-//        $stmt->execute();
-//        $link = null;
-//        return $stmt->fetchAll();
+        $stmt->bindParam(1, $nik);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchObject('Detail');
+    }
+
+    public function fetchDetailByKelasMk($kelasMk) {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM detail WHERE jadwal_dosen_nik = ?';
+        $stmt = $link->prepare($query);
         $stmt->bindParam(1, $nik);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute();
@@ -80,9 +87,19 @@ class DetailDaoImpl
 
     public function fetchJadwal() {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT kelas_jadwal FROM jadwal';
+        $query = 'SELECT * FROM jadwal';
         $stmt = $link->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Jadwal');
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchAll();
+    }
+
+    public function fetchAsisten() {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM asisten';
+        $stmt = $link->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Asisten');
         $stmt->execute();
         $link = null;
         return $stmt->fetchAll();
