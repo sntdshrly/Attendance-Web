@@ -27,16 +27,31 @@
                   <tbody>
                   <?php
                 foreach ( $jadwal as $jadwals){
-                    echo '<tr>';
-                    echo '<th>' . $jadwals->getKelasJadwal() . '</th>';
-                    echo '<th>' . $jadwals->getHariJadwal() . '</th>'; 
-                    echo '<th>' . $jadwals->getWaktuMulaiJadwal() . '</th>';
-                    echo '<th>' . $jadwals->getMatkul()->getNamaMk() . '</th>';
-                    echo '<th>' . $jadwals->getDosen()->getNamaDosen() . '</th>';
-                    echo '<th>' . $jadwals->getSemester()->getNamaTahunSemester() . '</th>';
-                    echo '<th>' . $jadwals->getRuangan()->getNamaRuangan() . '</th>';
-                    echo '<th>' . $jadwals->getTipeJadwal() . '</th>';
-                    echo '</tr>';
+                    if ($_SESSION['web_role'] == 1) {
+                        echo '<tr>';
+                        echo '<th>' . $jadwals->getKelasJadwal() . '</th>';
+                        echo '<th>' . $jadwals->getHariJadwal() . '</th>';
+                        echo '<th>' . $jadwals->getWaktuMulaiJadwal() . '</th>';
+                        echo '<th>' . $jadwals->getMatkul()->getNamaMk() . '</th>';
+                        echo '<th>' . $jadwals->getDosen()->getNamaDosen() . '</th>';
+                        echo '<th>' . $jadwals->getSemester()->getNamaTahunSemester() . '</th>';
+                        echo '<th>' . $jadwals->getRuangan()->getNamaRuangan() . '</th>';
+                        echo '<th>' . $jadwals->getTipeJadwal() . '</th>';
+                        echo '</tr>';
+                    } else {
+                        if ($jadwals->getDosen()->getNik() == $_SESSION['web_nik']) {
+                            echo '<tr>';
+                            echo '<th>' . $jadwals->getKelasJadwal() . '</th>';
+                            echo '<th>' . $jadwals->getHariJadwal() . '</th>';
+                            echo '<th>' . $jadwals->getWaktuMulaiJadwal() . '</th>';
+                            echo '<th>' . $jadwals->getMatkul()->getNamaMk() . '</th>';
+                            echo '<th>' . $jadwals->getDosen()->getNamaDosen() . '</th>';
+                            echo '<th>' . $jadwals->getSemester()->getNamaTahunSemester() . '</th>';
+                            echo '<th>' . $jadwals->getRuangan()->getNamaRuangan() . '</th>';
+                            echo '<th>' . $jadwals->getTipeJadwal() . '</th>';
+                            echo '</tr>';
+                        }
+                    }
                 }
 
                 ?>
