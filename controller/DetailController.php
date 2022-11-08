@@ -46,11 +46,11 @@ class DetailController
             $detail->setKeterangan($catatan);
             $detail->setDibantuAsisten($dibantuAsisten);
             $detail->setBukti($bukti);
-            $detail->getJadwal()->setKelasJadwal($jadwal->getKelasJadwal());
-            $detail->getJadwal()->getSemester()->setIdSemester($jadwal->getSemester()->getIdSemester());
-            $detail->getJadwal()->getDosen()->setNik($jadwal->getDosen()->getNik());
-            $detail->getJadwal()->getMatkul()->setKodeMk($jadwal->getMatkul()->getKodeMk());
-            $detail->getJadwal()->setTipeJadwal($jadwal->getTipeJadwal());
+            $detail->getJadwal()->setKelasJadwal(substr($jadwal, 0, 1));
+            $detail->getJadwal()->getSemester()->setIdSemester(substr($jadwal, 4, 1));
+            $detail->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
+            $detail->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
+            $detail->getJadwal()->setTipeJadwal(substr($jadwal, 24));
 
             $result = $this->detailDao->saveDetail($detail);
         }

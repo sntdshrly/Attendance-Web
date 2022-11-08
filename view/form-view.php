@@ -26,13 +26,9 @@
                         <label for="labelJadwal">Jadwal</label>
                         <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal">
                             <?php
-                            $index = 0;
                             /**@var $item Jadwal*/
                             foreach($jadwal as $item) {
-//                                if($item->getDosen()->getNik() == $_SESSION['web_nik']) {
-                                    echo '<option value=$index>'.$item->getKelasJadwal()." - ".$item->getMatkul()->getKodeMk().'</option>';
-                                    $index += 1;
-//                                }
+                                echo '<option>'.$item->getKelasJadwal()." - ".$item->getSemester()->getIdSemester()." - ".$item->getDosen()->getNik()." - ".$item->getMatkul()->getKodeMk()." - ".$item->getTipeJadwal().'</option>';
                             }
                             ?>
                         </select>
