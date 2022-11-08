@@ -34,6 +34,17 @@
                         <label for="labelNamaDosen">Nama Dosen</label>
                         <input type="text" id="idNamaDosen" name="namaDosen" class="form-control" required>
                     </div>
+                    <div class="form-group">
+                        <label for="labelRole">Role</label>
+                        <select class="form-control select2" style="width: 100%;" name="role" id="idRole">
+                            <?php
+                            /**@var $item Role*/
+                            foreach($role as $item) {
+                                echo '<option>'.$item->getIdRole().' - '.$item->getName().'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <!-- /.card-body -->
 

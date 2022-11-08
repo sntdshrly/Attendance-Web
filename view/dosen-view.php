@@ -17,6 +17,7 @@
                     <th >NIK</th>
                     <th >Email</th>
                     <th >Nama Dosen</th>
+                      <th>Role</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -25,7 +26,8 @@
                     echo '<tr>';
                     echo '<th>' . $dosens->getNik() . '</th>';
                     echo '<th>' . $dosens->getEmail() . '</th>'; 
-                    echo '<th>' . $dosens->getNamaDosen() . '</th>'; 
+                    echo '<th>' . $dosens->getNamaDosen() . '</th>';
+                    echo '<th>' . $dosens->getRole()->getName(). '</th>';
                     // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
                     echo '</tr>';
                 }

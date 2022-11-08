@@ -11,13 +11,14 @@ include_once 'entity/Jadwal.php';
 include_once 'entity/Semester.php';
 include_once 'entity/Ruangan.php';
 include_once 'entity/Asisten.php';
+include_once 'entity/Role.php';
 
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';
 include_once 'dao/ProdiDaoImpl.php';
 include_once 'dao/SemesterDaoImpl.php';
 include_once 'dao/JadwalDaoImpl.php';
-
+include_once 'dao/RoleDaoImpl.php';
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';

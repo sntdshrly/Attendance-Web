@@ -5,6 +5,32 @@ class Dosen
     private $namaDosen;
     private $email;
     private $password;
+    /**@var $role Role */
+    private $role;
+
+    public function __construct()
+    {
+        $this->role = new Role();
+    }
+
+    /**
+     * @return Role
+     */
+    public function getRole()
+    {
+        if (!isset($this->role)) {
+            $this->role = new Role();
+        }
+        return $this->role;
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
 
     /**
      * @return mixed
@@ -72,9 +98,18 @@ class Dosen
 
     public function __set($name, $value)
     {
+        if (!isset($this->role)) {
+            $this->role = new Role();
+        }
         switch ($name) {
             case 'nama_dosen':
                 $this->namaDosen = $value;
+                break;
+            case 'role_id_role':
+                $this->role->setIdRole($value);
+                break;
+            case 'role_name':
+                $this->role->setName($value);
                 break;
         }
     }
