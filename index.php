@@ -204,10 +204,11 @@ if (!isset($_SESSION['web_is_logged'])) {
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-                  <?php
+                 
+                <ul class="nav nav-treeview" style="display: none;">
+                <?php
                   if ($_SESSION['web_role'] == 1) {
                   ?>
-                <ul class="nav nav-treeview" style="display: none;">
                   <li class="nav-item">
                     <a href="?webmenu=dosen" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
