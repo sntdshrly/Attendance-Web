@@ -5,7 +5,7 @@ class JadwalDaoImpl
     public function fetchAllJadwal()
     {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT * FROM jadwal';
+        $query = 'SELECT m.kode_mk AS "matkul_kode_mk", m.nama_mk AS "matkul_nama_mk", d.nik AS "dosen_nik", d.nama_dosen AS "dosen_nama_dosen", s.id_semester AS "semester_id_semester", s.nama_tahun_semester AS "semester_nama_tahun_semester", r.id_ruangan AS "ruangan_id_ruangan", r.nama_ruangan AS "ruangan_nama_ruangan", kelas_jadwal, hari_jadwal, waktu_mulai_jadwal, tipe_jadwal FROM jadwal j JOIN matkul m ON j.matkul_kode_mk = m.kode_mk JOIN dosen d ON j.dosen_nik = d.nik JOIN semester s ON j.semester_id_semester = s.id_semester JOIN ruangan r ON j.ruangan_id_ruangan = r.id_ruangan';
         $stmt = $link->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Jadwal');
         $stmt->execute();

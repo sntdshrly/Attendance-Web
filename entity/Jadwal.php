@@ -193,14 +193,26 @@ class Jadwal
             case 'matkul_kode_mk':
                 $this->matkul->setKodeMk($value);
                 break;
+            case 'matkul_nama_mk':
+                $this->matkul->setNamaMk($value);
+                break;
             case 'dosen_nik':
                 $this->dosen->setNik($value);
+                break;
+            case 'dosen_nama_dosen':
+                $this->dosen->setNamaDosen($value);
                 break;
             case 'semester_id_semester':
                 $this->semester->setIdSemester($value);
                 break;
+            case 'semester_nama_tahun_semester':
+                $this->semester->setNamaTahunSemester($value);
+                break;
             case 'ruangan_id_ruangan':
                 $this->ruangan->setIdRuangan($value);
+                break;
+            case 'ruangan_nama_ruangan':
+                $this->ruangan->setNamaRuangan($value);
                 break;
         }
     }

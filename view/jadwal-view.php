@@ -31,10 +31,10 @@
                     echo '<th>' . $jadwals->getKelasJadwal() . '</th>';
                     echo '<th>' . $jadwals->getHariJadwal() . '</th>'; 
                     echo '<th>' . $jadwals->getWaktuMulaiJadwal() . '</th>';
-                    echo '<th>' . $jadwals->getMatkul()->getKodeMk() . '</th>';
-                    echo '<th>' . $jadwals->getDosen()->getNik() . '</th>';
-                    echo '<th>' . $jadwals->getSemester()->getIdSemester() . '</th>';
-                    echo '<th>' . $jadwals->getRuangan()->getIdRuangan() . '</th>';
+                    echo '<th>' . $jadwals->getMatkul()->getNamaMk() . '</th>';
+                    echo '<th>' . $jadwals->getDosen()->getNamaDosen() . '</th>';
+                    echo '<th>' . $jadwals->getSemester()->getNamaTahunSemester() . '</th>';
+                    echo '<th>' . $jadwals->getRuangan()->getNamaRuangan() . '</th>';
                     echo '<th>' . $jadwals->getTipeJadwal() . '</th>';
                     echo '</tr>';
                 }

@@ -13,11 +13,15 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="labelKelas">Kelas</label>
-                        <input type="text" class="form-control" id="idKelas" name="kelas" placeholder="" class="form-control">
+                        <select class="form-control select2" style="width: 100%;" name="kelas" id="idKelas">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="labelHari">Hari</label>
-                        <select class="form-control select2" style="width: 100%;" name="pertemuan" id="idPertemuan">
+                        <select class="form-control select2" style="width: 100%;" name="hari" id="idHari">
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
                             <option value="Rabu">Rabu</option>
