@@ -29,6 +29,7 @@ class DosenController
                 $_SESSION['web_is_logged'] = true;
                 $_SESSION['web_full_name'] = $result[0]['nama_dosen'];
                 $_SESSION['web_nik'] = $result[0]['nik'];
+                $_SESSION['web_role'] = $result[0]['role_id_role'];
                 header('location:index.php');
             }
             else{

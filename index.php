@@ -167,6 +167,9 @@ if (!isset($_SESSION['web_is_logged'])) {
                       <p>Form Detail</p>
                     </a>
                   </li>
+                    <?php
+                    if ($_SESSION['web_role'] == 1) {
+                    ?>
                   <li class="nav-item">
                     <a href="?webmenu=dosen-form" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -191,6 +194,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                             <p>Form Jadwal</p>
                         </a>
                     </li>
+                    <?php } ?>
                 </ul>
               </li>
               <li class="nav-item has-treeview">
@@ -200,6 +204,9 @@ if (!isset($_SESSION['web_is_logged'])) {
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
+                  <?php
+                  if ($_SESSION['web_role'] == 1) {
+                  ?>
                 <ul class="nav nav-treeview" style="display: none;">
                   <li class="nav-item">
                     <a href="?webmenu=dosen" class="nav-link">
@@ -219,6 +226,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                       <p>Semester</p>
                     </a>
                   </li>
+                    <?php } ?>
                   <li class="nav-item">
                     <a href="?webmenu=jadwal" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>

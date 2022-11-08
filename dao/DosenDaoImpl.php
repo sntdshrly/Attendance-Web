@@ -36,7 +36,7 @@ class DosenDaoImpl
 
     public function dosenLogin($nik, $password){
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT nik, nama_dosen, email FROM dosen WHERE nik = ? AND password = ?';
+        $query = 'SELECT * FROM dosen WHERE nik = ? AND password = ?';
         $stmt = $link->prepare($query);
         $stmt->bindParam(1,$nik);
         $stmt->bindParam(2,$password);
