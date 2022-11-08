@@ -31,10 +31,10 @@ class JadwalController
             $trimmedKelas = trim($kelas);
             $trimmedHari = trim($hari);
             $trimmedWaktuMulai = trim($waktuMulai);
-            $trimmedMatkul = trim($matkul);
-            $trimmedDosen = trim($dosen);
-            $trimmedSemester = trim($semester);
-            $trimmedRuangan = trim($ruangan);
+            $trimmedMatkul = trim(substr($matkul, 0, 5));
+            $trimmedDosen = trim(substr($dosen, 0, 5));
+            $trimmedSemester = trim(substr($semester, 0, 1));
+            $trimmedRuangan = trim(substr($ruangan, 0, 1));
             $trimmedTipe = trim($tipe);
 
             $jadwal = new Jadwal;

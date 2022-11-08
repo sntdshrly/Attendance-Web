@@ -41,7 +41,7 @@
                             <?php
                             /**@var $item Matkul*/
                             foreach($matkul as $item) {
-                                echo '<option>'.$item->getKodeMk().'</option>';
+                                echo '<option>'.$item->getKodeMk().' - '.$item->getNamaMk().'</option>';
                             }
                             ?>
                         </select>
@@ -52,7 +52,7 @@
                             <?php
                             /**@var $item Dosen*/
                             foreach($dosen as $item) {
-                                echo '<option>'.$item->getNik().'</option>';
+                                echo '<option>'.$item->getNik().' - '.$item->getNamaDosen().'</option>';
                             }
                             ?>
                         </select>
@@ -63,7 +63,7 @@
                             <?php
                             /**@var $item Semester*/
                             foreach($semester as $item) {
-                                echo '<option>'.$item->getIdSemester().'</option>';
+                                echo '<option>'.$item->getIdSemester().' - '.$item->getNamaTahunSemester().'</option>';
                             }
                             ?>
                         </select>
@@ -74,7 +74,7 @@
                             <?php
                             /**@var $item Ruangan*/
                             foreach($ruangan as $item) {
-                                echo '<option>'.$item->getIdRuangan().'</option>';
+                                echo '<option>'.$item->getIdRuangan().' - '.$item->getNamaRuangan().'</option>';
                             }
                             ?>
                         </select>
