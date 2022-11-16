@@ -56,7 +56,6 @@ class DetailController
         }
         $prodi = $this->detailDao->fetchProdi();
         $matkul = $this->detailDao->fetchMatkul();
-        $asisten = $this->detailDao->fetchAsisten();
         $jadwal = $this->detailDao->fetchJadwal();
         include_once 'view/form-view.php';
     }

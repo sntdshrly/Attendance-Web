@@ -54,6 +54,7 @@ class JadwalController
         $semester = $this->detailDao->fetchSemester();
         $ruangan = $this->detailDao->fetchRuangan();
         $jadwal = $this->jadwalDao->fetchAllJadwal();
+        $asisten = $this->detailDao->fetchAsisten();
         include_once 'view/jadwal-form-view.php';
     }
 }

@@ -79,21 +79,6 @@
                         <textarea rows="4" cols="50" name="catatan" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="labelJumlahAsisten">Jumlah Asisten</label>
-                        <input type="number" id="idJumlahAsisten" name="jumlahAsisten" min="0" max="100" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="labelNRPAsisten">NRP Asisten</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten">
-                            <?php
-                            /**@var $item Asisten*/
-                            foreach($asisten as $item) {
-                                echo '<option>'.$item->getNrp()." - ".$item->getNamaMahasiswa().'</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="labelJumlahJam">Jumlah Jam</label>
                         <input type="number" id="idJumlahJam" name="jumlahJam" min="0" max="500" class="form-control">
                     </div>

@@ -87,6 +87,43 @@
                             <option value="Praktikum">Praktikum</option>
                         </select>
                     </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="labelJumlahAsisten">Jumlah Asisten</label>-->
+<!--                        <input type="number" id="idJumlahAsisten" name="jumlahAsisten" min="0" max="100" class="form-control" required>-->
+<!--                    </div>-->
+                    <div class="form-group">
+                        <label for="labelNRPAsisten">NRP Asisten 1</label>
+                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten">
+                            <?php
+                            /**@var $item Asisten*/
+                            foreach($asisten as $item) {
+                                echo '<option>'.$item->getNrp()." - ".$item->getNamaMahasiswa().'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelNRPAsisten">NRP Asisten 2</label>
+                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten">
+                            <?php
+                            /**@var $item Asisten*/
+                            foreach($asisten as $item) {
+                                echo '<option>'.$item->getNrp()." - ".$item->getNamaMahasiswa().'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelNRPAsisten">NRP Asisten 3</label>
+                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten">
+                            <?php
+                            /**@var $item Asisten*/
+                            foreach($asisten as $item) {
+                                echo '<option>'.$item->getNrp()." - ".$item->getNamaMahasiswa().'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
 
                 <div class="card-footer">
                     <button type="submit" name="btnAddJadwal" class="btn btn-primary">Submit</button>
