@@ -37,7 +37,12 @@
                         echo '<th>' . $details->getMateri() . '</th>';
                         echo '<th>' . $details->getKeterangan() . '</th>';
                         echo '<th>' . $details->getDibantuAsisten() . '</th>';
-                        echo '<th>' . $details->getBukti() . '</th>';
+                        // echo '<th>' . $details->getBukti() . '</th>';
+                        if ($details->getBukti() == null || $details->getBukti() == ' ') {
+                            echo '<th><img src="uploads/default_photo.svg" alt="photo" style="max-width: 60px"></td>';
+                        } else {
+                            echo '<th><img src="uploads/'.$details->getBukti().'" alt="photo" style="max-width: 60px"></td>';
+                        }
                         echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
                         echo '</tr>';
                     }

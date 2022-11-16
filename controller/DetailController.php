@@ -34,7 +34,6 @@ class DetailController
             $dibantuAsisten = filter_input(INPUT_POST, 'jumlahAsisten');
             $nrpAsisten = filter_input(INPUT_POST, 'NRPAsisten');
             $jumlahJam = filter_input(INPUT_POST, 'jumlahJam');
-            $bukti = filter_input(INPUT_POST, 'bukti');
             $jadwal = filter_input(INPUT_POST, 'jadwal');
 
             $detail = new Detail;
@@ -45,14 +44,35 @@ class DetailController
             $detail->setMateri($materi);
             $detail->setKeterangan($catatan);
             $detail->setDibantuAsisten($dibantuAsisten);
-            $detail->setBukti($bukti);
             $detail->getJadwal()->setKelasJadwal(substr($jadwal, 0, 1));
             $detail->getJadwal()->getSemester()->setIdSemester(substr($jadwal, 4, 1));
             $detail->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
             $detail->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
             $detail->getJadwal()->setTipeJadwal(substr($jadwal, 24));
 
-            $result = $this->detailDao->saveDetail($detail);
+            if (isset($_FILES['bukti']['name']) && $_FILES['bukti']['name'] != null) {
+                $directory = 'uploads/';
+                $fileExtension = pathinfo($_FILES['bukti']['name'], PATHINFO_EXTENSION);
+                $newFileName = $pertemuanKe . '-' . $tanggal . '-' . $jadwal . '.' . $fileExtension;
+                $uploadTarget = $directory . $newFileName;
+                if ($_FILES['bukti']['size'] > (1024 * 2048)) {
+                    echo '<div class="bg-error">File size exceed 2 MB. Upload failed.</div>';
+                    $result = $this->detailDao->saveDetail($detail);
+
+                } else {
+                    move_uploaded_file($_FILES['bukti']['tmp_name'], $uploadTarget);
+                    $detail->setBukti($newFileName);
+                $result = $this->detailDao->saveDetail($detail);
+
+                }
+            } else {
+                $result = $this->detailDao->saveDetail($detail);
+            }
+            if ($result) {
+                echo '<div class="bg-info">New detail added</div>';
+            } else {
+                echo '<div class="bg-error">New detail has not been added</div>';
+            }
         }
         $prodi = $this->detailDao->fetchProdi();
         $matkul = $this->detailDao->fetchMatkul();
