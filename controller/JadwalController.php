@@ -4,11 +4,13 @@ class JadwalController
 {
     private $jadwalDao;
     private $detailDao;
+    private $jadwalHasAsistenDao;
 
     public function __construct()
     {
         $this->jadwalDao = new JadwalDaoImpl();
         $this->detailDao = new DetailDaoImpl();
+        $this->jadwalHasAsistenDao = new JadwalHasAsistenDaoImpl();
     }
     public function index()
     {
@@ -27,6 +29,7 @@ class JadwalController
             $semester = filter_input(INPUT_POST,'semester');
             $ruangan = filter_input(INPUT_POST,'ruangan');
             $tipe = filter_input(INPUT_POST,'tipe');
+            $nrp1 = filter_input(INPUT_POST, 'nrp1');
 
             $trimmedKelas = trim($kelas);
             $trimmedHari = trim($hari);
@@ -36,6 +39,7 @@ class JadwalController
             $trimmedSemester = trim(substr($semester, 0, 1));
             $trimmedRuangan = trim(substr($ruangan, 0, 1));
             $trimmedTipe = trim($tipe);
+            $trimmedNrp1 = trim(substr($nrp1, 0, 7));
 
             $jadwal = new Jadwal;
             $jadwal->setKelasJadwal($trimmedKelas);
@@ -47,7 +51,18 @@ class JadwalController
             $jadwal->getRuangan()->setIdRuangan($trimmedRuangan);
             $jadwal->setTipeJadwal($trimmedTipe);
 
-            $result = $this->jadwalDao->saveJadwal($jadwal);
+            $jadwalHasAsisten = new JadwalHasAsisten;
+            $jadwalHasAsisten->getJadwal()->setKelasJadwal($trimmedKelas);
+            $jadwalHasAsisten->getJadwal()->getSemester()->setIdSemester($trimmedSemester);
+            $jadwalHasAsisten->getJadwal()->getDosen()->setNik($trimmedDosen);
+            $jadwalHasAsisten->getJadwal()->getMatkul()->setKodeMk($trimmedMatkul);
+            $jadwalHasAsisten->getJadwal()->setTipeJadwal($trimmedTipe);
+            $jadwalHasAsisten->getAsisten()->setNrp($trimmedNrp1);
+            $jadwalHasAsisten->setPertemuan("");
+            $jadwalHasAsisten->setTanggal("");
+
+            $result1 = $this->jadwalDao->saveJadwal($jadwal);
+            $result2 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
         }
         $matkul = $this->detailDao->fetchMatkul();
         $dosen = $this->detailDao->fetchDosen();
@@ -55,6 +70,7 @@ class JadwalController
         $ruangan = $this->detailDao->fetchRuangan();
         $jadwal = $this->jadwalDao->fetchAllJadwal();
         $asisten = $this->detailDao->fetchAsisten();
+        $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchAllJadwalHasAsisten();
         include_once 'view/jadwal-form-view.php';
     }
 }

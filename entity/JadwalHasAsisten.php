@@ -94,17 +94,29 @@ class JadwalHasAsisten
             case 'jadwal_semester_id_semester':
                 $this->jadwal->semester->setIdSemester($value);
                 break;
+            case 'jadwal_semester_nama_tahun_semester':
+                $this->jadwal->semester->setNamaTahunSemester($value);
+                break;
             case 'jadwal_dosen_nik':
                 $this->jadwal->dosen->setNik($value);
                 break;
+            case 'jadwal_dosen_nama_dosen':
+                $this->jadwal->dosen->setNamaDosen($value);
+                break;
             case 'jadwal_matkul_kode_mk':
                 $this->jadwal->matkul->setKodeMk($value);
+                break;
+            case 'jadwal_matkul_nama_mk':
+                $this->jadwal->matkul->setNamaMk($value);
                 break;
             case 'jadwal_tipe_jadwal':
                 $this->jadwal->setTipeJadwal($value);
                 break;
             case 'asisten_nrp':
                 $this->asisten->setNrp($value);
+                break;
+            case 'asisten_nama_mahasiswa':
+                $this->asisten->setNamaMahasiswa($value);
                 break;
         }
     }

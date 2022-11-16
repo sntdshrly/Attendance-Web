@@ -5,7 +5,7 @@ class JadwalHasAsistenDaoImpl
     public function fetchAllJadwalHasAsisten()
     {
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'SELECT * FROM jadwal_has_asisten';
+        $query = 'SELECT jadwal_kelas_jadwal, jadwal_tipe_jadwal, a.nrp AS "asisten_nrp", a.nama_mahasiswa AS "asisten_nama_mahasiswa", s.id_semester AS "jadwal_semester_id_semester", s.nama_tahun_semester AS "jadwal_semester_nama_tahun_semester", d.nik AS "jadwal_dosen_nik", d.nama_dosen AS "jadwal_dosen_nama_dosen", m.kode_mk AS "jadwal_matkul_kode_mk", m.nama_mk AS "jadwal_matkul_nama_mk", pertemuan, tanggal FROM jadwal_has_asisten jha JOIN asisten a ON jha.asisten_nrp = a.nrp JOIN semester s ON jha.jadwal_semester_id_semester = s.id_semester JOIN dosen d ON jha.jadwal_dosen_nik = d.nik JOIN matkul m ON jha.jadwal_matkul_kode_mk = m.kode_mk';
         $stmt = $link->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'JadwalHasAsisten');
         $stmt->execute();
