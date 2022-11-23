@@ -310,6 +310,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $prodiController = new ProdiController();
                         $prodiController->addProdi();
                         break;
+                    case 'edgenProdi':
+                        $prodiController = new ProdiController();
+                        $prodiController->updateProdi();
+                        break;
                     case 'semester-form':
                         $semesterController = new SemesterController();
                         $semesterController->addSemester();

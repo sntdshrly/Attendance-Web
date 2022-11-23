@@ -48,6 +48,7 @@ class SemesterDaoImpl
         $link = ConnectionUtil::getMySQLConnection();
         $query = 'UPDATE semester SET nama_tahun_semester = ? WHERE id_semester = ?';
         $stmt = $link->prepare($query);
+        $stmt->bindValue(2, $semester->getIdSemester());
         $stmt->bindValue(1, $semester->getNamaTahunsemester());
         $link->beginTransaction();
         if ($stmt->execute()){

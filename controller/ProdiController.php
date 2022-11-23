@@ -42,4 +42,29 @@ class ProdiController
          $prodi = $this->prodiDao->fetchAllProdi();
          include_once 'view/prodi-form-view.php';
      }
+
+     public function updateProdi(){
+        $editedId = filter_input(INPUT_GET,'eidProdi');
+        if(isset($editedId) && $editedId != ''){
+            $prodi = $this->prodiDao->fetchProdiById($editedId);
+        }
+        $buttonPressed = filter_input(INPUT_POST,'btnSubmit');
+        if(isset($buttonPressed)){
+            $namaProdi = filter_input(INPUT_POST,'namaProdi');
+            $tingkatanProdi = filter_input(INPUT_POST,'tingkatanProdi');
+    
+            $updatedProdi = new Prodi();
+            $updatedProdi->setIdProdi($prodi->getIdProdi());
+            $updatedProdi->setNamaProdi($namaProdi);
+            $updatedProdi->setTingkatanProdi($tingkatanProdi);
+            $result = $this->prodiDao->updateProdi($updatedProdi);
+                if ($result){
+                    header('location:index.php?webmenu=prodi');
+                }
+                else{
+                    echo '<div class="bg-error">Failed to update</div>';
+                }
+            }
+            include_once 'view/update-prodi-view.php';
+        }
 }
