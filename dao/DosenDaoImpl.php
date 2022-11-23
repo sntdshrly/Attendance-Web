@@ -46,4 +46,21 @@ class DosenDaoImpl
         $stmt = null;
         return $dosen;
     }
+
+    public function deleteDosen($deletedId) {
+        $result = 0;
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'DELETE FROM dosen WHERE nik = ?';
+        $stmt = $link->prepare($query);
+        $stmt->bindParam(1, $deletedId, PDO::PARAM_STR);
+        $link->beginTransaction();
+        if ($stmt->execute()) {
+            $link->commit();
+            $result = 1;
+        } else {
+            $link->rollBack();
+        }
+        $link = null;
+        return $result;
+    }
 }

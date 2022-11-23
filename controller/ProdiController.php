@@ -10,6 +10,12 @@ class ProdiController
     }
     public function index()
     {
+        /* fungsi delete prodi */
+        $deleteApproved = filter_input(INPUT_GET, 'delcomProdi');
+        if(isset($deleteApproved)&&$deleteApproved==1){
+            $deletedId = filter_input(INPUT_GET,'didProdi');
+            $result = $this->prodiDao->deleteProdi($deletedId);
+        }
         $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/prodi-view.php';
     }

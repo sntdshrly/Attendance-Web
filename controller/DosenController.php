@@ -17,7 +17,14 @@ class DosenController
     }
 
     public function index(){
-        
+       /* fungsi delete dosen */
+       $deleteApproved = filter_input(INPUT_GET, 'delcomDosen');
+       // var_dump($deleteApproved);
+       if(isset($deleteApproved)&&$deleteApproved==1){
+           $deletedId = filter_input(INPUT_GET,'didDosen');
+           $result = $this->dosenDao->deleteDosen($deletedId);
+       }
+
         $dosenDao = new DosenDaoImpl();
         $loginPressed = filter_input(INPUT_POST,'btnLogin');
         if (isset($loginPressed)){
