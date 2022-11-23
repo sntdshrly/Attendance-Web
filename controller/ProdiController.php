@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class ProdiController
 {
     private $prodiDao;
