@@ -94,7 +94,7 @@
                     <input type="checkbox" id="asisten1" name="asisten1" value="Asisten1" onclick="myFunction()">
                     <label for="asisten1"> Asisten 1 </label>
                     <input type="checkbox" id="noasisten1" name="asisten1" value="NoAsisten1" onclick="myFunction()">
-                    <label for="asisten1"> Tanpa Asisten 2</label><br>
+                    <label for="asisten1"> Tanpa Asisten 1</label><br>
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 1</label>
