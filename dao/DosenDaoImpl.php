@@ -17,7 +17,7 @@ class DosenDaoImpl
         $link = ConnectionUtil::getMySQLConnection();
         $query = 'SELECT * FROM dosen WHERE nik = ?';
         $stmt = $link->prepare($query);
-        $stmt->bindParam(1, $id);
+        $stmt->bindParam(1, $nik);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute();
         $link = null;
@@ -75,15 +75,15 @@ class DosenDaoImpl
         return $result;
     }
 
-    public function updateDosen(Dosen $dosen) {
+    public function updateDosen(dosen $dosen) {
         $result = 0;
         $link = ConnectionUtil::getMySQLConnection();
-        $query = 'UPDATE dosen SET nama_dosen = ?, email = ?, role = ? WHERE nik = ?';
+        $query = 'UPDATE dosen SET nama_dosen = ?, email = ?, role_id_role = ? WHERE nik = ?';
         $stmt = $link->prepare($query);
         $stmt->bindValue(4, $dosen->getNik());
         $stmt->bindValue(1, $dosen->getNamaDosen());
         $stmt->bindValue(2, $dosen->getEmail());
-        $stmt->bindValue(3, $dosen->getRole());
+        $stmt->bindValue(3, $dosen->getRole()->getIdRole());
         $link->beginTransaction();
         if ($stmt->execute()) {
             $link->commit();

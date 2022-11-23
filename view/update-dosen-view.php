@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <label for="labelEmailDosen">Email Dosen</label>
                         <input type="text" id="idEmailDosen" name="emailDosen" class="form-control"
-                               value="<?php echo $dosen->getEmailDosen(); ?>" required>
+                               value="<?php echo $dosen->getEmail(); ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="labelNamaDosen">Nama Dosen</label>
@@ -52,7 +52,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" name="btnAddDosen" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="btnUpdateDosen" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

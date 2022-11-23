@@ -80,7 +80,7 @@ class DosenController
         if(isset($editedId) && $editedId != ''){
             $dosen = $this->dosenDao->fetchDosenByNik($editedId);
         }
-        $buttonPressed = filter_input(INPUT_POST,'btnSubmit');
+        $buttonPressed = filter_input(INPUT_POST,'btnUpdateDosen');
         if(isset($buttonPressed)){
             $namaDosen = filter_input(INPUT_POST,'namaDosen');
             $emailDosen = filter_input(INPUT_POST,'emailDosen');
@@ -90,16 +90,17 @@ class DosenController
             $updatedDosen->setNik($dosen->getNik());
             $updatedDosen->setNamaDosen($namaDosen);
             $updatedDosen->setEmail($emailDosen);
-            $updatedDosen->setRole($roleDosen);
+            $updatedDosen->getRole()->setIdRole(substr($roleDosen, 0, 1));
             $result = $this->dosenDao->updateDosen($updatedDosen);
 
             if ($result){
-                header('location:index.php?webmenu=prodi');
+                header('location:index.php?webmenu=dosen');
             }
             else{
                 echo '<div class="bg-error">Failed to update</div>';
             }
         }
+        $role = $this->roleDao->fetchAllRole();
         include_once 'view/update-dosen-view.php';
     }
 }
