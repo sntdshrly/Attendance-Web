@@ -13,6 +13,17 @@ class DosenDaoImpl
         return $stmt->fetchAll();
     }
 
+    public function fetchDosenByNik($nik) {
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'SELECT * FROM dosen WHERE nik = ?';
+        $stmt = $link->prepare($query);
+        $stmt->bindParam(1, $id);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->execute();
+        $link = null;
+        return $stmt->fetchObject('Dosen');
+    }
+
     public function saveDosen(Dosen $dosen)
     {
         $result = 0;
@@ -53,6 +64,26 @@ class DosenDaoImpl
         $query = 'DELETE FROM dosen WHERE nik = ?';
         $stmt = $link->prepare($query);
         $stmt->bindParam(1, $deletedId, PDO::PARAM_STR);
+        $link->beginTransaction();
+        if ($stmt->execute()) {
+            $link->commit();
+            $result = 1;
+        } else {
+            $link->rollBack();
+        }
+        $link = null;
+        return $result;
+    }
+
+    public function updateDosen(Dosen $dosen) {
+        $result = 0;
+        $link = ConnectionUtil::getMySQLConnection();
+        $query = 'UPDATE dosen SET nama_dosen = ?, email = ?, role = ? WHERE nik = ?';
+        $stmt = $link->prepare($query);
+        $stmt->bindValue(4, $dosen->getNik());
+        $stmt->bindValue(1, $dosen->getNamaDosen());
+        $stmt->bindValue(2, $dosen->getEmail());
+        $stmt->bindValue(3, $dosen->getRole());
         $link->beginTransaction();
         if ($stmt->execute()) {
             $link->commit();

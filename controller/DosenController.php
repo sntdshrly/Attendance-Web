@@ -74,4 +74,32 @@ class DosenController
         $role = $this->roleDao->fetchAllRole();
         include_once 'view/dosen-form-view.php';
     }
+
+    public function updateDosen(){
+        $editedId = filter_input(INPUT_GET,'eidDosen');
+        if(isset($editedId) && $editedId != ''){
+            $dosen = $this->dosenDao->fetchDosenByNik($editedId);
+        }
+        $buttonPressed = filter_input(INPUT_POST,'btnSubmit');
+        if(isset($buttonPressed)){
+            $namaDosen = filter_input(INPUT_POST,'namaDosen');
+            $emailDosen = filter_input(INPUT_POST,'emailDosen');
+            $roleDosen = filter_input(INPUT_POST, 'role');
+
+            $updatedDosen = new Dosen();
+            $updatedDosen->setNik($dosen->getNik());
+            $updatedDosen->setNamaDosen($namaDosen);
+            $updatedDosen->setEmail($emailDosen);
+            $updatedDosen->setRole($roleDosen);
+            $result = $this->dosenDao->updateDosen($updatedDosen);
+
+            if ($result){
+                header('location:index.php?webmenu=prodi');
+            }
+            else{
+                echo '<div class="bg-error">Failed to update</div>';
+            }
+        }
+        include_once 'view/update-dosen-view.php';
+    }
 }

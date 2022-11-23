@@ -314,6 +314,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $prodiController = new ProdiController();
                         $prodiController->updateProdi();
                         break;
+                    case 'edgenDosen':
+                        $dosenController = new DosenController();
+                        $dosenController->updateDosen();
+                        break;
                     case 'semester-form':
                         $semesterController = new SemesterController();
                         $semesterController->addSemester();
