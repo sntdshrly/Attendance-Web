@@ -30,7 +30,7 @@
                             /**@var $item Jadwal*/
                             foreach ($jadwal as $item) {
                                 if ($_SESSION['web_role'] == 1) {
-                                    echo '<option>' . $item->getKelasJadwal() . " - " . $item->getSemester()->getIdSemester() . " - " . $item->getDosen()->getNik() . " - " . $item->getMatkul()->getKodeMk() . " - " . $item->getTipeJadwal() . '</option>';
+                                    echo '<option value="{"data":[A, 1, 720307]}>' . $item->getKelasJadwal() . " - " . $item->getSemester()->getIdSemester() . " - " . $item->getDosen()->getNik() . " - " . $item->getMatkul()->getKodeMk() . " - " . $item->getTipeJadwal() . '</option>';
                                 } else {
                                     if ($item->getDosen()->getNik() == $_SESSION['web_nik']) {
                                         echo '<option>' . $item->getKelasJadwal() . " - " . $item->getSemester()->getIdSemester() . " - " . $item->getDosen()->getNik() . " - " . $item->getMatkul()->getKodeMk() . " - " . $item->getTipeJadwal() . '</option>';

@@ -51,15 +51,20 @@ class JadwalController
             $jadwal->getRuangan()->setIdRuangan($trimmedRuangan);
             $jadwal->setTipeJadwal($trimmedTipe);
 
-            $jadwalHasAsisten = new JadwalHasAsisten;
-            $jadwalHasAsisten->getJadwal()->setKelasJadwal($trimmedKelas);
-            $jadwalHasAsisten->getJadwal()->getSemester()->setIdSemester($trimmedSemester);
-            $jadwalHasAsisten->getJadwal()->getDosen()->setNik($trimmedDosen);
-            $jadwalHasAsisten->getJadwal()->getMatkul()->setKodeMk($trimmedMatkul);
-            $jadwalHasAsisten->getJadwal()->setTipeJadwal($trimmedTipe);
-            $jadwalHasAsisten->getAsisten()->setNrp($trimmedNrp1);
-            $jadwalHasAsisten->setPertemuan("");
-            $jadwalHasAsisten->setTanggal("");
+
+            $asisten1 = filter_input(INPUT_POST, 'asisten1');
+            print_r($asisten1);
+            if($asisten1=="Asisten1"){
+                $jadwalHasAsisten = new JadwalHasAsisten;
+                $jadwalHasAsisten->getJadwal()->setKelasJadwal($trimmedKelas);
+                $jadwalHasAsisten->getJadwal()->getSemester()->setIdSemester($trimmedSemester);
+                $jadwalHasAsisten->getJadwal()->getDosen()->setNik($trimmedDosen);
+                $jadwalHasAsisten->getJadwal()->getMatkul()->setKodeMk($trimmedMatkul);
+                $jadwalHasAsisten->getJadwal()->setTipeJadwal($trimmedTipe);
+                $jadwalHasAsisten->getAsisten()->setNrp($trimmedNrp1);
+                $jadwalHasAsisten->setPertemuan("");
+                $jadwalHasAsisten->setTanggal("");
+            }
 
             $result1 = $this->jadwalDao->saveJadwal($jadwal);
             $result2 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);

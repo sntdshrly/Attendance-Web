@@ -111,7 +111,7 @@
 
                     <input type="checkbox" id="asisten2" name="asisten2" value="Asisten2" onclick="myFunction()">
                     <label for="asisten2"> Asisten 2 </label>
-                    <input type="checkbox" id="noasisten2" name="asisten2" value="NoAsisten2" onclick="myFunction()">
+                    <input type="checkbox" id="noasisten2" name="noasisten2" value="NoAsisten2" onclick="myFunction()">
                     <label for="asisten2"> Tanpa Asisten 2</label><br>
 
                     <div class="form-group">
@@ -129,7 +129,7 @@
 
                     <input type="checkbox" id="asisten3" name="asisten3" value="Asisten3" onclick="myFunction()">
                     <label for="asisten3"> Asisten 3 </label>
-                    <input type="checkbox" id="noasisten3" name="asisten3" value="NoAsisten3" onclick="myFunction()">
+                    <input type="checkbox" id="noasisten3" name="noasisten3" value="NoAsisten3" onclick="myFunction()">
                     <label for="asisten3"> Tanpa Asisten 3</label><br>
 
 
