@@ -23,6 +23,10 @@
                         <input type="text" id="idNamaDosen" name="namaDosen" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label for="labelPasswordDosen">Password Dosen</label>
+                        <input type="text" id="idPasswordDosen" name="passwordDosen" class="form-control" required>
+                    </div>
+                    <div class="form-group">
                         <label for="labelRole">Role</label>
                         <select class="form-control select2" style="width: 100%;" name="role" id="idRole">
                             <?php

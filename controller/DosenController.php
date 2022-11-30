@@ -54,11 +54,15 @@ class DosenController
             $nikDosen = filter_input(INPUT_POST,'nikDosen');
             $namaDosen = filter_input(INPUT_POST,'namaDosen');
             $emailDosen = filter_input(INPUT_POST,'emailDosen');
+            $passwordDosen = filter_input(INPUT_POST, 'passwordDosen');
             $roleDosen = filter_input(INPUT_POST, 'role');
 
             $trimmedNik = trim($nikDosen);
             $trimmedNama = trim($namaDosen);
             $trimmedEmail = trim($emailDosen);
+            $trimmedPassword = trim($passwordDosen);
+
+            $trimmedPasswordMD5 = md5($trimmedPassword);
             $trimmedRole = trim(substr($roleDosen, 0, 1));
             var_dump($trimmedRole);
 
@@ -66,9 +70,20 @@ class DosenController
             $dosen->setNik($trimmedNik);
             $dosen->setNamaDosen($trimmedNama);
             $dosen->setEmail($trimmedEmail);
+            $dosen->setPassword($trimmedPasswordMD5);
             $dosen->getRole()->setIdRole($trimmedRole);
 
             $result = $this->dosenDao->saveDosen($dosen);
+            if(isset($result) && $result != null){
+                $_SESSION['web_is_logged'] = true;
+                $_SESSION['web_full_name'] = $trimmedNama;
+                $_SESSION['web_nik'] = $trimmedNik;
+                $_SESSION['web_role'] = $trimmedRole;
+                header('location:index.php');
+            }
+            else{
+                echo'<div class="bg-error">Invalid nik or password</div>';
+            }
         }
         $dosen = $this->dosenDao->fetchAllDosen();
         $role = $this->roleDao->fetchAllRole();
