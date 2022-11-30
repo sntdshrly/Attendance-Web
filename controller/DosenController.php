@@ -48,6 +48,33 @@ class DosenController
         include_once 'view/login-view.php';
     }
 
+    public function register(){
+        $buttonPressed = filter_input(INPUT_POST,'btnAddDosen');
+        if(isset($buttonPressed)){
+            $nikDosen = filter_input(INPUT_POST,'nikDosen');
+            $namaDosen = filter_input(INPUT_POST,'namaDosen');
+            $emailDosen = filter_input(INPUT_POST,'emailDosen');
+            $roleDosen = filter_input(INPUT_POST, 'role');
+
+            $trimmedNik = trim($nikDosen);
+            $trimmedNama = trim($namaDosen);
+            $trimmedEmail = trim($emailDosen);
+            $trimmedRole = trim(substr($roleDosen, 0, 1));
+            var_dump($trimmedRole);
+
+            $dosen = new Dosen();
+            $dosen->setNik($trimmedNik);
+            $dosen->setNamaDosen($trimmedNama);
+            $dosen->setEmail($trimmedEmail);
+            $dosen->getRole()->setIdRole($trimmedRole);
+
+            $result = $this->dosenDao->saveDosen($dosen);
+        }
+        $dosen = $this->dosenDao->fetchAllDosen();
+        $role = $this->roleDao->fetchAllRole();
+        include_once 'view/register-view.php';
+    }
+
     public function addDosen(){
         $buttonPressed = filter_input(INPUT_POST,'btnAddDosen');
         if(isset($buttonPressed)){

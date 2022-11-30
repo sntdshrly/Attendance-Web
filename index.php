@@ -30,7 +30,6 @@ include_once 'controller/JadwalController.php';
 include_once 'controller/JadwalHasAsistenController.php';
 
 
-
 /** If user hasn't login, then web_is_logged = false */
 if (!isset($_SESSION['web_is_logged'])) {
     $_SESSION['web_is_logged'] = false;
@@ -326,6 +325,14 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $jadwalController = new JadwalController();
                         $jadwalController->addJadwal();
                         break;
+                    case 'register':
+                        $dosenController = new DosenController();
+                        $dosenController->register();
+                        break;
+                    // case 'login':
+                    //     $dosenController = new DosenController();
+                    //     $dosenController->index();
+                    //     break;
                     case 'logout';
                         session_unset();
                         session_destroy();
@@ -335,40 +342,19 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $detailController = new DetailController();
                         $detailController->index();
                 }
-            } else {
+            }
+            else {
                 $dosenController = new DosenController();
                 $dosenController->index();
             }
                 ?>
-                <!-- <div class="container-fluid"> -->
-                <!-- <div class="row"> -->
-                <!-- <div class="col-lg-6"> -->
-                <!-- /.card -->
-                <!-- </div> -->
-                <!-- /.col-md-6 -->
-                <!-- </div> -->
-                <!-- /.row -->
-                <!-- </div> -->
-                <!-- /.container-fluid -->
+
                 </div>
                 <!-- /.content -->
             </div>
-            <!-- /.content-wrapper -->
 
-            <!-- Control Sidebar -->
-            <!-- <aside class="control-sidebar control-sidebar-dark"> -->
-            <!-- Control sidebar content goes here -->
-            <!-- </aside> -->
-            <!-- /.control-sidebar -->
-
-            <!-- Main Footer -->
-            <!-- <footer class="main-footer">
-      <strong>Copyright &copy; 2022 <a href="#">itmaranatha.com</a>.</strong>
-      All rights reserved.
-    </footer> -->
     </div>
     <!-- ./wrapper -->
-
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
