@@ -344,8 +344,16 @@ if (!isset($_SESSION['web_is_logged'])) {
                 }
             }
             else {
-                $dosenController = new DosenController();
-                $dosenController->index();
+                $menu = filter_input(INPUT_GET, 'webmenu');
+                switch ($menu) {
+                    case 'register':
+                        $dosenController = new DosenController();
+                        $dosenController->register();
+                        break;
+                    default:
+                        $dosenController = new DosenController();
+                        $dosenController->index();
+                }
             }
                 ?>
 
