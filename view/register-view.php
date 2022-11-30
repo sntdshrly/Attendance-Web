@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <select class="form-control select2" name="role" id="idRole">
+                        <select class="form-control select2" style="width: 70%;" name="role" id="idRole">
                             <?php
                             /**@var $item Role*/
                             foreach ($role as $item) {
