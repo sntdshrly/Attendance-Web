@@ -1,50 +1,95 @@
-<!-- Main content -->
-<section class="content">
-    <!-- left column -->
-    <div class="col-md-13">
-        <!-- general form elements -->
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Register</h3>
-            </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form role="form" method="POST">
-                    <div class="form-group">
-                        <label for="labelNikDosen">NIK</label>
-                        <input type="text" id="idNikDosen" name="nikDosen" class="form-control" required>
+<div class="register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="../../index2.html"><b>Attendance</b>WEB</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new user</p>
+
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" id="idNikDosen" placeholder="NIK" name="nikDosen" class="form-control" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <!-- <span class="fas fa-user"></span> -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="labelEmailDosen">Email Dosen</label>
-                        <input type="text" id="idEmailDosen" name="emailDosen" class="form-control" required>
+                    <div class="input-group mb-3">
+                        <input type="text" id="idEmailDosen" placeholder="Email" name="emailDosen" class="form-control" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <!-- <span class="fas fa-envelope"></span> -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="labelNamaDosen">Nama Dosen</label>
-                        <input type="text" id="idNamaDosen" name="namaDosen" class="form-control" required>
+                    <div class="input-group mb-3">
+                        <input type="text" id="idNamaDosen" placeholder="Nama Dosen" name="namaDosen" class="form-control" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <!-- <span class="fas fa-lock"></span> -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="labelPasswordDosen">Password Dosen</label>
-                        <input type="text" id="idPasswordDosen" name="passwordDosen" class="form-control" required>
+                    <div class="input-group mb-3">
+                        <input type="text" id="idPasswordDosen" placeholder="Password" name="passwordDosen" class="form-control" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <!-- <span class="fas fa-lock"></span> -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="labelRole">Role</label>
-                        <select class="form-control select2" style="width: 100%;" name="role" id="idRole">
+                    <div class="input-group mb-3">
+                        <select class="form-control select2" name="role" id="idRole">
                             <?php
                             /**@var $item Role*/
-                            foreach($role as $item) {
-                                echo '<option>'.$item->getIdRole().' - '.$item->getName().'</option>';
+                            foreach ($role as $item) {
+                                echo '<option>' . $item->getIdRole() . ' - ' . $item->getName() . '</option>';
                             }
                             ?>
                         </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <!-- <span class="fas fa-lock"></span> -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- /.card-body -->
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">
+                                    I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" name="btnAddDosen" class="btn btn-primary btn-block">Register</button>
 
-                <div class="card-footer">
-                    <button type="submit" name="btnAddDosen" class="btn btn-primary">Submit</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <a href="#" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i>
+                        Sign up using Facebook
+                    </a>
+                    <!-- <a href="#" class="btn btn-block btn-danger">
+                    <i class="fab fa-google-plus mr-2"></i>
+                    Sign up using Google+
+                </a> -->
                 </div>
-            </form>
-        </div>
-        <!-- /.card -->
+
+                <a href="index.php" class="text-center">I already have an account</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
     </div>
-</section>
+    <!-- /.register-box -->
+</div>
