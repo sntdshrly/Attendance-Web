@@ -4,11 +4,13 @@ include_once 'DosenController.php';
 class DetailController
 {
     private $detailDao;
+    private $jadwalHasAsistenDao;
 
     public function __construct()
     {
         $this->detailDao = new DetailDaoImpl();
         $this->prodiDao = new ProdiDaoImpl();
+        $this->jadwalHasAsistenDao = new JadwalHasAsistenDaoImpl();
     }
 
     public function index()
@@ -35,6 +37,9 @@ class DetailController
             $nrpAsisten = filter_input(INPUT_POST, 'NRPAsisten');
             $jumlahJam = filter_input(INPUT_POST, 'jumlahJam');
             $jadwal = filter_input(INPUT_POST, 'jadwal');
+            $asisten1opsi = filter_input(INPUT_POST, 'asisten1opsi');
+            $asisten2opsi = filter_input(INPUT_POST, 'asisten2opsi');
+            $asisten3opsi = filter_input(INPUT_POST, 'asisten3opsi');
 
             $detail = new Detail;
             $detail->setPertemuanKe($pertemuanKe);
@@ -49,6 +54,48 @@ class DetailController
             $detail->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
             $detail->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
             $detail->getJadwal()->setTipeJadwal(substr($jadwal, 24));
+
+            $asisten1 = filter_input(INPUT_POST, 'asisten1');
+            if($asisten1=="Asisten1"){
+                $jadwalHasAsisten = new JadwalHasAsisten;
+                $jadwalHasAsisten->getJadwal()->setKelasJadwal(substr($jadwal, 0, 1));
+                $jadwalHasAsisten->getJadwal()->getSemester()->setIdSemester(substr($jadwal, 4, 1));
+                $jadwalHasAsisten->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
+                $jadwalHasAsisten->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
+                $jadwalHasAsisten->getJadwal()->setTipeJadwal(substr($jadwal, 24));
+                $jadwalHasAsisten->getAsisten()->setNrp(substr($asisten1opsi, 7));
+                $jadwalHasAsisten->setPertemuan("");
+                $jadwalHasAsisten->setTanggal("");
+                $result2 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
+            }
+
+            $asisten2 = filter_input(INPUT_POST, 'asisten2');
+            if($asisten2=="Asisten2"){
+                $jadwalHasAsisten = new JadwalHasAsisten;
+                $jadwalHasAsisten->getJadwal()->setKelasJadwal(substr($jadwal, 0, 1));
+                $jadwalHasAsisten->getJadwal()->getSemester()->setIdSemester(substr($jadwal, 4, 1));
+                $jadwalHasAsisten->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
+                $jadwalHasAsisten->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
+                $jadwalHasAsisten->getJadwal()->setTipeJadwal(substr($jadwal, 24));
+                $jadwalHasAsisten->getAsisten()->setNrp(substr($asisten2opsi, 7));
+                $jadwalHasAsisten->setPertemuan("");
+                $jadwalHasAsisten->setTanggal("");
+                $result3 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
+            }
+
+            $asisten3 = filter_input(INPUT_POST, 'asisten3');
+            if($asisten3=="Asisten3"){
+                $jadwalHasAsisten = new JadwalHasAsisten;
+                $jadwalHasAsisten->getJadwal()->setKelasJadwal(substr($jadwal, 0, 1));
+                $jadwalHasAsisten->getJadwal()->getSemester()->setIdSemester(substr($jadwal, 4, 1));
+                $jadwalHasAsisten->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
+                $jadwalHasAsisten->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
+                $jadwalHasAsisten->getJadwal()->setTipeJadwal(substr($jadwal, 24));
+                $jadwalHasAsisten->getAsisten()->setNrp(substr($asisten3opsi, 7));
+                $jadwalHasAsisten->setPertemuan("");
+                $jadwalHasAsisten->setTanggal("");
+                $result4 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
+            }
 
             if (isset($_FILES['bukti']['name']) && $_FILES['bukti']['name'] != null) {
                 $directory = 'uploads/';
@@ -73,11 +120,13 @@ class DetailController
             } else {
                 echo '<div class="bg-error">New detail has not been added</div>';
             }
+
         }
         $prodi = $this->detailDao->fetchProdi();
         $matkul = $this->detailDao->fetchMatkul();
         $jadwal = $this->detailDao->fetchJadwal();
         $asisten = $this->detailDao->fetchAsisten();
+        $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchAllJadwalHasAsisten();
         include_once 'view/form-view.php';
     }
 }

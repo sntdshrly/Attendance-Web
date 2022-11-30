@@ -87,7 +87,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 1</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten" disabled=TRUE>
+                        <select class="form-control select2" style="width: 100%;" name="asisten1opsi" id="idAsisten" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
@@ -105,7 +105,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 2</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten2" disabled=TRUE>
+                        <select class="form-control select2" style="width: 100%;" name="asisten2opsi" id="idAsisten2" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
@@ -124,7 +124,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 3</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten3" disabled=TRUE>
+                        <select class="form-control select2" style="width: 100%;" name="asisten3opsi" id="idAsisten3" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
