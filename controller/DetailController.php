@@ -49,11 +49,12 @@ class DetailController
             $detail->setMateri($materi);
             $detail->setKeterangan($catatan);
             $detail->setDibantuAsisten($dibantuAsisten);
-            $detail->getJadwal()->setKelasJadwal(substr($jadwal, 0, 1));
-            $detail->getJadwal()->getSemester()->setIdSemester(substr($jadwal, 4, 1));
-            $detail->getJadwal()->getDosen()->setNik(substr($jadwal, 8, 5));
-            $detail->getJadwal()->getMatkul()->setKodeMk(substr($jadwal, 16, 5));
-            $detail->getJadwal()->setTipeJadwal(substr($jadwal, 24));
+            $str_arr = explode (" | ", $jadwal);
+            $detail->getJadwal()->setKelasJadwal($str_arr[0]);
+            $detail->getJadwal()->getSemester()->setIdSemester(substr($str_arr[1], 0, 1));
+            $detail->getJadwal()->getDosen()->setNik(substr($str_arr[2], 0, 5));
+            $detail->getJadwal()->getMatkul()->setKodeMk(substr($str_arr[3], 0, 5));
+            $detail->getJadwal()->setTipeJadwal($str_arr[4]);
 
             if (isset($_FILES['bukti']['name']) && $_FILES['bukti']['name'] != null) {
                 $directory = 'uploads/';

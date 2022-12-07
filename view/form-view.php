@@ -30,10 +30,10 @@
                             /**@var $item Jadwal*/
                             foreach ($jadwal as $item) {
                                 if ($_SESSION['web_role'] == 1) {
-                                    echo '<option>' . $item->getKelasJadwal() . " - " . $item->getSemester()->getIdSemester() . " - " . $item->getDosen()->getNik() . " - " . $item->getMatkul()->getKodeMk() . " - " . $item->getTipeJadwal() . '</option>';
+                                    echo '<option>' . $item->getKelasJadwal() . " | " . $item->getSemester()->getIdSemester() . " (".$item->getSemester()->getNamaTahunSemester(). ") | " . $item->getDosen()->getNik() ." (".$item->getDosen()->getNamaDosen(). ") | " . $item->getMatkul()->getKodeMk()." (".$item->getMatkul()->getNamaMk() . ") | " . $item->getTipeJadwal() . '</option>';
                                 } else {
                                     if ($item->getDosen()->getNik() == $_SESSION['web_nik']) {
-                                        echo '<option>' . $item->getKelasJadwal() . " - " . $item->getSemester()->getIdSemester() . " - " . $item->getDosen()->getNik() . " - " . $item->getMatkul()->getKodeMk() . " - " . $item->getTipeJadwal() . '</option>';
+                                        echo '<option>' . $item->getKelasJadwal() . " | " . $item->getSemester()->getIdSemester() . " | " . $item->getDosen()->getNik() . " | " . $item->getMatkul()->getKodeMk() . " | " . $item->getTipeJadwal() . '</option>';
                                     }
                                 }
                             }
@@ -222,13 +222,14 @@
     function changeVal() {
         var f = document.getElementById("idJadwal");
         var chosen = f.options[f.selectedIndex].value;
+        var array = chosen.split(" | ");
         //var idRoSemester = chosen.substring(4, 5);
         //var roSemester = "<?php //echo fetchSemesterById(); ?>//";
 
-        document.getElementById("idKelas").value = chosen.substring(0, 1);
-        document.getElementById("idSemester").value = chosen.substring(4, 5);
-        document.getElementById("idDosen").value = chosen.substring(8, 13);
-        document.getElementById("idMataKuliah").value = chosen.substring(16, 21);
-        document.getElementById("idTipe").value = chosen.substring(24);
+        document.getElementById("idKelas").value = array[0];
+        document.getElementById("idSemester").value = array[1].substring(3, array[1].length-1);
+        document.getElementById("idDosen").value = array[2].substring(7, array[2].length-1);
+        document.getElementById("idMataKuliah").value = array[3].substring(7, array[3].length-1);
+        document.getElementById("idTipe").value = array[4];
     }
 </script>
