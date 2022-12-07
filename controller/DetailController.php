@@ -126,6 +126,9 @@ class DetailController
         $jadwal = $this->detailDao->fetchJadwal();
         $asisten = $this->detailDao->fetchAsisten();
         $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchAllJadwalHasAsisten();
+
+        $roKelas = substr(filter_input(INPUT_POST, 'jadwal'), 0, 1);
+//        $roKelas = "test";
         include_once 'view/form-view.php';
     }
 }

@@ -25,7 +25,7 @@
                     </div> -->
                     <div class="form-group">
                         <label for="labelJadwal">Jadwal</label>
-                        <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal">
+                        <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal" onchange="changeVal()">
                             <?php
                             /**@var $item Jadwal*/
                             foreach ($jadwal as $item) {
@@ -39,6 +39,26 @@
                             }
                             ?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelKelas">Kelas</label>
+                        <input type="text" class="form-control" id="idKelas" name="kelas" placeholder="" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelSemester">Semester</label>
+                        <input type="text" class="form-control" id="idSemester" name="semester" placeholder="" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelDosen">Dosen</label>
+                        <input type="text" class="form-control" id="idDosen" name="dosen" placeholder="" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelMataKuliah">Mata Kuliah</label>
+                        <input type="text" class="form-control" id="idMataKuliah" name="mataKuliah" placeholder="" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelTipe">Tipe</label>
+                        <input type="text" class="form-control" id="idTipe" name="tipe" placeholder="" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="labelPertemuan">Pertemuan Ke</label>
@@ -197,6 +217,18 @@
         if (checkBox6.checked == true) {
             document.getElementById("idAsisten3").disabled = true;
         }
+    }
 
+    function changeVal() {
+        var f = document.getElementById("idJadwal");
+        var chosen = f.options[f.selectedIndex].value;
+        //var idRoSemester = chosen.substring(4, 5);
+        //var roSemester = "<?php //echo fetchSemesterById(); ?>//";
+
+        document.getElementById("idKelas").value = chosen.substring(0, 1);
+        document.getElementById("idSemester").value = chosen.substring(4, 5);
+        document.getElementById("idDosen").value = chosen.substring(8, 13);
+        document.getElementById("idMataKuliah").value = chosen.substring(16, 21);
+        document.getElementById("idTipe").value = chosen.substring(24);
     }
 </script>
