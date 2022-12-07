@@ -8,6 +8,7 @@ class JadwalHasAsisten
     private $asisten;
     private $pertemuan;
     private $tanggal;
+    private $jumlahJam;
 
     /**
      * @return Jadwal
@@ -79,6 +80,22 @@ class JadwalHasAsisten
         $this->tanggal = $tanggal;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getJumlahJam()
+    {
+        return $this->jumlahJam;
+    }
+
+    /**
+     * @param mixed $jumlahJam
+     */
+    public function setJumlahJam($jumlahJam)
+    {
+        $this->jumlahJam = $jumlahJam;
+    }
+
     public function __set($name, $value)
     {
         if (!isset($this->jadwal)) {
@@ -117,6 +134,9 @@ class JadwalHasAsisten
                 break;
             case 'asisten_nama_mahasiswa':
                 $this->asisten->setNamaMahasiswa($value);
+                break;
+            case 'jumlah_jam':
+                $this->jumlahJam = $value;
                 break;
         }
     }

@@ -91,6 +91,7 @@ class DetailController
                 $jadwalHasAsisten->getAsisten()->setNrp(substr($asisten1opsi, 0, 7));
                 $jadwalHasAsisten->setPertemuan("");
                 $jadwalHasAsisten->setTanggal("");
+//                $jadwalHasAsisten->setJumlahJam($jumlahJam);
                 $result2 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
             }
 
@@ -105,6 +106,7 @@ class DetailController
                 $jadwalHasAsisten->getAsisten()->setNrp(substr($asisten2opsi, 0,7));
                 $jadwalHasAsisten->setPertemuan("");
                 $jadwalHasAsisten->setTanggal("");
+//                $jadwalHasAsisten->setJumlahJam($jumlahJam);
                 $result3 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
             }
 
@@ -119,6 +121,7 @@ class DetailController
                 $jadwalHasAsisten->getAsisten()->setNrp(substr($asisten3opsi, 0,7));
                 $jadwalHasAsisten->setPertemuan("");
                 $jadwalHasAsisten->setTanggal("");
+//                $jadwalHasAsisten->setJumlahJam($jumlahJam);
                 $result4 = $this->jadwalHasAsistenDao->saveJadwalHasAsisten($jadwalHasAsisten);
             }
         }
@@ -127,9 +130,6 @@ class DetailController
         $jadwal = $this->detailDao->fetchJadwal();
         $asisten = $this->detailDao->fetchAsisten();
         $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchAllJadwalHasAsisten();
-
-        $roKelas = substr(filter_input(INPUT_POST, 'jadwal'), 0, 1);
-//        $roKelas = "test";
         include_once 'view/form-view.php';
     }
 }

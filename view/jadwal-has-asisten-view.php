@@ -22,6 +22,7 @@
                 <th>Asisten</th>
                 <th>Pertemuan</th>
                 <th>Tanggal</th>
+                <th>Jumlah Jam</th>
             </tr>
             </thead>
             <tbody>
@@ -36,9 +37,9 @@
                 echo '<th>' . $item->getAsisten()->getNamaMahasiswa() . '</th>';
                 echo '<th>' . $item->getPertemuan() . '</th>';
                 echo '<th>' . $item->getTanggal() . '</th>';
+                echo '<th>' . $item->getJumlahJam() . '</th>';
                 echo '</tr>';
             }
-
             ?>
             </tbody>
         </table>
