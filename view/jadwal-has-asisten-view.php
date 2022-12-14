@@ -18,6 +18,27 @@
                             <label for="labelTanggalTo">To</label>
                             <input type="date" id="idTo" name="to" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
                         </div>
+                        <div class="form-group">
+                            <label for="labelNamaMahasiswa">Nama Mahasiswa</label>
+                            <select class="form-control select2" style="width: 100%;" name="asisten" id="idAsisten">
+                                <?php
+                                /**@var $item Asisten*/
+                                foreach ($asisten as $item) {
+                                    echo '<option>' . $item->getNrp() . " - " . $item->getNamaMahasiswa() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group" id="hasilJumlahJam">
+                            <label for="labelJumlahJam">Jumlah Jam</label>
+                            <?php
+                            $total = 0;
+                            foreach ($jadwalHasAsisten as $item) {
+                                $total += $item->getJumlahJam();
+                            }
+                            echo '<p>' . $total . '</p>';
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <!-- /.card-body -->
