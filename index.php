@@ -28,6 +28,7 @@ include_once 'controller/ProdiController.php';
 include_once 'controller/SemesterController.php';
 include_once 'controller/JadwalController.php';
 include_once 'controller/JadwalHasAsistenController.php';
+include_once 'controller/ImportController.php';
 
 
 /** If user hasn't login, then web_is_logged = false */
@@ -325,6 +326,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                     case 'register':
                         $dosenController = new DosenController();
                         $dosenController->register();
+                        break;
+                    case 'import-dosen':
+                        $importDosen = new ImportController();
+                        $importDosen->index();
                         break;
                         // case 'login':
                         //     $dosenController = new DosenController();
