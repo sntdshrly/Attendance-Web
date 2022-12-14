@@ -11,7 +11,12 @@ class JadwalHasAsistenController
 
     public function index()
     {
-        $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchAllJadwalHasAsisten();
+        $buttonPressed = filter_input(INPUT_POST, 'btnFilter');
+        if (isset($buttonPressed)) {
+            $tanggalFrom = filter_input(INPUT_POST, 'from');
+            $tanggalTo = filter_input(INPUT_POST, 'to');
+        }
+        $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchJadwalHasAsistenByDate($tanggalFrom, $tanggalTo);
         include_once 'view/jadwal-has-asisten-view.php';
     }
 }
