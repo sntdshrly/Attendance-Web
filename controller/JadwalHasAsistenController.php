@@ -13,6 +13,9 @@ class JadwalHasAsistenController
 
     public function index()
     {
+        $tanggalFrom = "2022-09-13";
+        $tanggalTo = "2022-09-20";
+        $asistenNrp = "2072200";
         $buttonPressed = filter_input(INPUT_POST, 'btnFilter');
         if (isset($buttonPressed)) {
             $tanggalFrom = filter_input(INPUT_POST, 'from');
