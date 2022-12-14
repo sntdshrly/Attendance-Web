@@ -131,16 +131,14 @@ if (!isset($_SESSION['web_is_logged'])) {
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link active">
+                                <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>Dashboard
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview" style="display: none;">
+                                <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -148,7 +146,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./index.php" class="nav-link">
+                                        <a href="?webmenu=home" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Home</p>
                                         </a>
@@ -156,13 +154,13 @@ if (!isset($_SESSION['web_is_logged'])) {
                                 </ul>
                             </li>
                             <li class="nav-item has-treeview">
-                                <a href="?webmenu=form" class="nav-link active">
+                                <a href="?webmenu=form" class="nav-link">
                                     <i class="nav-icon fas fa-edit"></i>
                                     <p>Form
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview" style="display: none;">
+                                <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="?webmenu=form" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -200,14 +198,13 @@ if (!isset($_SESSION['web_is_logged'])) {
                                 </ul>
                             </li>
                             <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link active">
+                                <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-table"></i>
                                     <p>Data
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-
-                                <ul class="nav nav-treeview" style="display: none;">
+                                <ul class="nav nav-treeview">
                                     <?php
                                     if ($_SESSION['web_role'] == 1) {
                                     ?>
@@ -329,10 +326,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $dosenController = new DosenController();
                         $dosenController->register();
                         break;
-                    // case 'login':
-                    //     $dosenController = new DosenController();
-                    //     $dosenController->index();
-                    //     break;
+                        // case 'login':
+                        //     $dosenController = new DosenController();
+                        //     $dosenController->index();
+                        //     break;
                     case 'logout';
                         session_unset();
                         session_destroy();
@@ -342,8 +339,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $detailController = new DetailController();
                         $detailController->index();
                 }
-            }
-            else {
+            } else {
                 $menu = filter_input(INPUT_GET, 'webmenu');
                 switch ($menu) {
                     case 'register':
@@ -363,17 +359,31 @@ if (!isset($_SESSION['web_is_logged'])) {
 
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE -->
-    <script src="dist/js/adminlte.js"></script>
-
-    <!-- OPTIONAL SCRIPTS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
-    <script src="dist/js/demo.js"></script>
-    <script src="dist/js/pages/dashboard3.js"></script>
 </body>
 
 </html>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="dist/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/pages/dashboard3.js"></script>
+<script>
+    /** add active class and stay opened when selected */
+    var url = window.location;
+
+    // for sidebar menu entirely but not cover treeview
+    $('ul.nav-sidebar a').filter(function() {
+        return this.href == url;
+    }).addClass('active');
+
+    // for treeview
+    $('ul.nav-treeview a').filter(function() {
+        return this.href == url;
+    }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+</script>
