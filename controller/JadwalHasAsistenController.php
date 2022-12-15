@@ -13,17 +13,15 @@ class JadwalHasAsistenController
 
     public function index()
     {
-        $tanggalFrom = "2022-09-13";
-        $tanggalTo = "2022-09-20";
-        $asistenNrp = "2072200";
+        $tanggalFrom = "2022-12-13";
+        $tanggalTo = "2022-12-20";
         $buttonPressed = filter_input(INPUT_POST, 'btnFilter');
         if (isset($buttonPressed)) {
             $tanggalFrom = filter_input(INPUT_POST, 'from');
             $tanggalTo = filter_input(INPUT_POST, 'to');
-            $asistenNrp = substr(filter_input(INPUT_POST, 'asisten'), 0, 7);
         }
         $asisten = $this->detailDao->fetchAsisten();
-        $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchJadwalHasAsistenByDate($tanggalFrom, $tanggalTo, $asistenNrp);
+        $jadwalHasAsisten = $this->jadwalHasAsistenDao->fetchJadwalHasAsistenByDate($tanggalFrom, $tanggalTo);
         include_once 'view/jadwal-has-asisten-view.php';
     }
 }
