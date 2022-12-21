@@ -48,7 +48,7 @@ if(!empty($_GET['status'])){
   <div class="card-header border-0">
     <h3 class="card-title">Dosen</h3>
     <div class="card-tools">
-      <a href="#" class="btn btn-tool btn-sm">
+      <a href="./file/Dosen.csv" download class="btn btn-tool btn-sm">
         <i class="fas fa-download"></i>
       </a>
       <a href="#" class="btn btn-tool btn-sm">

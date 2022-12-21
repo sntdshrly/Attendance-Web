@@ -331,6 +331,14 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $importDosen = new ImportController();
                         $importDosen->index();
                         break;
+                    case 'import-semester':
+                        $importSemester = new ImportController();
+                        $importSemester->indexSemester();
+                        break;
+                    case 'import-prodi':
+                        $importProdi = new ImportController();
+                        $importProdi->indexProdi();
+                        break;
                         // case 'login':
                         //     $dosenController = new DosenController();
                         //     $dosenController->index();
