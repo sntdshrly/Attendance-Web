@@ -12,14 +12,11 @@
                     <div>
                         <div class="form-group">
                             <label for="labelTanggalFrom">From</label>
-                            <input type="date" id="idFrom" name="from" class="form-control"
-                                   data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask
-                                   required>
+                            <input type="date" id="idFrom" name="from" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
                         </div>
                         <div class="form-group">
                             <label for="labelTanggalTo">To</label>
-                            <input type="date" id="idTo" name="to" class="form-control" data-inputmask-alias="datetime"
-                                   data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
+                            <input type="date" id="idTo" name="to" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required>
                         </div>
                     </div>
                 </div>
@@ -45,37 +42,37 @@
             </a>
         </div>
     </div>
-    <div class="card-body table-responsive p-0">
-        <table class="table table-striped table-valign-middle">
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-hover">
             <thead>
-            <tr>
-                <th>Kelas</th>
-                <th>Semester</th>
-                <th>Dosen</th>
-                <th>Matkul</th>
-                <th>Tipe</th>
-                <th>Asisten</th>
-                <th>Pertemuan</th>
-                <th>Tanggal</th>
-                <th>Jumlah Jam</th>
-            </tr>
+                <tr>
+                    <th>Kelas</th>
+                    <th>Semester</th>
+                    <th>Dosen</th>
+                    <th>Matkul</th>
+                    <th>Tipe</th>
+                    <th>Asisten</th>
+                    <th>Pertemuan</th>
+                    <th>Tanggal</th>
+                    <th>Jumlah Jam</th>
+                </tr>
             </thead>
             <tbody>
-            <?php
-            foreach ($jadwalHasAsisten as $item) {
-                echo '<tr>';
-                echo '<th>' . $item->getJadwal()->getKelasJadwal() . '</th>';
-                echo '<th>' . $item->getJadwal()->getSemester()->getNamaTahunSemester() . '</th>';
-                echo '<th>' . $item->getJadwal()->getDosen()->getNamaDosen() . '</th>';
-                echo '<th>' . $item->getJadwal()->getMatkul()->getNamaMk() . '</th>';
-                echo '<th>' . $item->getJadwal()->getTipeJadwal() . '</th>';
-                echo '<th>' . $item->getAsisten()->getNamaMahasiswa() . '</th>';
-                echo '<th>' . $item->getPertemuan() . '</th>';
-                echo '<th>' . $item->getTanggal() . '</th>';
-                echo '<th>' . $item->getJumlahJam() . '</th>';
-                echo '</tr>';
-            }
-            ?>
+                <?php
+                foreach ($jadwalHasAsisten as $item) {
+                    echo '<tr>';
+                    echo '<td>' . $item->getJadwal()->getKelasJadwal() . '</td>';
+                    echo '<td>' . $item->getJadwal()->getSemester()->getNamaTahunSemester() . '</td>';
+                    echo '<td>' . $item->getJadwal()->getDosen()->getNamaDosen() . '</td>';
+                    echo '<td>' . $item->getJadwal()->getMatkul()->getNamaMk() . '</td>';
+                    echo '<td>' . $item->getJadwal()->getTipeJadwal() . '</td>';
+                    echo '<td>' . $item->getAsisten()->getNamaMahasiswa() . '</td>';
+                    echo '<td>' . $item->getPertemuan() . '</td>';
+                    echo '<td>' . $item->getTanggal() . '</td>';
+                    echo '<td>' . $item->getJumlahJam() . '</td>';
+                    echo '</tr>';
+                }
+                ?>
             </tbody>
         </table>
     </div>
@@ -93,36 +90,35 @@
             </a>
         </div>
     </div>
-    <div class="card-body table-responsive p-0">
-        <table class="table table-striped table-valign-middle">
+    <div class="card-body">
+        <table id="example2" class="table table-bordered table-hover">
             <thead>
-            <tr>
-                <th>No</th>
-                <th>NRP</th>
-                <th>Nama Asisten</th>
-                <th>Jumlah Jam</th>
-            </tr>
+                <tr>
+                    <th>No</th>
+                    <th>NRP</th>
+                    <th>Nama Asisten</th>
+                    <th>Jumlah Jam</th>
+                </tr>
             </thead>
             <tbody>
-            <?php
-            $no = 0;
-            foreach ($asisten as $item1) {
-                $no += 1;
-                echo '<tr>';
-                echo '<th>'.$no.'</th>';
-                echo '<th>' . $item1->getNrp() . '</th>';
-                echo '<th>' . $item1->getNamaMahasiswa() . '</th>';
-                $total = 0;
-                foreach ($jadwalHasAsisten as $item2) {
-                    if ($item2->getAsisten()->getNrp() == $item1->getNrp()) {
-                        $total += $item2->getJumlahJam();
+                <?php
+                $no = 0;
+                foreach ($asisten as $item1) {
+                    $no += 1;
+                    echo '<tr>';
+                    echo '<td>' . $no . '</td>';
+                    echo '<td>' . $item1->getNrp() . '</td>';
+                    echo '<td>' . $item1->getNamaMahasiswa() . '</td>';
+                    $total = 0;
+                    foreach ($jadwalHasAsisten as $item2) {
+                        if ($item2->getAsisten()->getNrp() == $item1->getNrp()) {
+                            $total += $item2->getJumlahJam();
+                        }
                     }
+                    echo '<td>' . $total . '</td>';
+                    echo '</tr>';
                 }
-                echo '<th>'.$total.'</th>';
-                echo '</tr>';
-            }
-
-            ?>
+                ?>
             </tbody>
         </table>
     </div>

@@ -44,178 +44,53 @@ if (!empty($_GET['status'])) {
   </div>
 </div>
 
-<div class="content-wrapper">
-  <section class="content">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header border-0">
-            <h3 class="card-title">Program Studi</h3>
-            <!-- <div class="card-tools">
-              <a href="./file/Prodi.csv" download class="btn btn-tool btn-sm">
-                <i class="fas fa-download"></i>
-              </a>
-              <a href="#" class="btn btn-tool btn-sm">
-                <i class="fas fa-bars"></i>
-              </a>
-            </div> -->
-          </div>
-          <div class="card-body">
-            <table id="example2" class="table table-bordered table-hover">
-              <!-- <table class="table table-striped table-valign-middle"> -->
-              <thead>
-                <tr>
-                  <th>Id Prodi</th>
-                  <th>Nama Prodi</th>
-                  <th>Tingkatan Prodi</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                foreach ($prodi as $prodis) {
-                  echo '<tr>';
-                  echo '<td>' . $prodis->getIdProdi() . '</td>';
-                  echo '<td>' . $prodis->getNamaProdi() . '</td>';
-                  echo '<td>' . $prodis->getTingkatanProdi() . '</td>';
-                  echo '<td> 
-                    <button onclick="editProdi(\'' . $prodis->getIdProdi() . '\')" class="btn btn-success">Edit</button>
-                    <button onclick="deleteProdi(\'' . $prodis->getIdProdi() . '\')" class="btn btn-danger">Delete</button></td>';
-                  // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
-                  echo '</tr>';
-                }
-
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-
 <section class="content">
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">DataTable with minimal features & hover style</h3>
+        <div class="card-header border-0">
+          <h3 class="card-title">Program Studi</h3>
+          <div class="card-tools">
+            <a href="./file/Prodi.csv" download class="btn btn-tool btn-sm">
+              <i class="fas fa-download"></i>
+            </a>
+            <a href="#" class="btn btn-tool btn-sm">
+              <i class="fas fa-bars"></i>
+            </a>
+          </div>
         </div>
-        <!-- /.card-header -->
         <div class="card-body">
-          <table id="example2" class="table table-bordered table-hover">
+          <table id="example1" class="table table-bordered table-hover">
+            <!-- <table class="table table-striped table-valign-middle"> -->
             <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
+                <th>Id Prodi</th>
+                <th>Nama Prodi</th>
+                <th>Tingkatan Prodi</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Misc</td>
-                <td>IE Mobile</td>
-                <td>Windows Mobile 6</td>
-                <td>-</td>
-                <td>C</td>
-              </tr>
-              <tr>
-                <td>Misc</td>
-                <td>PSP browser</td>
-                <td>PSP</td>
-                <td>-</td>
-                <td>C</td>
-              </tr>
-              <tr>
-                <td>Other browsers</td>
-                <td>All others</td>
-                <td>-</td>
-                <td>-</td>
-                <td>U</td>
-              </tr>
-            </tbody>
-            <!-- <tfoot>
-                    <tr>
-                      <th>Rendering engine</th>
-                      <th>Browser</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
-                    </tr>
-                  </tfoot> -->
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
+              <?php
+              foreach ($prodi as $prodis) {
+                echo '<tr>';
+                echo '<td>' . $prodis->getIdProdi() . '</td>';
+                echo '<td>' . $prodis->getNamaProdi() . '</td>';
+                echo '<td>' . $prodis->getTingkatanProdi() . '</td>';
+                echo '<td> 
+                    <button onclick="editProdi(\'' . $prodis->getIdProdi() . '\')" class="btn btn-success">Edit</button>
+                    <button onclick="deleteProdi(\'' . $prodis->getIdProdi() . '\')" class="btn btn-danger">Delete</button></td>';
+                // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
+                echo '</tr>';
+              }
 
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">DataTable with default features</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-          <table id="example1" class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td>5</td>
-                <td>C</td>
-              </tr>
+              ?>
             </tbody>
-            <tfoot>
-              <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-              </tr>
-            </tfoot>
           </table>
         </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
     </div>
-    <!-- /.col -->
   </div>
-  <!-- /.row -->
 </section>
 
 
@@ -244,17 +119,4 @@ if (!empty($_GET['status'])) {
       element.style.display = "none";
     }
   }
-</script>
-<script>
-  $(function() {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
 </script>

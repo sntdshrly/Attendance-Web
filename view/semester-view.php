@@ -44,44 +44,50 @@ if (!empty($_GET['status'])) {
   </div>
 </div>
 
-<div class="card">
-  <div class="card-header border-0">
-    <h3 class="card-title">Semester</h3>
-    <div class="card-tools">
-      <a href="./file/Semester.csv" download class="btn btn-tool btn-sm">
-        <i class="fas fa-download"></i>
-      </a>
-      <a href="#" class="btn btn-tool btn-sm">
-        <i class="fas fa-bars"></i>
-      </a>
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header border-0">
+          <h3 class="card-title">Semester</h3>
+          <div class="card-tools">
+            <a href="./file/Semester.csv" download class="btn btn-tool btn-sm">
+              <i class="fas fa-download"></i>
+            </a>
+            <a href="#" class="btn btn-tool btn-sm">
+              <i class="fas fa-bars"></i>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Id Semester</th>
+                <th>Nama Tahun Semester</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              foreach ($semester as $semesters) {
+                echo '<tr>';
+                echo '<td>' . $semesters->getIdsemester() . '</td>';
+                echo '<td>' . $semesters->getNamaTahunsemester() . '</td>';
+                // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
+                echo '<td> 
+                        <button onclick="editSemester(\'' . $semesters->getIdsemester() . '\')" class="btn btn-success">Edit</button>
+                        <button onclick="deleteSemester(\'' . $semesters->getIdsemester() . '\')" class="btn btn-danger">Delete</button></td>';
+                echo '</tr>';
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="card-body table-responsive p-0">
-    <table class="table table-striped table-valign-middle">
-      <thead>
-        <tr>
-          <th>Id Semester</th>
-          <th>Nama Tahun Semester</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        foreach ($semester as $semesters) {
-          echo '<tr>';
-          echo '<th>' . $semesters->getIdsemester() . '</th>';
-          echo '<th>' . $semesters->getNamaTahunsemester() . '</th>';
-          // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
-          echo '<th> 
-                        <button onclick="editSemester(\'' . $semesters->getIdsemester() . '\')" class="btn btn-success">Edit</button>
-                        <button onclick="deleteSemester(\'' . $semesters->getIdsemester() . '\')" class="btn btn-danger">Delete</button></th>';
-          echo '</tr>';
-        }
-        ?>
-      </tbody>
-    </table>
-  </div>
-</div>
+</section>
 <!-- /.card -->
 <script>
   // Fungsi editSemester & deleteSemester 
