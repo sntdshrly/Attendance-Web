@@ -43,7 +43,7 @@ if (!empty($_GET['status'])) {
     </form>
   </div>
 </div>
-
+<br>
 <section class="content">
   <div class="row">
     <div class="col-12">
@@ -52,7 +52,7 @@ if (!empty($_GET['status'])) {
           <h3 class="card-title">Program Studi</h3>
           <div class="card-tools">
             <a href="./file/Prodi.csv" download class="btn btn-tool btn-sm">
-              <i class="fas fa-download"></i>
+              <i class="fas fa-download"> Download Template</i>
             </a>
             <a href="#" class="btn btn-tool btn-sm">
               <i class="fas fa-bars"></i>

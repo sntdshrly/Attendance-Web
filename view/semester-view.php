@@ -30,7 +30,7 @@ if (!empty($_GET['status'])) {
 
 <div class="row">
   <!-- Import link -->
-  <div class="col-md-12 head">
+  <div class="col-12">
     <div class="float-right">
       <a href="javascript:void(0);" class="btn btn-success" onclick="formToggle('importFrm');"><i class="plus"></i> Import</a>
     </div>
@@ -43,6 +43,7 @@ if (!empty($_GET['status'])) {
     </form>
   </div>
 </div>
+<br>
 
 <section class="content">
   <div class="row">
@@ -52,7 +53,7 @@ if (!empty($_GET['status'])) {
           <h3 class="card-title">Semester</h3>
           <div class="card-tools">
             <a href="./file/Semester.csv" download class="btn btn-tool btn-sm">
-              <i class="fas fa-download"></i>
+              <i class="fas fa-download"> Download Template</i>
             </a>
             <a href="#" class="btn btn-tool btn-sm">
               <i class="fas fa-bars"></i>
