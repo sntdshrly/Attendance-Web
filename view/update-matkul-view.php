@@ -43,7 +43,7 @@
                             <?php
                             /**@var $item*/
                             foreach($prodi as $item) {
-                                echo '<option>'.$item->getProdi().' - '.$item->getNamaProdi().'</option>';
+                                echo '<option>'.$item->getIdProdi().' - '.$item->getNamaProdi().'</option>';
                             }
                             ?>
                         </select>
