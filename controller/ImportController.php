@@ -3,6 +3,11 @@
 class ImportController
 {
     private $dosenDao;
+    private $semesterDao;
+    private $prodiDao;
+    private $matkulDao;
+    private $mahasiswaDao;
+    private $jadwalDao;
 
     public function __construct()
     {
@@ -10,7 +15,8 @@ class ImportController
         $this->semesterDao = new SemesterDaoImpl();
         $this->prodiDao = new ProdiDaoImpl();
         $this->matkulDao = new MatkulDaoImpl();
-        $this->mahasiswaDao = new MahasiswaDaoImpl();
+        $this->mahasiswaDao = new AsistenDaoImpl(); 
+        $this->jadwalDao = new JadwalDaoImpl();
     }
 
     public function index(){
@@ -34,7 +40,11 @@ class ImportController
     }
 
     public function indexMahasiswa(){
-        $prodi  = $this->mahasiswaDao->fetchAllMahasiswa();
+        $prodi  = $this->mahasiswaDao->fetchAllAsisten();
         include_once 'view/mahasiswa-view.php';
+    }
+    public function indexJadwal(){
+        $jadwal  = $this->jadwalDao->fetchAllJadwal();
+        include_once 'view/jadwal-view.php';
     }
 }

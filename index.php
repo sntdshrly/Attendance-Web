@@ -21,6 +21,8 @@ include_once 'dao/SemesterDaoImpl.php';
 include_once 'dao/JadwalDaoImpl.php';
 include_once 'dao/JadwalHasAsistenDaoImpl.php';
 include_once 'dao/RoleDaoImpl.php';
+include_once 'dao/MatkulDaoImpl.php';
+
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
@@ -348,6 +350,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                     case 'import-mahasiswa':
                         $importMahasiswa = new ImportController();
                         $importMahasiswa->indexMahasiswa();
+                        break;
+                    case 'import-jadwal':
+                        $importJadwal = new ImportController();
+                        $importJadwal->indexJadwal();
                         break;
                         // case 'login':
                         //     $dosenController = new DosenController();
