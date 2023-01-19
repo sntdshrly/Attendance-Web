@@ -8,6 +8,29 @@ class Matkul
     private $prodi;
     private $jumlahSks;
 
+    public function __construct()
+    {
+        $this->prodi = new Prodi();
+    }
+
+    /**
+     * @return Prodi
+     */
+    public function getProdi()
+    {
+        if (!isset($this->prodi)) {
+            $this->prodi = new Prodi();
+        }
+        return $this->prodi;
+    }
+
+    /**
+     * @param Prodi $prodi
+     */
+    public function setProdi($prodi)
+    {
+        $this->prodi = $prodi;
+    }
     /**
      * @return mixed
      */
@@ -40,24 +63,7 @@ class Matkul
         $this->namaMk = $namaMk;
     }
 
-    /**
-     * @return Prodi
-     */
-    public function getProdi()
-    {
-        if (!isset($this->prodi)) {
-            $this->prodi = new Prodi();
-        }
-        return $this->prodi;
-    }
 
-    /**
-     * @param Prodi $prodi
-     */
-    public function setProdi($prodi)
-    {
-        $this->prodi = $prodi;
-    }
 
     /**
      * @return mixed
@@ -92,6 +98,9 @@ class Matkul
                 break;
             case 'prodi_id_prodi':
                 $this->prodi->setIdProdi($value);
+                break;
+            case 'prodi_name':
+                $this->prodi->setNamaProdi($value);
                 break;
         }
     }
