@@ -78,8 +78,8 @@ if (!empty($_GET['status'])) {
                             echo '<td>' . $asistens->getNrp() . '</td>';
                             echo '<td>' . $asistens->getNamaMahasiswa() . '</td>';
                             echo '<td> 
-                    <button onclick="editDosen(\'' . $asistens->getNrp() . '\')" class="btn btn-success">Edit</button>
-                    <button onclick="deleteDosen(\'' . $asistens->getNrp() . '\')" class="btn btn-danger">Delete</button></td>';
+                    <button onclick="editMahasiswa(\'' . $asistens->getNrp() . '\')" class="btn btn-success">Edit</button>
+                    <button onclick="deleteMahasiswa(\'' . $asistens->getNrp() . '\')" class="btn btn-danger">Delete</button></td>';
                             // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
                             echo '</tr>';
                         }
@@ -102,7 +102,7 @@ if (!empty($_GET['status'])) {
     function deleteMahasiswa(id) {
         const confirmation = window.confirm("Are you sure want to delete this data?");
         if (confirmation) {
-            window.location = "index.php?webmenu=asisten&delcomMahasiswa=1&didMahasiswa=" + id;
+            window.location = "index.php?webmenu=mahasiswa&delcomMahasiswa=1&didMahasiswa=" + id;
         }
     }
 
