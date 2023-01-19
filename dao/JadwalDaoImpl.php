@@ -37,25 +37,4 @@ class JadwalDaoImpl
         $link = null;
         return $result;
     }
-
-    public function deleteJadwal($deletedKelas, $deletedMatkul, $deletedDosen, $deletedSemester, $deletedTipe) {
-        $result = 0;
-        $link = ConnectionUtil::getMySQLConnection();
-        $query = ' DELETE FROM jadwal WHERE kelas_jadwal = ? AND matkul_kode_mk = ? AND dosen_nik = ? AND semester_id_semester = ? AND tipe_jadwal = ?';
-        $stmt = $link->prepare($query);
-        $stmt->bindParam(1, $deletedKelas, PDO::PARAM_STR);
-        $stmt->bindParam(2, $deletedMatkul, PDO::PARAM_STR);
-        $stmt->bindParam(3, $deletedDosen, PDO::PARAM_STR);
-        $stmt->bindParam(4, $deletedSemester, PDO::PARAM_STR);
-        $stmt->bindParam(5, $deletedTipe, PDO::PARAM_STR);
-        $link->beginTransaction();
-        if ($stmt->execute()) {
-            $link->commit();
-            $result = 1;
-        } else {
-            $link->rollBack();
-        }
-        $link = null;
-        return $result;
-    }
 }

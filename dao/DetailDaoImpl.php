@@ -134,26 +134,4 @@ class DetailDaoImpl
         $link = null;
         return $result;
     }
-
-    public function deleteDetail($deletedPertemuan, $deletedKelas, $deletedSemester, $deletedDosen, $deletedMatkul, $deletedTipe) {
-        $result = 0;
-        $link = ConnectionUtil::getMySQLConnection();
-        $query = ' DELETE FROM detail WHERE pertemuan_ke = ? AND jadwal_kelas_jadwal = ? AND jadwal_semester_id_semester = ? AND jadwal_dosen_nik = ? AND jadwal_matkul_kode_mk = ? AND jadwal_tipe_jadwal = ?';
-        $stmt = $link->prepare($query);
-        $stmt->bindParam(1, $deletedPertemuan, PDO::PARAM_STR);
-        $stmt->bindParam(2, $deletedKelas, PDO::PARAM_STR);
-        $stmt->bindParam(3, $deletedSemester, PDO::PARAM_STR);
-        $stmt->bindParam(4, $deletedDosen, PDO::PARAM_STR);
-        $stmt->bindParam(5, $deletedMatkul, PDO::PARAM_STR);
-        $stmt->bindParam(6, $deletedTipe, PDO::PARAM_STR);
-        $link->beginTransaction();
-        if ($stmt->execute()) {
-            $link->commit();
-            $result = 1;
-        } else {
-            $link->rollBack();
-        }
-        $link = null;
-        return $result;
-    }
 }

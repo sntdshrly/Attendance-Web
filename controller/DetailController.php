@@ -19,17 +19,6 @@ class DetailController
         if ($dosenLogin != '') {
             $detail = $this->detailDao->fetchAllDetail();
         }
-        /* fungsi delete detail */
-        $deleteApproved = filter_input(INPUT_GET, 'delcomDetail');
-        if (isset($deleteApproved) && $deleteApproved == 1) {
-            $deletedPertemuan = filter_input(INPUT_GET, 'dpDetail');
-            $deletedKelas = filter_input(INPUT_GET, 'dkDetail');
-            $deletedSemester = filter_input(INPUT_GET, 'dsDetail');
-            $deletedDosen = filter_input(INPUT_GET, 'ddDetail');
-            $deletedMatkul = filter_input(INPUT_GET, 'dmDetail');
-            $deletedTipe = filter_input(INPUT_GET, 'dtDetail');
-            $result = $this->detailDao->deleteDetail($deletedPertemuan, $deletedKelas, $deletedSemester, $deletedDosen, $deletedMatkul, $deletedTipe);
-        }
         $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/home-view.php';
     }
@@ -68,8 +57,8 @@ class DetailController
             $detail->getJadwal()->setTipeJadwal($str_arr[4]);
 
             if (isset($_FILES['bukti']['name']) && $_FILES['bukti']['name'] != null) {
-                $fileExtension = pathinfo($_FILES['bukti']['name'], PATHINFO_EXTENSION);
                 $directory = 'uploads/';
+                $fileExtension = pathinfo($_FILES['bukti']['name'], PATHINFO_EXTENSION);
                 $newFileName = $pertemuanKe . '-' . $tanggal . '-' . $jadwal . '.' . $fileExtension;
                 $uploadTarget = $directory . $newFileName;
                 if ($_FILES['bukti']['size'] > (1024 * 2048)) {
@@ -77,12 +66,9 @@ class DetailController
                     $result = $this->detailDao->saveDetail($detail);
 
                 } else {
-                    $directory = 'uploads/';
-                    $newFileName = $pertemuanKe . '-' . $tanggal . '.' . $fileExtension;
-                    $uploadTarget = $directory . $newFileName;
                     move_uploaded_file($_FILES['bukti']['tmp_name'], $uploadTarget);
                     $detail->setBukti($newFileName);
-                    $result = $this->detailDao->saveDetail($detail);
+                $result = $this->detailDao->saveDetail($detail);
 
                 }
             } else {
