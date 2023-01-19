@@ -107,7 +107,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 1</label>
-                        <input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search for names..">
+                        <input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search for names/NRP..">
                         <select class="form-control select2" style="width: 100%;" name="asisten1opsi" id="idAsisten" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
@@ -125,7 +125,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 2</label>
-                        <input type="text" id="myInput2" onkeyup="filterFunction2()" placeholder="Search for names..">
+                        <input type="text" id="myInput2" onkeyup="filterFunction2()" placeholder="Search for names/NRP..">
                         <select class="form-control select2" style="width: 100%;" name="asisten2opsi" id="idAsisten2" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
@@ -145,7 +145,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 3</label>
-                        <input type="text" id="myInput3" onkeyup="filterFunction3()" placeholder="Search for names..">
+                        <input type="text" id="myInput3" onkeyup="filterFunction3()" placeholder="Search for names/NRP..">
                         <select class="form-control select2" style="width: 100%;" name="asisten3opsi" id="idAsisten3" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
