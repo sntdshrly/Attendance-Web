@@ -24,11 +24,13 @@
                     </div> -->
                     <div class="form-group">
                         <label for="labelKodeMatkul">Kode Matkul</label>
-                        <input type="text" id="idkodeMatkul" name="kodeMatkul" class="form-control" required>
+                        <input type="text" id="idkodeMatkul" name="kodeMatkul" class="form-control"
+                        value="<?php echo $matkul->getKodeMk(); ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="labelNamaMatkul">Nama Matkul</label>
-                        <input type="text" id="idNamaMatkul" name="namaMatkul" class="form-control" required>
+                        <input type="text" id="idNamaMatkul" 
+                        value="<?php echo $matkul->getNamaMk(); ?>" name="namaMatkul" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="labelProdi">Prodi</label>
@@ -43,13 +45,14 @@
                     </div>
                     <div class="form-group">
                         <label for="labelJumlahSks">Jumlah SKS</label>
-                        <input type="text" id="idJumlahSks" name="jumlahSks" class="form-control" required>
+                        <input type="text" id="idJumlahSks" name="jumlahSks" class="form-control"
+                        value="<?php echo $matkul->getJumlahSks(); ?>" required>
                     </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" name="btnAddMatkul" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="btnUpdateMatkul" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

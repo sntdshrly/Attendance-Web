@@ -45,6 +45,7 @@ class MatkulController
 
             $result = $this->matkulDao->saveMatkul($matkul);
         }
+        $prodi = $this->prodiDao->fetchAllProdi();
         $matkul = $this->matkulDao->fetchAllMatkul();
         include_once 'view/matkul-form-view.php';
     }
@@ -62,9 +63,9 @@ class MatkulController
 
             $updatedMatkul = new Matkul();
             $updatedMatkul->setKodeMk($matkul->getKodeMk());
-            $updatedMatkul->setNamaMk($namaMk);
+            $updatedMatkul->setNamaMk($namaMatkul);
             $updatedMatkul->setJumlahSks($jumlahSks);
-            $updatedMatkul->getProdi()->setIdProdi($prodi);
+            $updatedMatkul->getProdi()->setIdProdi(substr($prodi, 0, 2));
             $result = $this->matkulDao->updateMatkul($updatedMatkul);
 
             if ($result){
