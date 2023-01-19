@@ -68,8 +68,8 @@ class DetailController
             $detail->getJadwal()->setTipeJadwal($str_arr[4]);
 
             if (isset($_FILES['bukti']['name']) && $_FILES['bukti']['name'] != null) {
-                $directory = 'uploads/';
                 $fileExtension = pathinfo($_FILES['bukti']['name'], PATHINFO_EXTENSION);
+                $directory = 'uploads/';
                 $newFileName = $pertemuanKe . '-' . $tanggal . '-' . $jadwal . '.' . $fileExtension;
                 $uploadTarget = $directory . $newFileName;
                 if ($_FILES['bukti']['size'] > (1024 * 2048)) {
@@ -77,9 +77,12 @@ class DetailController
                     $result = $this->detailDao->saveDetail($detail);
 
                 } else {
+                    $directory = 'uploads/';
+                    $newFileName = $pertemuanKe . '-' . $tanggal . '.' . $fileExtension;
+                    $uploadTarget = $directory . $newFileName;
                     move_uploaded_file($_FILES['bukti']['tmp_name'], $uploadTarget);
                     $detail->setBukti($newFileName);
-                $result = $this->detailDao->saveDetail($detail);
+                    $result = $this->detailDao->saveDetail($detail);
 
                 }
             } else {
