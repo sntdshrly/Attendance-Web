@@ -15,11 +15,12 @@
                         <label for="labelProgramStudi">Program Studi</label>
                         <select class="form-control select2" style="width: 100%;" name="programStudi" id="idProgramStudi">
                             <?php
-                    /**@var $item Dosen*/
-                    // foreach($prodi as $item) {
-                    //     echo '<option>'.$item->getNamaProdi().'</option>';
-                    // }
-                    // ?>
+                            /**@var $item Dosen*/
+                            // foreach($prodi as $item) {
+                            //     echo '<option>'.$item->getNamaProdi().'</option>';
+                            // }
+                            // 
+                            ?>
                         </select>
                     </div> -->
                     <div class="form-group">
@@ -36,11 +37,11 @@
                     </div>
                     <div class="form-group">
                         <label for="labelRole">Role</label>
-                        <select class="form-control select2" style="width: 100%;" name="role" id="idRole">
+                        <select multiple="multiple" class="form-control select2" style="width: 100%;" name="role" id="idRole">
                             <?php
                             /**@var $item Role*/
-                            foreach($role as $item) {
-                                echo '<option>'.$item->getIdRole().' - '.$item->getName().'</option>';
+                            foreach ($role as $item) {
+                                echo '<option>' . $item->getIdRole() . ' - ' . $item->getName() . '</option>';
                             }
                             ?>
                         </select>
@@ -56,3 +57,8 @@
         <!-- /.card -->
     </div>
 </section>
+<script>
+    $('#idRole').select2({
+        closeOnSelect: false
+    });
+</script>

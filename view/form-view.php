@@ -25,7 +25,7 @@
                     </div> -->
                     <div class="form-group">
                         <label for="labelJadwal">Jadwal</label>
-                        <select class="form-control select2" style="width: 100%;" name="jadwal" id="idJadwal" onchange="changeVal()">
+                        <select class="form-control select2" style="width: 100%;" multiple="multiple" name="jadwal" id="idJadwal" onchange="changeVal()">
                             <?php
                             /**@var $item Jadwal*/
                             foreach ($jadwal as $item) {
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelPertemuan">Pertemuan Ke</label>
-                        <select class="form-control select2" style="width: 100%;" name="pertemuan" id="idPertemuan">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="pertemuan" id="idPertemuan">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -107,7 +107,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 1</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten1opsi" id="idAsisten" disabled=TRUE>
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="asisten1opsi" id="idAsisten" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
@@ -124,7 +124,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 2</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten2opsi" id="idAsisten2" disabled=TRUE>
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="asisten2opsi" id="idAsisten2" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
@@ -142,7 +142,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 3</label>
-                        <select class="form-control select2" style="width: 100%;" name="asisten3opsi" id="idAsisten3" disabled=TRUE>
+                        <select class="form-control select2" style="width: 100%;" multiple="multiple"  name="asisten3opsi" id="idAsisten3" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
@@ -247,7 +247,7 @@
     $('#idJadwal').select2({
         closeOnSelect: false
     });
-    
+
     $('#idPertemuan').select2({
         closeOnSelect: false
     });
