@@ -66,7 +66,7 @@ class AsistenDaoImpl
         $query = 'UPDATE asisten SET nama_mahasiswa = ? WHERE nrp = ?';
         $stmt = $link->prepare($query);
         $stmt->bindValue(1, $asisten->getNamaMahasiswa());
-        $stmt->bindValue(1, $asisten->getNrp());
+        $stmt->bindValue(2, $asisten->getNrp());
         $link->beginTransaction();
         if ($stmt->execute()) {
             $link->commit();

@@ -48,7 +48,7 @@ class AsistenController
 
     public function updateAsisten()
     {
-        $editedId = filter_input(INPUT_GET, 'eidAsisten');
+        $editedId = filter_input(INPUT_GET, 'eidMahasiswa');
         if (isset($editedId) && $editedId != '') {
             $asisten = $this->asistenDao->fetchAsistenByNrp($editedId);
         }
@@ -67,7 +67,6 @@ class AsistenController
                 echo '<div class="bg-error">Failed to update</div>';
             }
         }
-        $asisten = $this->asistenDao->fetchAllAsisten();
         include_once 'view/update-mahasiswa-view.php';
     }
 }
