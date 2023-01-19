@@ -19,6 +19,17 @@ class DetailController
         if ($dosenLogin != '') {
             $detail = $this->detailDao->fetchAllDetail();
         }
+        /* fungsi delete detail */
+        $deleteApproved = filter_input(INPUT_GET, 'delcomDetail');
+        if (isset($deleteApproved) && $deleteApproved == 1) {
+            $deletedPertemuan = filter_input(INPUT_GET, 'dpDetail');
+            $deletedKelas = filter_input(INPUT_GET, 'dkDetail');
+            $deletedSemester = filter_input(INPUT_GET, 'dsDetail');
+            $deletedDosen = filter_input(INPUT_GET, 'ddDetail');
+            $deletedMatkul = filter_input(INPUT_GET, 'dmDetail');
+            $deletedTipe = filter_input(INPUT_GET, 'dtDetail');
+            $result = $this->detailDao->deleteDetail($deletedPertemuan, $deletedKelas, $deletedSemester, $deletedDosen, $deletedMatkul, $deletedTipe);
+        }
         $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/home-view.php';
     }
