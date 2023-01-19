@@ -30,7 +30,7 @@
                             /**@var $item Jadwal*/
                             foreach ($jadwal as $item) {
                                 if ($_SESSION['web_role'] == 1) {
-                                    echo '<option>' . $item->getKelasJadwal() . " | " . $item->getSemester()->getIdSemester() . " (".$item->getSemester()->getNamaTahunSemester(). ") | " . $item->getDosen()->getNik() ." (".$item->getDosen()->getNamaDosen(). ") | " . $item->getMatkul()->getKodeMk()." (".$item->getMatkul()->getNamaMk() . ") | " . $item->getTipeJadwal() . '</option>';
+                                    echo '<option>' . $item->getKelasJadwal() . " | " . $item->getSemester()->getIdSemester() . " (" . $item->getSemester()->getNamaTahunSemester() . ") | " . $item->getDosen()->getNik() . " (" . $item->getDosen()->getNamaDosen() . ") | " . $item->getMatkul()->getKodeMk() . " (" . $item->getMatkul()->getNamaMk() . ") | " . $item->getTipeJadwal() . '</option>';
                                 } else {
                                     if ($item->getDosen()->getNik() == $_SESSION['web_nik']) {
                                         echo '<option>' . $item->getKelasJadwal() . " | " . $item->getSemester()->getIdSemester() . " | " . $item->getDosen()->getNik() . " | " . $item->getMatkul()->getKodeMk() . " | " . $item->getTipeJadwal() . '</option>';
@@ -107,13 +107,13 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 1</label>
+                        <input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search for names/NRP..">
                         <select class="form-control select2" style="width: 100%;" name="asisten1opsi" id="idAsisten" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
                                 echo '<option>' . $item->getNrp() . " - " . $item->getNamaMahasiswa() . '</option>';
                             }
-
                             ?>
                         </select>
                     </div>
@@ -125,6 +125,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 2</label>
+                        <input type="text" id="myInput2" onkeyup="filterFunction2()" placeholder="Search for names/NRP..">
                         <select class="form-control select2" style="width: 100%;" name="asisten2opsi" id="idAsisten2" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
@@ -144,6 +145,7 @@
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 3</label>
+                        <input type="text" id="myInput3" onkeyup="filterFunction3()" placeholder="Search for names/NRP..">
                         <select class="form-control select2" style="width: 100%;" name="asisten3opsi" id="idAsisten3" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
@@ -224,12 +226,58 @@
         var chosen = f.options[f.selectedIndex].value;
         var array = chosen.split(" | ");
         //var idRoSemester = chosen.substring(4, 5);
-        //var roSemester = "<?php //echo fetchSemesterById(); ?>//";
+        //var roSemester = "<?php //echo fetchSemesterById(); 
+                            ?>//";
 
         document.getElementById("idKelas").value = array[0];
-        document.getElementById("idSemester").value = array[1].substring(3, array[1].length-1);
-        document.getElementById("idDosen").value = array[2].substring(7, array[2].length-1);
-        document.getElementById("idMataKuliah").value = array[3].substring(7, array[3].length-1);
+        document.getElementById("idSemester").value = array[1].substring(3, array[1].length - 1);
+        document.getElementById("idDosen").value = array[2].substring(7, array[2].length - 1);
+        document.getElementById("idMataKuliah").value = array[3].substring(7, array[3].length - 1);
         document.getElementById("idTipe").value = array[4];
+    }
+
+    function filterFunction() {
+        var input, filter, select, option, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        select = document.getElementById("idAsisten");
+        option = select.getElementsByTagName("option");
+        for (i = 0; i < option.length; i++) {
+            if (option[i].text.toUpperCase().indexOf(filter) > -1) {
+                option[i].style.display = "";
+            } else {
+                option[i].style.display = "none";
+            }
+        }
+    }
+
+    function filterFunction2() {
+        var input, filter, select, option, i;
+        input = document.getElementById("myInput2");
+        filter = input.value.toUpperCase();
+        select = document.getElementById("idAsisten2");
+        option = select.getElementsByTagName("option");
+        for (i = 0; i < option.length; i++) {
+            if (option[i].text.toUpperCase().indexOf(filter) > -1) {
+                option[i].style.display = "";
+            } else {
+                option[i].style.display = "none";
+            }
+        }
+    }
+
+    function filterFunction3() {
+        var input, filter, select, option, i;
+        input = document.getElementById("myInput3");
+        filter = input.value.toUpperCase();
+        select = document.getElementById("idAsisten3");
+        option = select.getElementsByTagName("option");
+        for (i = 0; i < option.length; i++) {
+            if (option[i].text.toUpperCase().indexOf(filter) > -1) {
+                option[i].style.display = "";
+            } else {
+                option[i].style.display = "none";
+            }
+        }
     }
 </script>

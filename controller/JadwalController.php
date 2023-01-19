@@ -14,6 +14,16 @@ class JadwalController
     }
     public function index()
     {
+        /* fungsi delete jadwal */
+        $deleteApproved = filter_input(INPUT_GET, 'delcomJadwal');
+        if (isset($deleteApproved) && $deleteApproved == 1) {
+            $deletedKelas = filter_input(INPUT_GET, 'dkJadwal');
+            $deletedMatkul = filter_input(INPUT_GET, 'dmJadwal');
+            $deletedDosen = filter_input(INPUT_GET, 'ddJadwal');
+            $deletedSemester = filter_input(INPUT_GET, 'dsJadwal');
+            $deletedTipe = filter_input(INPUT_GET, 'dtJadwal');
+            $result = $this->jadwalDao->deleteJadwal($deletedKelas, $deletedMatkul, $deletedDosen, $deletedSemester, $deletedTipe);
+        }
         $jadwal = $this->jadwalDao->fetchAllJadwal();
         include_once 'view/jadwal-view.php';
     }
