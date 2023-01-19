@@ -82,8 +82,8 @@ if (!empty($_GET['status'])) {
                             echo '<td>' . $matkuls->getProdi()->getNamaProdi() . '</td>';
                             echo '<td>' . $matkuls->getJumlahSks() . '</td>';
                             echo '<td> 
-                    <button onclick="editMatkul(\'' . $matkuls->getKodeMk() . '\')" class="btn btn-success">Edit</button>
-                    <button onclick="deleteMatkul(\'' . $matkuls->getKodeMk() . '\')" class="btn btn-danger">Delete</button></td>';
+                    <button onclick="editDosen(\'' . $matkuls->getKodeMk() . '\')" class="btn btn-success">Edit</button>
+                    <button onclick="deleteDosen(\'' . $matkuls->getKodeMk() . '\')" class="btn btn-danger">Delete</button></td>';
                             // echo '<th>' . $details->getJadwal()->getKelasJadwal() . '</th>';
                             echo '</tr>';
                         }

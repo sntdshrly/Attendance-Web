@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="labelKelas">Kelas</label>
-                        <select class="form-control select2" style="width: 100%;" name="kelas" id="idKelas">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="kelas" id="idKelas">
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelHari">Hari</label>
-                        <select class="form-control select2" style="width: 100%;" name="hari" id="idHari">
+                        <select class="form-control select2" multiple="multiple"  style="width: 100%;" name="hari" id="idHari">
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
                             <option value="Rabu">Rabu</option>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelMatkul">Matkul</label>
-                        <select class="form-control select2" style="width: 100%;" name="matkul" id="idMatkul">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="matkul" id="idMatkul">
                             <?php
                             /**@var $item Matkul*/
                             foreach ($matkul as $item) {
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelDosen">Dosen</label>
-                        <select class="form-control select2" style="width: 100%;" name="dosen" id="idDosen">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="dosen" id="idDosen">
                             <?php
                             /**@var $item Dosen*/
                             foreach ($dosen as $item) {
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelSemester">Semester</label>
-                        <select class="form-control select2" style="width: 100%;" name="semester" id="idSemester">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="semester" id="idSemester">
                             <?php
                             /**@var $item Semester*/
                             foreach ($semester as $item) {
@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelRuangan">Ruangan</label>
-                        <select class="form-control select2" style="width: 100%;" name="ruangan" id="idRuangan">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="ruangan" id="idRuangan">
                             <?php
                             /**@var $item Ruangan*/
                             foreach ($ruangan as $item) {
@@ -81,7 +81,7 @@
                     </div>
                     <div class="form-group">
                         <label for="labelTipe">Tipe</label>
-                        <select class="form-control select2" style="width: 100%;" name="tipe" id="idTipe">
+                        <select class="form-control select2" multiple="multiple" style="width: 100%;" name="tipe" id="idTipe">
                             <option value="-">-</option>
                             <option value="Teori">Teori</option>
                             <option value="Praktikum">Praktikum</option>
@@ -100,3 +100,26 @@
         <!-- /.card -->
     </div>
 </section>
+<script>
+    $('#idKelas').select2({
+        closeOnSelect: false
+    });
+    $('#idHari').select2({
+        closeOnSelect: false
+    });
+    $('#idMatkul').select2({
+        closeOnSelect: false
+    });
+    $('#idDosen').select2({
+        closeOnSelect: false
+    });
+    $('#idSemester').select2({
+        closeOnSelect: false
+    });
+    $('#idRuangan').select2({
+        closeOnSelect: false
+    });
+    $('#idTipe').select2({
+        closeOnSelect: false
+    });
+</script>

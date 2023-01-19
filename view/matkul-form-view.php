@@ -35,8 +35,8 @@
                         <select class="form-control select2" style="width: 100%;" name="prodi" id="idProdi">
                             <?php
                             /**@var $item*/
-                            foreach ($prodi as $item) {
-                                echo '<option>' . $item->getIdProdi() . ' - ' . $item->getNamaProdi() . '</option>';
+                            foreach($prodi as $item) {
+                                echo '<option>'.$item->getIdProdi().' - '.$item->getNameProdi().'</option>';
                             }
                             ?>
                         </select>
