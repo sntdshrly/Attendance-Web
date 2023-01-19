@@ -17,16 +17,16 @@ include_once 'entity/Role.php';
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';
 include_once 'dao/ProdiDaoImpl.php';
+include_once 'dao/MatkulDaoImpl.php';
 include_once 'dao/SemesterDaoImpl.php';
 include_once 'dao/JadwalDaoImpl.php';
 include_once 'dao/JadwalHasAsistenDaoImpl.php';
 include_once 'dao/RoleDaoImpl.php';
-include_once 'dao/MatkulDaoImpl.php';
-
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
 include_once 'controller/ProdiController.php';
+include_once 'controller/MatkulController.php';
 include_once 'controller/SemesterController.php';
 include_once 'controller/JadwalController.php';
 include_once 'controller/JadwalHasAsistenController.php';
@@ -57,10 +57,6 @@ if (!isset($_SESSION['web_is_logged'])) {
     <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- Select2 Library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -192,6 +188,12 @@ if (!isset($_SESSION['web_is_logged'])) {
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a href="?webmenu=matkul-form" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Form Mata Kuliah</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a href="?webmenu=semester-form" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Form Semester</p>
@@ -227,6 +229,12 @@ if (!isset($_SESSION['web_is_logged'])) {
                                             <a href="?webmenu=prodi" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Prodi</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="?webmenu=matkul" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Mata Kuliah</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -295,6 +303,9 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $semesterController = new SemesterController();
                         $semesterController->index();
                         break;
+                    case 'matkul':
+                        $matkulController = new MatkulController();
+                        $matkulController->index();
                     case 'edgenSemester':
                         $semesterController = new SemesterController();
                         $semesterController->updateIndexSemester();
@@ -311,6 +322,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $dosenController = new DosenController();
                         $dosenController->addDosen();
                         break;
+                    case 'matkul-form':
+                        $matkulController = new MatkulController();
+                        $matkulController->addMatkul();
+                        break;
                     case 'prodi-form':
                         $prodiController = new ProdiController();
                         $prodiController->addProdi();
@@ -322,6 +337,10 @@ if (!isset($_SESSION['web_is_logged'])) {
                     case 'edgenDosen':
                         $dosenController = new DosenController();
                         $dosenController->updateDosen();
+                        break;
+                    case 'edgenMatkul':
+                        $matkulController = new MatkulController();
+                        $matkulController->updateMatkul();
                         break;
                     case 'semester-form':
                         $semesterController = new SemesterController();
@@ -346,18 +365,6 @@ if (!isset($_SESSION['web_is_logged'])) {
                     case 'import-prodi':
                         $importProdi = new ImportController();
                         $importProdi->indexProdi();
-                        break;
-                    case 'import-matkul':
-                        $importMatkul = new ImportController();
-                        $importMatkul->indexMatkul();
-                        break;
-                    case 'import-mahasiswa':
-                        $importMahasiswa = new ImportController();
-                        $importMahasiswa->indexMahasiswa();
-                        break;
-                    case 'import-jadwal':
-                        $importJadwal = new ImportController();
-                        $importJadwal->indexJadwal();
                         break;
                         // case 'login':
                         //     $dosenController = new DosenController();
