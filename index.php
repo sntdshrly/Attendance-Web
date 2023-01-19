@@ -22,6 +22,7 @@ include_once 'dao/SemesterDaoImpl.php';
 include_once 'dao/JadwalDaoImpl.php';
 include_once 'dao/JadwalHasAsistenDaoImpl.php';
 include_once 'dao/RoleDaoImpl.php';
+include_once 'dao/AsistenDaoImpl.php';
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
