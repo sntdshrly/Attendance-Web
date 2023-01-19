@@ -40,7 +40,7 @@ class MatkulController
             $matkul = new Matkul();
             $matkul->setKodeMk($trimmedKode);
             $matkul->setNamaMk($trimmedNama);
-            $matkul->setProdi()->setNamaProdi($trimmedProdi);
+            $matkul->getProdi()->setIdProdi(substr($trimmedProdi, 0, 2));;
             $matkul->setJumlahSks($trimmedJmlhSks);
 
             $result = $this->matkulDao->saveMatkul($matkul);
@@ -62,9 +62,9 @@ class MatkulController
 
             $updatedMatkul = new Matkul();
             $updatedMatkul->setKodeMk($matkul->getKodeMk());
-            $updatedMatkul->setNamaMk($namaMatkul);
+            $updatedMatkul->setNamaMk($namaMk);
             $updatedMatkul->setJumlahSks($jumlahSks);
-            $updatedMatkul->getProdi()->setProdi($prodi);
+            $updatedMatkul->getProdi()->setIdProdi($prodi);
             $result = $this->matkulDao->updateMatkul($updatedMatkul);
 
             if ($result){
