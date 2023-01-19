@@ -100,3 +100,26 @@
         <!-- /.card -->
     </div>
 </section>
+<script>
+    $('#idKelas').select2({
+        closeOnSelect: false
+    });
+    $('#idHari').select2({
+        closeOnSelect: false
+    });
+    $('#idMatkul').select2({
+        closeOnSelect: false
+    });
+    $('#idDosen').select2({
+        closeOnSelect: false
+    });
+    $('#idSemester').select2({
+        closeOnSelect: false
+    });
+    $('#idRuangan').select2({
+        closeOnSelect: false
+    });
+    $('#idTipe').select2({
+        closeOnSelect: false
+    });
+</script>
