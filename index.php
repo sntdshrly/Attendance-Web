@@ -17,16 +17,16 @@ include_once 'entity/Role.php';
 include_once 'dao/DosenDaoImpl.php';
 include_once 'dao/DetailDaoImpl.php';
 include_once 'dao/ProdiDaoImpl.php';
+include_once 'dao/MatkulDaoImpl.php';
 include_once 'dao/SemesterDaoImpl.php';
 include_once 'dao/JadwalDaoImpl.php';
 include_once 'dao/JadwalHasAsistenDaoImpl.php';
 include_once 'dao/RoleDaoImpl.php';
-include_once 'dao/MatkulDaoImpl.php';
-
 
 include_once 'controller/DosenController.php';
 include_once 'controller/DetailController.php';
 include_once 'controller/ProdiController.php';
+include_once 'controller/MatkulController.php';
 include_once 'controller/SemesterController.php';
 include_once 'controller/JadwalController.php';
 include_once 'controller/JadwalHasAsistenController.php';
@@ -192,6 +192,12 @@ if (!isset($_SESSION['web_is_logged'])) {
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a href="?webmenu=matkul-form" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Form Mata Kuliah</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a href="?webmenu=semester-form" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Form Semester</p>
@@ -227,6 +233,12 @@ if (!isset($_SESSION['web_is_logged'])) {
                                             <a href="?webmenu=prodi" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Prodi</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="?webmenu=matkul" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Mata Kuliah</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -291,10 +303,20 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $prodiController = new ProdiController();
                         $prodiController->index();
                         break;
+                     case 'matkul':
+                        $matkulController = new MatkulController();
+                        $matkulController->index();
                     case 'semester':
                         $semesterController = new SemesterController();
                         $semesterController->index();
                         break;
+                        case 'edgenMatkul':
+                        $matkulController = new MatkulController();
+                        $matkulController->updateMatkul();
+                        break;
+                      case 'matkul-form':
+                        $matkulController = new MatkulController();
+                        $matkulController->addMatkul();
                     case 'edgenSemester':
                         $semesterController = new SemesterController();
                         $semesterController->updateIndexSemester();
