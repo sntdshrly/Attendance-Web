@@ -1,3 +1,10 @@
+<style>
+    .btn {
+        width: 80px;
+        text-align: center;
+        margin: 5px;
+    }
+</style>
 <?php
 // Get status message
 if (!empty($_GET['status'])) {
