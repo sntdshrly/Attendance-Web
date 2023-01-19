@@ -46,6 +46,36 @@ class MatkulController
             $result = $this->matkulDao->saveMatkul($matkul);
         }
         $matkul = $this->matkulDao->fetchAllMatkul();
+        $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/matkul-form-view.php';
+    }
+
+    public function updateMatkul(){
+        $editedId = filter_input(INPUT_GET,'eidMatkul');
+        if(isset($editedId) && $editedId != ''){
+            $matkul = $this->matkulDao->fetchMatkulByKode($editedId);
+        }
+        $buttonPressed = filter_input(INPUT_POST,'btnUpdateMatkul');
+        if(isset($buttonPressed)){
+            $namaMatkul = filter_input(INPUT_POST,'namaMatkul');
+            $prodi = filter_input(INPUT_POST, 'prodi');
+            $jumlahSks = filter_input(INPUT_POST,'jumlahSks');
+
+            $updatedMatkul = new Matkul();
+            $updatedMatkul->setKodeMk($matkul->getKodeMk());
+            $updatedMatkul->setNamaMk($namaMatkul);
+            $updatedMatkul->setJumlahSks($jumlahSks);
+            $updatedMatkul->getProdi()->setProdi($prodi);
+            $result = $this->matkulDao->updateMatkul($updatedMatkul);
+
+            if ($result){
+                header('location:index.php?webmenu=matkul');
+            }
+            else{
+                echo '<div class="bg-error">Failed to update</div>';
+            }
+        }
+        $prodi = $this->prodiDao->fetchAllProdi();
+        include_once 'view/update-matkul-view.php';
     }
 }

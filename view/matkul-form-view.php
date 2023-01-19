@@ -36,7 +36,7 @@
                             <?php
                             /**@var $item*/
                             foreach($prodi as $item) {
-                                echo '<option>'.$item->getIdProdi().' - '.$item->getNameProdi().'</option>';
+                                echo '<option>'.$item->getIdProdi().' - '.$item->getNamaProdi().'</option>';
                             }
                             ?>
                         </select>
@@ -56,3 +56,8 @@
         <!-- /.card -->
     </div>
 </section>
+<script>
+    $('#idProdi').select2({
+        closeOnSelect: false
+    });
+</script>

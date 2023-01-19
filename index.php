@@ -322,6 +322,7 @@ if (!isset($_SESSION['web_is_logged'])) {
                 case 'matkul':
                     $matkulController = new MatkulController();
                     $matkulController->index();
+                    break;
                 case 'semester':
                     $semesterController = new SemesterController();
                     $semesterController->index();
