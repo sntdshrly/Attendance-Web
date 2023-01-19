@@ -1,3 +1,26 @@
+<style>
+    #photoId {
+        display: none;
+    }
+
+    .custom-file-upload {
+        display: block;
+        width: 200px;
+        height: 36px;
+        line-height: 36px;
+        background: #4CAF50;
+        color: white;
+        text-align: center;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+
+    .custom-file-upload:hover {
+        background: #3e8e41;
+        /* change the background color on hover */
+    }
+</style>
+
 <!-- Main content -->
 <section class="content">
     <!-- left column -->
@@ -100,10 +123,14 @@
                         <textarea rows="4" cols="50" name="catatan" class="form-control"></textarea>
                     </div>
 
-                    <input type="checkbox" id="asisten1" name="asisten1" value="Asisten1" onclick="myFunction()">
-                    <label for="asisten1"> Asisten 1 </label>
-                    <input type="checkbox" id="noasisten1" name="asisten1" value="NoAsisten1" onclick="myFunction()">
-                    <label for="asisten1"> Tanpa Asisten 1</label><br>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="asisten1" name="asisten1" value="Asisten1" onclick="myFunction()">
+                    <label class="form-check-label" for="asisten1" for="asisten1"> Asisten 1 </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="noasisten1" name="asisten1" value="NoAsisten1" onclick="myFunction()">
+                    <label class="form-check-label" for="noasisten1" for="asisten1"> Tanpa Asisten 1</label>
+                    </div>
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 1</label>
@@ -117,10 +144,14 @@
                         </select>
                     </div>
 
-                    <input type="checkbox" id="asisten2" name="asisten2" value="Asisten2" onclick="myFunction()">
-                    <label for="asisten2"> Asisten 2 </label>
-                    <input type="checkbox" id="noasisten2" name="noasisten2" value="NoAsisten2" onclick="myFunction()">
-                    <label for="asisten2"> Tanpa Asisten 2</label><br>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="asisten2" name="asisten2" value="Asisten2" onclick="myFunction()">
+                    <label class="form-check-label" for="asisten2" for="asisten2"> Asisten 2 </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="noasisten2" name="asisten2" value="NoAsisten2" onclick="myFunction()">
+                    <label class="form-check-label" for="noasisten2" for="asisten2"> Tanpa Asisten 2</label>
+                    </div>
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 2</label>
@@ -135,14 +166,18 @@
                     </div>
 
 
-                    <input type="checkbox" id="asisten3" name="asisten3" value="Asisten3" onclick="myFunction()">
-                    <label for="asisten3"> Asisten 3 </label>
-                    <input type="checkbox" id="noasisten3" name="noasisten3" value="NoAsisten3" onclick="myFunction()">
-                    <label for="asisten3"> Tanpa Asisten 3</label><br>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="asisten3" name="asisten3" value="Asisten3" onclick="myFunction()">
+                    <label class="form-check-label" for="asisten3" for="asisten3"> Asisten 3 </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="noasisten3" name="asisten3" value="NoAsisten3" onclick="myFunction()">
+                    <label class="form-check-label" for="noasisten3" for="asisten3"> Tanpa Asisten 3</label>
+                    </div>
 
                     <div class="form-group">
                         <label for="labelNRPAsisten">NRP Asisten 3</label>
-                        <select class="form-control select2" style="width: 100%;" multiple="multiple"  name="asisten3opsi" id="idAsisten3" disabled=TRUE>
+                        <select class="form-control select2" style="width: 100%;" multiple="multiple" name="asisten3opsi" id="idAsisten3" disabled=TRUE>
                             <?php
                             /**@var $item Asisten*/
                             foreach ($asisten as $item) {
@@ -172,6 +207,7 @@
                     <div class="form-group">
                         <label for="photoId" class="form-label">Bukti Kehadiran</label>
                         <input type="file" name="bukti" id="photoId" class="form-control" accept="image/png, image/jpeg">
+                        <label for="photoId" class="custom-file-upload">Choose file</label>
                     </div>
                 </div>
                 <!-- /.card-body -->
