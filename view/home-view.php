@@ -1,3 +1,10 @@
+<style>
+    .btn {
+        width: 80px;
+        text-align: center;
+        margin: 5px;
+    }
+</style>
 <div class="card">
     <div class="card-header border-0">
         <h3 class="card-title">Attendance</h3>
