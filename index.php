@@ -341,6 +341,14 @@ if (!isset($_SESSION['web_is_logged'])) {
                         $importProdi = new ImportController();
                         $importProdi->indexProdi();
                         break;
+                    case 'import-matkul':
+                        $importMatkul = new ImportController();
+                        $importMatkul->indexMatkul();
+                        break;
+                    case 'import-mahasiswa':
+                        $importMahasiswa = new ImportController();
+                        $importMahasiswa->indexMahasiswa();
+                        break;
                         // case 'login':
                         //     $dosenController = new DosenController();
                         //     $dosenController->index();

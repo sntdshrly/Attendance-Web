@@ -9,7 +9,8 @@ class ImportController
         $this->dosenDao = new DosenDaoImpl();
         $this->semesterDao = new SemesterDaoImpl();
         $this->prodiDao = new ProdiDaoImpl();
-
+        $this->matkulDao = new MatkulDaoImpl();
+        $this->mahasiswaDao = new MahasiswaDaoImpl();
     }
 
     public function index(){
@@ -26,5 +27,14 @@ class ImportController
         $prodi  = $this->prodiDao->fetchAllProdi();
         include_once 'view/prodi-view.php';
     }
-    
+
+    public function indexMatkul(){
+        $prodi  = $this->matkulDao->fetchAllMatkul();
+        include_once 'view/matkul-view.php';
+    }
+
+    public function indexMahasiswa(){
+        $prodi  = $this->mahasiswaDao->fetchAllMahasiswa();
+        include_once 'view/mahasiswa-view.php';
+    }
 }
