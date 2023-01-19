@@ -27,8 +27,8 @@ class MatkulController
     {
         $buttonPressed = filter_input(INPUT_POST, 'btnAddMatkul');
         if (isset($buttonPressed)) {
-            $kodeMatkul= filter_input(INPUT_POST, 'idProdi');
-            $namaMatkul= filter_input(INPUT_POST, 'namaProdi');
+            $kodeMatkul= filter_input(INPUT_POST, 'kodeMatkul');
+            $namaMatkul= filter_input(INPUT_POST, 'namaMatkul');
             $prodi= filter_input(INPUT_POST, 'prodi');
             $jumlahSks = filter_input(INPUT_POST, 'jumlahSks');
 
@@ -46,7 +46,6 @@ class MatkulController
             $result = $this->matkulDao->saveMatkul($matkul);
         }
         $matkul = $this->matkulDao->fetchAllMatkul();
-        $prodi = $this->prodiDao->fetchAllProdi();
         include_once 'view/matkul-form-view.php';
     }
 
