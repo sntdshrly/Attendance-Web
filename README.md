@@ -5,13 +5,11 @@
 
 ## Project Teams
 
-| Name                      |
-| ------------------------- |
-| Sherly Santiadi           |
-| Nisa Deviani              |
-| Grace Angelina            |
-| Kathleen                  |
-| Vina A.                   |
+- Sherly Santiadi
+- Nisa Deviani
+- Grace Angelina 
+- Kathleen
+- Vina
 
 ## Thank You
 
